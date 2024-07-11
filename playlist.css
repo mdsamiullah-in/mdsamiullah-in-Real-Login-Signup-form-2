@@ -1,0 +1,435 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+#playDiv{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#player{
+    width: 920px;
+    height: 480px;
+    box-shadow: 0 0 2px 0;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+
+
+
+
+#header{
+    display: flex;
+   justify-content: space-between;
+   background-color: rgb(83, 157, 231);
+   height: 45px;
+   color: white;
+   align-items: center;
+   padding: 0 10px;
+}
+
+#header p{
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+#iconBox{
+    display: flex;
+    gap: 15px;
+    font-size: 22px;
+}
+
+#playerBox{
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    height: 70vh;
+}
+
+#playlistSidebar{
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    height: 74vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
+#playlistSidebar::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgb(248, 248, 248);
+}
+
+#playlistSidebar::-webkit-scrollbar-thumb{
+    width: 10px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 0.5px;
+    box-shadow: inset 0 0 1px #000;
+}
+
+#playlistSidebar h1{
+    font-family: sans-serif;
+    font-size: 23px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+
+#playlistSidebar h1 i{
+    background-color: #ff0000;
+    box-shadow: 0 0 3px 0 #000000;
+    -webkit-text-stroke: 0.5px black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 15px;
+    color: rgb(241, 235, 235);
+}
+
+
+#playlistSidebar h1 i:hover{
+    background-color: #ffffff;
+    color: white;
+    transition: 0.3s;
+
+}
+
+
+
+
+
+#playlistSidebar ul{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#playlistSidebar  li{
+    display: flex;
+    align-items: center;
+   height: 40px;
+   padding-left: 10px;
+
+}
+
+#playlist{
+    height: 100px;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#controls{
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+#scrollBar{
+    width: 490px;
+    height: 5.5px;
+    background-color: red;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px 0 ;
+}
+
+
+#progress{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: dodgerblue;
+    border-radius: 10px;
+}
+
+
+#video{
+    width: 100%;
+    height: 100%;
+}
+
+#up , #down , #share{
+    background-color: #f0ecec;
+    box-shadow: 0 0 2px 0 #000000;
+    -webkit-text-stroke: 0.5px black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    color: rgb(241, 235, 235);
+
+}
+
+
+
+#gear ,  #download , #fullScreen{
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#forward , #backward{
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#range{
+    width: 75px;
+    height: 4px;
+}
+
+#speaker{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#time{
+    display: flex;
+    gap: 5px;
+}
+
+#ranges{
+    width: 70px;
+    height: 4px;
+}
+
+
+
+#gearBox{
+    width: 200px;
+    height: 252px;
+    background-color: rgb(238, 243, 241);
+    position: absolute;
+    bottom: 58px;
+    right: 43px;
+    z-index: 100000;
+    box-shadow: inset 0 0 3px 0 #9d9c9c;
+    display: none;
+    border-radius: 3px;
+}
+
+#pair{
+    padding: 5px 0;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reset{
+    border: none;
+    padding: 5px 13px;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0 0 2px 0 #ccc;
+    background: dodgerblue;
+    border-radius: 2px;
+}
+
+#speedRangeBox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 10px;
+    gap: 10px;
+}
+
+#speedRangeBox  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#speedRangeBox  ul input{
+   width: 40px;
+   height: 28px;
+}
+
+#speedRangeBox  ul li{
+ list-style-type: none;
+} 
+
+
+
+#resetThemes{
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(56, 144, 233);
+    color: white;
+    border: none;
+    transition: 0.3s;
+
+}
+
+#speedRange{
+    width: 72%;
+    margin-left: 28px;
+}
+
+
+#songFile{
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    width: 26px;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 1;
+}
+
+#music{
+    display: flex;
+    border: none;
+    position: relative;
+}
+
+
+#fav{
+    background-color: white;
+    font-weight: normal;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+    padding: 8px 5px;
+
+}
+
+#playerBox{
+    position: relative;
+   
+}
+
+
+#star{
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: transparent;
+    margin-top: 25px;
+    margin-right: 8px;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    box-shadow: inset 0 0 2px 0 #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-stroke: 0.5px #000;
+}
+
+#name{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#playlist{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#playSidebar{
+width: 300px;
+height: 100%;
+background-color: dodgerblue;
+margin-top: -30px;
+}
+
+#favs{
+    background-color: white;
+    color: black;
+    height: fit-content;
+    padding: 7px 0;
+    background-color: dodgerblue;
+    color: white;
+    z-index: 10000;
+}
+
+#playlist{
+    background-color: red;
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    height: fit-content;
+    padding: 8px 0;
+}
+
+#playSidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 50vh;
+    margin-top: 100px;
+}
+
+
+#playSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#playSidebar ol{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#playSidebar ol  li{
+    background: blue;
+    color: white;
+}
+
+
+#playlistVideo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

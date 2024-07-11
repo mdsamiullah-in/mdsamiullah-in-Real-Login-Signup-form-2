@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="container2">
+   <div id="header">
+        <div id="title">
+            <p id="welcomeUserName"></p>
+        </div>
+
+        <div id="img2"></div>
+   </div>
+
+  <div id="homePage">
+     
+    <div class="contents">
+        <i class="fa-solid fa-briefcase"></i>
+        <h3>Business</h3>
+    </div>
+
+ 
+    <div class="contents">
+        <i class="fa-solid fa-pen"></i>
+        <h3>About me</h3>
+    </div>
+
+
+   <a href="contact.html"><div class="contents"  >
+        <i class="fa-solid fa-mobile"></i>
+        <h3>Contacts</h3>
+    </div>
+</a>
+
+    <div class="contents">
+        <a href="playlist.html">
+        <i class="fa-solid fa-play"></i>
+        <h3>PlayList</h3>
+    </div>
+
+
+    <div class="contents" onclick="logout()">
+        <i class="fa-solid fa-check"></i>
+        <h3>Logout</h3>
+    </div>
+
+  </div>
+
+
+  <div id="FooterBox">
+    <div id="Footer">
+        <img src="note-removebg-preview.png" width="45px">
+        <h2>SaFe Doc</h2>
+    </div>
+  </div>
+
+    <h2 id="logoutMessage">Please wait...</h2>
+
+</div>
+
+
+<script>
+    //start app contents
+function showing_pic_name(){
+    var names = document.getElementById("welcomeUserName");
+    var user_mail = sessionStorage.getItem("user_mail");
+    var user_details = localStorage.getItem(user_mail);
+    var user_data = JSON.parse(user_details);
+    var fullname = user_data.name;
+    names.innerHTML = atob(fullname)
+
+    var img = document.getElementById("img2");
+    var image_name = localStorage.getItem(user_mail+"images");
+    img.style.background = "url("+ image_name+")"
+    img.style.backgroundRepeat = "no-repeat";
+    img.style.backgroundSize = "cover";
+    img.style.backgroundPosition = "center";
+    img.style.objectFit = "cover";
+}
+
+showing_pic_name()
+
+function logout(){
+    sessionStorage.clear();
+    document.getElementById("logoutMessage").style.display = "block";
+    setTimeout(function(){
+        location.replace("index.html");
+    },2000)
+}
+
+
+
+var contact = document.getElementById("contact");
+contact.onclick = function(){
+    window.location('contact.html')
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#homepage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 100px;
+    background-color: black;
+}
+
+
+#boxesdiv{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+.boxes{
+    background-color: white;
+    width: 170px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.boxes i{
+    background-color: rgb(28, 182, 182);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 0 1px 0 rgb(0, 0, 0);
+}
+
+.boxes p{
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 5px;
+}
+
+.header, .tagline{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(38, 197, 197);
+    text-shadow: 0.9px 0px 0px white;
+    padding: 0 10px;
+}
+
+
+.tagline{
+    color: rgb(205, 205, 205);
+    margin-top: 10px;
+    text-shadow: 0 0 0 ;
+}
+
+
+#formBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+
+#form{
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+#form input{
+    width: 300px;
+    padding: 8px;
+    outline: none;
+}
+
+#form button{
+    padding: 8px;
+    background-color: dodgerblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+
+#btnDiv{
+    display: flex;
+    gap: 5px;
+}
+
+#btnDiv button{
+    padding: 3px 6px;
+    margin-top: 3px;
+}
+
+#click span{
+    margin-top: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+#span, #btnDiv{
+    display: none;
+}
+
+
+

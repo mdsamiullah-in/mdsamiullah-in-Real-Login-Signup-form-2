@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="business.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<body>
+
+    <div id="homepage">
+        <h1 class="header" id="head">Business Management System</h1>
+        <p class="tagline" id="tag">Manage your all business details like ledger, voucher, tax, balance sheet and many more.</p>
+        
+    
+    <div id="boxesdiv">
+
+        <div class="boxes" id="company">
+            <i class="fa-solid fa-home" id="home"></i>
+            <p>Create company</p>
+        </div>
+
+        <div class="boxes">
+           <i class="fa-solid fa-trash" id="click"></i>
+           <p>Delete company</p>
+           <span id="span">Are you sure....</span>
+           <div id="btnDiv">
+            <form id="loginBox">
+                <h2>Login User !</h2>
+                <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
+                <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
+                <div id="buttonBox"><button onclick="del()" type="button">Login</button></div>
+            </form>
+           </div>
+
+        </div>
+
+        <div class="boxes">
+            <i class="fa-solid fa-right-to-bracket"  id="Logout"></i>
+            <p>Logout</p>
+        </div>
+
+    </div>    
+
+    <div id="formBox">
+
+        <div id="form">
+            <i class="fa-solid fa-xmark" id="cut"></i>
+                <input required type="text" placeholder="Company name" id="companyName">
+                <input required type="text" placeholder="Mailing name" id="mailingName">
+                <input required type="text" placeholder="Address" id="address">
+                <input type="number" placeholder="Phone number" id="phoneNumber">
+                <input type="number" placeholder="Fax number" id="FaxNumber">
+                <input type="email" placeholder="E-mail" id="email">
+                <input type="website" placeholder="Website" id="website">
+                <input type="date" placeholder="Financial year begins from" id="FineYear">
+                <input type="text" placeholder="Book Beginning From" id="BookBegin">
+            <button id="create">Create Now </button>
+            
+        </form>
+    </div>
+
+    </div>
+    
+
+     
+
+
+
+    </div>
+    <script src="business.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

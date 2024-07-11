@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+    <div id="container">
+
+
+        <div id="homeContent">
+            <div id="imgBox">
+                <img src="note-removebg-preview.png" width="80px">
+            </div>
+            <h2>SAFE DOC</h2>
+
+        </div>
+
+
+        <div id="sidebar">
+
+            <form id="loginBox">
+                <h2>Login User !</h2>
+                <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
+                <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
+                <div id="buttonBox"><button onclick="login()" type="button">Login</button></div>
+            </form>
+
+            <form id="signup">
+                <h2>Signup User !</h2>
+                <input type="name" placeholder="Enter your name" id="name">
+                <input type="email" placeholder="Enter your email" id="email">
+                <input type="password" placeholder="Enter your password"  oninput="validateSignupPassword()" id="password">
+                <input type="number" placeholder="Enter mobile number" id="mobile">
+                <div id="buttonBox"><button type="button" onclick="signup()">Sign Up</button></div>
+                <p id="signup_success"></p>
+                <p id="signup_error"></p>
+                <p id="user_found"></p>
+                <p id="validation"></p>
+            </form>
+
+        </div>
+        
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

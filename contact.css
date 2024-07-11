@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+#contactBox{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formBox{
+    width: 300px;
+    border: 2px solid dodgerblue;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+#formBox input, button{
+    padding: 8px;
+    width: 100%;
+    outline: none;
+}
+
+
+#formBox button{
+    background-color: dodgerblue;
+    border: none;
+    padding: 9px;
+    color: white;
+    text-transform: uppercase;
+    font-family: Arial;
+    cursor: pointer;
+}
+
+
+#formBox h1{
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: normal;
+    color: dodgerblue;
+    font-weight: bolder;
+}
+
+
+#contactSidebar{
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(48, 133, 217);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+#contactSidebar input{
+    width: 100%;
+    padding: 8px 3px;
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    margin-top: 5px;
+}
+
+#contactBox span{
+    font-size: 16px;
+    color: white;
+    font-family: Arial;
+    font-weight: bolder;
+}
+
+
+#contactDetails{
+    color: rgb(219, 215, 215);
+    border: 1.5px solid rgb(209, 209, 209);
+    margin-top: 15px;
+    padding: 10px;
+    padding-left: 20px;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    border-radius: 5px;
+}
+
+#contactDetails button{
+    width: fit-content;
+}
+
+
+ol{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 12px;
+}
+
+
+.del{
+    width: 10px;
+    height: 10px;
+    font-size: 13px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+#inputBox{
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 2px solid rgb(179, 178, 178);
+}
+
+
+#message{
+    background-color: dodgerblue;
+    width: fit-content;
+    padding: 4px 6px;
+    border-radius: 5px;
+    display: none;
+}
+
+
+#i2{
+    position: absolute;
+    bottom: 6px;
+    right: 26px;
+}
+
+
+#restore-contact{
+    width: calc(100% - 300px);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial;
+    padding-top: 100px;
+}
+
+
+#contactBtn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(255, 153, 0);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border: 1px solid white;
+    font-size: 18px;
+}
+
+
+
+#restore-contact tr th{
+    padding: 10px;
+    font-family: Calibri;
+    border-collapse: collapse;
+}
+
+
+table{
+    width: 700px;
+    border-collapse: collapse;
+}
+
+table tr td , th{
+    width: 150px;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 6px ;
+}

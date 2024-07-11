@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="company.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+    <div id="homepage">
+        <h1 class="header" id="head">Business Management System</h1>
+        <p class="tagline" id="tag">Manage your all business details like ledger, voucher, tax, balance sheet and many more.</p>
+   
+   <div id="accountBox">
+
+
+    <div id="companyForm">
+
+        <div class="accountCompanyForm" id="my">
+            <i class="fa-solid fa-scale-balanced icon" id="bal"></i>
+            <button id="unit">Unit of measure</button>
+        </div>
+
+        <div class="accountCompanyForm" id="my">
+            <i class="fa-solid fa-check icon" id="check"></i>
+            <button id="TaxSetup">Tax setup</button>
+        </div>
+
+
+        <div id="TaxForm">
+            <input type="text" placeholder="Tax Name" id="taxNameInput">
+            <input type="number" placeholder="number" id="taxNumberInput">
+            <button type="button" id="done">Done</button>
+         </div>
+
+
+
+
+         <div class="accountCompanyForm" id="my">
+            <i class="fa-solid fa-bars icon" id="voucher"></i>
+            <button id="sales">Sales Voucher</button>
+        </div>
+        
+        <form id="myForm">
+            <i class="fa-solid fa-xmark" id="cut"></i>
+            <input type="text" placeholder="Symbol ex - pc , kg , lt" id="symbolInput">
+            <input type="text" placeholder="Formal name" id="nameInput">
+            <button id="set">Set</button>
+         </form>
+
+
+   
+
+
+
+
+
+
+
+            <div id="inputFields">
+                <div id="header">
+                    <div id="headerContent">
+                        <p>Sales voucher : 123</p>
+                        <p id="date">Date : </p>
+                    </div>
+                    <div id="headerInfoDiv">
+                        <div id="headerInfo">
+                            <p id="savedName"></p>
+                            <p id="savedEmail"></p>
+                            <p id="savedAddress"></p>
+                            <p id="savedPhone"></p>
+                        </div>
+                        <div id="headerLogo">
+                        </div>
+                    </div>
+                </div>
+    
+                <div id="formBox">
+                  <label>Name</label>
+                  <input type="text" id="name">
+                  <label>Email</label>
+                  <input type="email" id="email">
+                  <label>Address</label>
+                  <input type="text" id="address">
+                  <label>Phone</label>
+                  <input type="phone" id="phone">
+                  <button id="submit">Submit</button>
+                </div>
+    
+                <div id="billingBox">
+                    <div id="billHeader">
+                        <p>Description</p>
+                        <p>Price</p>
+                        <p>Qty</p>
+                        <p>Amount</p>
+                        <span id="myTax">tax</span>
+                    </div>
+                    <div id="billInputs">
+    
+                    </div>
+    
+                    <span id="itemPluse"><i class="fa-solid fa-plus" id="plus"></i> Add item</span>
+    
+                    <div id="totalBox">
+    
+                        <div id="totalContents">
+                            <p id="subTotal">Subtotal <span id="toatal">₹0.00</span></p>
+                            <p id="tax">Tax(2%) <span id="tax"> ₹0.00 </span></p>
+                            <p id="total">Total  <span> ₹0.00</span></p>
+                            <p id="payDue">Balance Due <span>&nbsp; ₹0.00</span></p>
+                        </div>
+      
+                    </div>
+                </div>
+            </div>
+            
+
+        
+        
+        
+        </div>
+
+
+    
+        <div class="accountCompanyForm">
+            <i class="fa-solid fa-trash icon"></i>    
+            <button>Shut Company</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+   </div>
+
+   
+    </div>
+
+
+    </div>
+
+
+
+
+    <script src="company.js"></script>
+</body>
+</html>
+
+

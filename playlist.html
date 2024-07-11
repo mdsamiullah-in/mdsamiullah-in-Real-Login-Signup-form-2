@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Playlist</title>
+    <link rel="stylesheet" href="playlist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <div id="playDiv">
+        <div id="player" class="animate__animated animate__fadeIn animate_faster">
+            <div id="gearBox" class="animate__animated animate__zoomIn animate__faster">
+                <div id="pair">
+                    <h3>Speed : <span id="speedValue">1</span></h3>
+                    &nbsp;
+                    <button id="reset">Reset</button>
+                </div>
+                <div id="speedRangeBox">
+                    <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1">
+                    <ul>
+                        <li id="miniplayer-con"><i class="fa-solid fa-clone"></i>&nbsp;Mini Player</li>
+                        <li>
+                            <input type="color" id="containerTheme">&nbsp;<span>Background theme</span>
+                        </li>
+                        <li>
+                            <input type="color" id="iconTheme">&nbsp;<span>Icon theme</span>
+                        </li>
+                        <li>
+                            <input type="color" id="textTheme">&nbsp;<span>Text theme</span>
+                        </li>
+                    </ul>
+                    <button id="resetThemes">Reset themes</button>
+                </div>
+            </div>
+            <div id="header">
+                <p id="chapter">ch-1st introduction to html language</p>
+                <div id="iconBox">
+                    <i class="fa-solid fa-thumbs-up" id="up"></i>
+                    <i class="fa-solid fa-thumbs-down" id="down"></i>
+                    <i class="fa-solid fa-share" id="share"></i>
+                </div>
+            </div>
+            <div id="music">
+                <div id="playerBox">
+                    <div id="starBox">
+                        <i class="fa-solid fa-star" id="star"></i>
+                    </div>
+                    <video id="video" controls></video>
+                </div>
+                <p id="name"></p>
+                <div id="playlistSidebar">
+                    <div id="myMusic">
+                        <h1 id="fav">Playlist<i class="fa-solid fa-folder" id="music"></i></h1>
+                        <input type="file" id="songFile" accept="video/*">
+                        <ol id="playlistVideo"></ol>
+                    </div>
+                    <div id="playSidebar">
+                        <h1 id="favs">Favorite</h1>
+                        <ol id="favoritesList"></ol>
+                    </div>
+                </div>
+                <div id="controls">
+                    <i class="fa-solid fa-backward" id="backward"></i>
+                    <i class="fa-solid fa-play" id="playIcon"></i>
+                    <i class="fa-solid fa-forward" id="forward"></i>
+                    <i class="fa-solid fa-refresh" id="refresh"></i>
+                    <span id="time"><p id="currentTime">00 / 00</p></span>
+                    <div id="scrollBar"><div id="progress"></div></div>
+                    <div id="speaker">
+                        <i class="fa-solid fa-volume-high" id="high"></i>
+                        <input type="range" id="ranges" min="0" max="1" step="0.1">
+                    </div>
+                    <i class="fa-solid fa-gear" id="gear"></i>
+                    <i class="fa-solid fa-download" id="download"></i>
+                    <i class="fa-solid fa-desktop" id="fullScreen"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        var songFile = document.getElementById("songFile");
+        var playIcon = document.getElementById("playIcon");
+        var playlistVideo = document.getElementById("playlistVideo");
+        var favoritesList = document.getElementById("favoritesList");
+        var video = document.getElementById("video");
+
+        // Load playlist and favorites from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            var savedVideos = JSON.parse(localStorage.getItem('playlist')) || [];
+            var favoriteVideos = JSON.parse(localStorage.getItem('favorites')) || [];
+            savedVideos.forEach(function(video) {
+                addVideoToPlaylist(video.data, video.name);
+            });
+            favoriteVideos.forEach(function(video) {
+                addVideoToFavorites(video.data, video.name);
+            });
+        });
+
+        songFile.onchange = function() {
+            const file = songFile.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const url = event.target.result;
+                video.src = url;
+                video.play();
+                playIcon.className = "fa-solid fa-pause";
+
+                var star = document.getElementById("star");
+                star.onclick = function() {
+                    var name = file.name;
+                    addVideoToFavorites(url, name);
+                    saveVideoToLocalStorage(url, name, 'favorites');
+                };
+
+                var name = file.name;
+                addVideoToPlaylist(url, name);
+                saveVideoToLocalStorage(url, name, 'playlist');
+            };
+
+            reader.readAsDataURL(file);
+        };
+
+        function addVideoToPlaylist(url, name) {
+            var li = document.createElement("li");
+            li.setAttribute("data-video-src", url);
+            li.textContent = name;
+            li.onclick = function() {
+                var videoUrl = this.getAttribute("data-video-src");
+                video.src = videoUrl;
+                video.play();
+            };
+
+            var deleteButton = document.createElement("i");
+            deleteButton.className = "fa-solid fa-trash delete-button";
+            deleteButton.onclick = function(event) {
+                event.stopPropagation();
+                playlistVideo.removeChild(li);
+                removeVideoFromLocalStorage(url, 'playlist');
+            };
+            li.appendChild(deleteButton);
+            playlistVideo.appendChild(li);
+        }
+
+        function addVideoToFavorites(url, name) {
+            var li = document.createElement("li");
+            li.textContent = name;
+            li.onclick = function() {
+                var videoUrl = this.getAttribute("data-video-src");
+                video.src = videoUrl;
+                video.play();
+            };
+
+            var deleteButton = document.createElement("i");
+            deleteButton.className = "fa-solid fa-trash delete-button";
+            deleteButton.onclick = function(event) {
+                event.stopPropagation();
+                favoritesList.removeChild(li);
+                removeVideoFromLocalStorage(url, 'favorites');
+
+            };
+            li.appendChild(deleteButton);
+            favoritesList.appendChild(li);
+        }
+
+        function saveVideoToLocalStorage(url, name, key) {
+            var savedVideos = JSON.parse(localStorage.getItem(key)) || [];
+            savedVideos.push({ data: url, name: name });
+            localStorage.setItem(key, JSON.stringify(savedVideos));
+        }
+
+        function removeVideoFromLocalStorage(url, key) {
+            var savedVideos = JSON.parse(localStorage.getItem(key)) || [];
+            savedVideos = savedVideos.filter(function(video) {
+                return video.data !== url;
+
+            });
+            localStorage.setItem(key, JSON.stringify(savedVideos));
+        }
+
+        
+
+        // Additional functionalities (play/pause, theme changes, etc.)
+        playIcon.onclick = function() {
+            if(this.className == "fa-solid fa-play") {
+                video.play();
+                this.className = "fa-solid fa-pause";
+            } else {
+                video.pause();
+                this.className = "fa-solid fa-play";
+            }
+        };
+
+        var containerTheme = document.getElementById("containerTheme");
+        containerTheme.oninput = function() {
+           var background = this.value;
+           document.getElementById("header").style.backgroundColor = background;
+           document.getElementById("controls").style.backgroundColor = background;
+        };
+
+        var IconTheme = document.getElementById("iconTheme");
+        IconTheme.oninput = function() {
+            var background2 = this.value; 
+            document.getElementById("backward").style.color = background2;
+            document.getElementById("forward").style.color = background2;
+            document.getElementById("playIcon").style.color = background2;
+            document.getElementById("gear").style.color = background2;
+            document.getElementById("download").style.color = background2;
+            document.getElementById("fullScreen").style.color = background2;
+            document.getElementById("high").style.color = background2;
+        };
+
+        var textTheme = document.getElementById("textTheme");
+        textTheme.oninput = function() {
+           var background3 = this.value;
+           document.getElementById("fav").style.color = background3;
+           document.getElementById("chapter").style.color = background3;
+        };
+
+        var resetThemes = document.getElementById("resetThemes");
+        resetThemes.onclick = function() {
+            location.reload();
+        };
+
+        video.ontimeupdate = function() {
+            var progress = document.getElementById("progress");
+            var time = (100 / this.duration) * this.currentTime;
+            progress.style.width = time + "%";
+        };
+
+        var fullScreen  = document.getElementById("fullScreen");
+        fullScreen.onclick = function() {
+            video.requestFullscreen();
+        };
+
+        setInterval(function() {
+            var currentTime = video.currentTime / 60;
+            var currentDuration = video.duration / 60;
+            var time = currentTime.toFixed(2);
+            document.getElementById("currentTime").innerHTML = time + " / " + currentDuration.toFixed(2);
+        }, 1000);
+
+        var forwardBtn = document.getElementById("forward");
+        forwardBtn.onclick = function() {
+            var current = video.currentTime;
+            video.currentTime = (current + 10);
+        };
+
+        var backwardBtn = document.getElementById("backward");
+        backwardBtn.onclick = function() {
+            var current = video.currentTime;
+            if(current > 10) video.currentTime = (current - 10);
+        };
+
+        var download = document.getElementById("download");
+        download.onclick = function() {
+            var videoSrc = video.src;
+            var a = document.createElement("a");
+            a.href = videoSrc;
+            a.download = videoSrc;
+            document.body.appendChild(a);
+            a.click();
+        };
+
+        var range = document.getElementById("ranges");
+        range.oninput = function() {
+            var high = document.getElementById("high");
+            video.volume = this.value;
+            if(this.value == 0) {
+                high.className = "fa-solid fa-bars";
+            } else {
+                high.className = "fa-solid fa-volume-high";
+            }
+        };
+
+        document.getElementById("high").onclick = function() {
+            var range = document.getElementById("ranges");
+            range.value = 0;
+            if(range.value == 0) {
+                this.className = "fa-solid fa-bars";
+                video.volume = range.value;
+            }
+        };
+
+        var progress = document.getElementById("scrollBar");
+        progress.onclick = function(event) {
+            var percent = event.offsetX / this.offsetWidth;
+            video.currentTime = percent * video.duration;
+        };
+
+        var gear = document.getElementById("gear");
+        gear.onclick = function() {
+            var gearBox = document.getElementById("gearBox");
+            if(gearBox.style.display === "block") {
+                gearBox.style.display = "none";
+                gear.style.rotate = "-5deg";
+                gear.style.transition = "0.3s";
+            } else {
+                gearBox.style.display = "block";
+                gear.style.rotate = "90deg";
+                gear.style.transition = "0.3s";
+            }
+        };
+
+        const speedRange = document.getElementById('speedRange');
+        const speedValue = document.getElementById('speedValue');
+        const resetSpeed = document.getElementById('resetSpeed');
+
+        speedRange.addEventListener('input', function() {
+            video.playbackRate = speedRange.value;
+            speedValue.textContent = speedRange.value;
+        });
+
+        resetThemes.addEventListener('click', function() {
+            document.body.classList.remove('dark-theme');
+            alert('Themes reset!');
+        });
+
+
+        // Play next video when current video ends
+        video.onended = function() {
+            var currentVideoIndex;
+            var playlistItems = playlistVideo.getElementsByTagName("li");
+            for (var i = 0; i < playlistItems.length; i++) {
+                if (playlistItems[i].getAttribute("data-video-src") === video.src) {
+                    currentVideoIndex = i;
+                    break;
+                }
+            }
+            var nextVideoIndex = currentVideoIndex + 1;
+            if (nextVideoIndex < playlistItems.length) {
+                var nextVideo = playlistItems[nextVideoIndex].getAttribute("data-video-src");
+                video.src = nextVideo;
+                video.play();
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-image: url('sd');
+    padding-top: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+.header{
+    text-align: center;
+    color: dodgerblue;
+}
+
+.tagline{
+    text-align: center;
+    color: rgb(243, 239, 239);
+}
+
+
+.accountCompanyForm{
+    width: 180px;
+    height: 125px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px 0;
+}
+
+
+.accountCompanyForm .icon{
+    width: 35px;
+    height: 35px;
+    background-color: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+
+
+
+
+#headerInfo{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+#header{
+    width: 100%;
+}
+
+.accountCompanyForm button{
+    padding: 8px;
+    background-color: rgba(27, 178, 163, 0.979);
+    border: none;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 10px;
+    border-radius: 3px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+#accountBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 100px;
+}
+
+
+.flip{
+    transform: rotateX(180deg);
+    -webkit-transition: 0.9s;
+ 
+}
+
+
+#myForm{
+    width: 330px;
+    height: 180px;
+    background-color: dodgerblue;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#myForm input{
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+
+#myForm button{
+    padding: 7px 30px;
+    width: fit-content;
+}
+
+#myForm i{
+   font-size: 20px;
+    color: rgb(221, 221, 221);
+}
+
+
+
+#inputFields{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    gap: 10px;
+    width: 100%;
+    border-radius: 10px;
+    padding-top: 200px;
+    display: none;
+}
+
+#inputFields input{
+    padding: 8px;
+    outline: none;
+    width: 300px;
+    border-left: 1.3px solid grey;
+    border-radius: 5px;
+    
+}
+
+
+#header{
+    border: 1.3px solid black;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+
+
+
+#headerContent{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    font-family: Calibri;
+}
+
+#compName{
+    font-weight: bold;
+    font-size: 25px;
+    padding: 8px 9px 0;
+}
+
+
+#companyForm{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+}
+
+.tagName{
+    padding: 8px 9px;
+    font-family: sans-serif;
+}
+
+#myTax{
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    padding-top: 5px; 
+    padding-left: 3px;
+    cursor: pointer;
+}
+
+.percent{
+    border: 1px solid grey;
+    border-left: none;
+    font-size: 14px;
+    padding: 3px;
+    color: grey;
+    padding-top: 7px;
+}
+
+#billHeader{
+    display: flex;
+}
+
+#billHeader p{
+    width: 100%;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    border-top: none;
+    text-align: center;
+    border-right: 1.5px solid white;
+}
+
+#billInputs{
+    display: flex;
+}
+
+
+#billInputs input{
+    width: 100%;
+    height: 33px;
+    border-radius: 0px;
+    border: none;
+    border: 0.5px solid grey;
+}
+
+
+#plus{
+    font-size: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#itemPluse{
+    border: 0.5px solid black;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+#totalBox{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #000000;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    padding: 0 5px;
+}
+
+
+#totalContents{
+    display: flex;
+    justify-content: space-between;
+}
+
+#submit{
+    width: fit-content;
+    padding: 5px 15px;
+}
+
+
+#totalContents{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+#totalContents p{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+.bill-input{
+    display: flex;
+}
+
+#billInputs{
+    display: flex;
+    flex-direction: column;
+}
+
+#totalContents p{
+    font-size: 13px;
+    margin-right: 10px;
+    margin-top: 4px;
+    color: dodgerblue;
+}
+
+#totalContents span{
+    margin-left: 30px;
+    color: green;
+}
+
+
+
+
+#formBox{
+    width: fit-content;
+    height: fit-content;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 3px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    gap: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+
+
+
+#TaxForm{
+    width: fit-content;
+    height: fit-content;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 3px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    gap: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: dodgerblue;
+}
+

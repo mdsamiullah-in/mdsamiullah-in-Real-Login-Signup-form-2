@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+
+    <div id="contactBox">
+
+        <div id="formBox">
+            <h1 id="cont">Contacts</h1>
+            <input type="text" placeholder="Enter Fullname" id="fullname" required="true">
+            <input type="number" placeholder="Enter primary number" id="primaryInput" required="true">
+            <input type="number" placeholder="Enter Secondary number" id="secondaryInput" required="true">
+            <button id="add">Add</button>
+            <p id="message">Successfully saved</p>
+        </div>
+        
+
+        <div id="contactSidebar">
+            <div id="inputBox">
+                <span>Contacts List</span>
+                <input type="text" placeholder="Search contacts here" oninput="search(this)">
+                <button onclick="restore()"  id="contactBtn">Restore Contact</button>
+            </div>
+        </div>
+
+
+        <div id="restore-contact">
+            <h1 id="restore-notice"></h1>
+
+
+
+
+        <div  id="restore-table">
+            <table border>
+                <tr>
+                    <th>Contact Name</th>
+                    <th>Primary Number</th>
+                    <th>Secondary Number</th>
+                    <th>Restore</th>
+                </tr>
+            </table>
+
+        </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+
+
+
+function loadContacts() {
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            if (key.endsWith("contact")) {
+                let contact = JSON.parse(localStorage.getItem(key));
+                displayContact(contact.name, contact.pNum, contact.sNum);
+            }
+        }
+    }
+
+    function displayContact(fullname, primaryInput, secondaryInput) {
+        var div = document.createElement("div");
+        var sidebar = document.getElementById("contactSidebar");
+        sidebar.appendChild(div);
+        div.id = "contactDetails";
+        div.innerHTML = `
+            <p class="contactName"></p>
+            <ol>
+                <li class="primaryNumberBox"></li>
+                <li class="secondaryNumberBox"></li>
+            </ol>
+
+            <div id="icons">
+                <i class="fa-solid fa-trash del" onclick='mes("${fullname}")' id="i"></i>
+                <i class="fa-solid fa-edit edit" onclick='editContact("${fullname}", "${primaryInput}", "${secondaryInput}")' id="i2"></i>
+            </div>
+        `;
+
+        div.querySelector(".contactName").innerHTML = fullname;
+        div.querySelector(".primaryNumberBox").innerHTML = primaryInput;
+        div.querySelector(".secondaryNumberBox").innerHTML = secondaryInput;
+    }
+ 
+        document.getElementById('add').onclick = function() {
+        var fullname = document.getElementById("fullname").value;
+        var primaryInput = document.getElementById("primaryInput").value;
+        var secondaryInput = document.getElementById("secondaryInput").value;
+
+        if (fullname && primaryInput && secondaryInput) {
+            var user = {name: fullname, pNum: primaryInput, sNum: secondaryInput};
+            var user_details = JSON.stringify(user);
+            localStorage.setItem(fullname + "contact", user_details);
+
+            displayContact(fullname, primaryInput, secondaryInput);
+
+            var message = document.getElementById("message");
+            message.style.display = "block";
+
+            setTimeout(function(){
+                message.style.display = "";
+            }, 1000);
+
+            // Clear the input fields after adding
+            document.getElementById("fullname").value = '';
+            document.getElementById("primaryInput").value = '';
+            document.getElementById("secondaryInput").value = '';
+        } else {
+            alert("Input fields are required");
+        }
+
+    };
+
+    function mes(fullname, user_details){
+        document.cookie = fullname + "=" + localStorage.getItem(fullname + "contact") + ";max-age=3600";
+        localStorage.removeItem(fullname + "contact");
+        location.reload(); // Reload the page after removing to update the contact list
+    }
+
+    function editContact(fullname, primaryInput, secondaryInput) {
+        document.getElementById("fullname").value = fullname;
+        document.getElementById("primaryInput").value = primaryInput;
+        document.getElementById("secondaryInput").value = secondaryInput;
+    }
+
+
+
+    window.onload = loadContacts;
+
+
+
+
+    function restore(){
+           var page = document.getElementById("restore-contact");
+           page.style.display = "flex"
+           var restore_table = document.getElementById("restore-table");
+           var notice = document.getElementById("restore-notice");
+
+           if(document.cookie.length != 0){
+            notice.innerHTML = "Deleted Contacts"
+            var divide = document.cookie.split(";");
+            var i,j;
+            for(i=0; i<divide.length; i++){
+               var keyValue = divide[i].split("=");
+                if (keyValue.length == 2) {
+                let value = keyValue[1];
+
+                try {
+                    let extract = JSON.parse(decodeURIComponent(value));
+                    var name = extract.name;
+                    var pNum = extract.pNum;
+                    var sNum = extract.sNum;
+                    var div = document.createElement("div");
+                    restore_table.appendChild(div)
+                    div.innerHTML  = `
+
+             <table border>
+                <tr style="text-align: center;">
+                    <td>${name}</td>
+                    <td>${pNum}</td>
+                    <td>${sNum}</td>
+                    <td><i class="fa-solid fa-refresh fresh"></i></td>
+                </tr>
+            </table>
+
+                    `
+                } catch (e) {
+                    console.error("Error parsing JSON from cookie:", e);
+                }
+            
+               }
+               
+
+            }
+           }
+ 
+
+       var restoreIcons = document.querySelectorAll('.fresh');
+       restoreIcons.forEach(function(icon) {
+        icon.addEventListener('click', function() {
+            var thisTd = this.parentElement;
+            var thisTr = thisTd.parentElement;
+            var tdAll = thisTr.getElementsByTagName("td");
+            var restore = {name:tdAll[0].innerHTML, pNum:tdAll[1].innerHTML, sNum:tdAll[2].innerHTML};
+            var readyForRestore = JSON.stringify(restore);
+            localStorage.setItem(tdAll[0].innerHTML + "contact" , readyForRestore);
+            document.cookie = tdAll[0].innerHTML + ";max-age=0"
+            location.reload()
+        });
+    })
+          
+            
+    }
+
+
+
+        
+
+    function search(input){
+          var keyword = input.value.toUpperCase();
+          var contactList = document.getElementById("contactSidebar");
+          var legend = contactList.getElementsByTagName('p')
+          var i;
+          for(i=0; i<legend.length; i++){
+               if(legend[i].innerHTML.toUpperCase().indexOf(keyword) != -1)
+               {
+                legend[i].parentElement.style.display = "";
+               }
+               else{
+                legend[i].parentElement.style.display = "none"
+               }
+          }
+    }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
