@@ -32,8 +32,9 @@
 
 
         <div id="TaxForm">
-            <input type="text" placeholder="Tax Name" id="taxNameInput">
-            <input type="number" placeholder="number" id="taxNumberInput">
+            <i class="fa-solid fa-xmark" id="taxFormCut"></i>
+            <input class="taxInput" type="text" placeholder="Tax Name" id="taxNameInput">
+            <input class="taxInput" type="text" placeholder="number" id="taxNumberInput">
             <button type="button" id="done">Done</button>
          </div>
 
@@ -53,6 +54,15 @@
          </form>
 
 
+         <div class="accountCompanyForm">
+            <i class="fa-solid fa-trash icon"></i>    
+            <button>Shut Company</button>
+        </div>
+
+
+
+
+            
    
 
 
@@ -111,7 +121,6 @@
                             <p id="subTotal">Subtotal <span id="toatal">₹0.00</span></p>
                             <p id="tax">Tax(2%) <span id="tax"> ₹0.00 </span></p>
                             <p id="total">Total  <span> ₹0.00</span></p>
-                            <p id="payDue">Balance Due <span>&nbsp; ₹0.00</span></p>
                         </div>
       
                     </div>
@@ -123,15 +132,6 @@
         
         
         </div>
-
-
-    
-        <div class="accountCompanyForm">
-            <i class="fa-solid fa-trash icon"></i>    
-            <button>Shut Company</button>
-        </div>
-
-
     </div>
 
 

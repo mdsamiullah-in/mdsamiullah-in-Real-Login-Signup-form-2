@@ -48,8 +48,26 @@ body{
     font-size: 16px;
 }
 
+.taxInput{
+    padding: 9px 5px;
+    border: none;
+    background-color: rgb(249, 249, 249);
+    width: 250px;
+    border-radius: 5px;
+    outline: none;
+}
 
-
+#TaxForm button{
+    padding: 8px;
+    background-color: white;
+    border: none;
+    background-color: aliceblue;
+    padding: 10px;
+    width: fit-content;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
 #headerInfo{
@@ -339,8 +357,6 @@ body{
 
 
 #TaxForm{
-    width: fit-content;
-    height: fit-content;
     background-color: #f7f7f7;
     box-shadow: 0 0 3px 0;
     display: flex;
@@ -354,5 +370,12 @@ body{
     left: 50%;
     transform: translate(-50% , -50%);
     background-color: dodgerblue;
+    padding: 13px;
+    color: white;
+    display: none;
 }
 
+
+#TaxForm i{
+    cursor: pointer;
+}

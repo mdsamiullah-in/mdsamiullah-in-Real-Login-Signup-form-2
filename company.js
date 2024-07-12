@@ -120,86 +120,265 @@ document.getElementById("cut").onclick = function(){
                 return true;
             }
     
+           
+
             document.getElementById("plus").onclick = function() {
                 if (!validateInputs()) {
                     alert("Please fill in item description, price, and quantity fields before adding a new item.");
                     return;
                 }
-            
+                
                 var billInputs = document.getElementById("billInputs");
                 var div = document.createElement('div');
                 div.classList.add('bill-input');
                 div.innerHTML = `
                     <input type="text" placeholder="Item Description" class="itemName">
-                    <input type="number" placeholder="0.0" class="price">
-                    <input type="number" placeholder="1" class="qnt">
+                    <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
+                    <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
                     <input type="text" placeholder="Rs 0.00" class="amount" readonly>
-                    <p class="percent">2%</p>
                 `;
                 billInputs.appendChild(div);
-            
-                var priceInput = div.querySelector('.price');
-                var qntInput = div.querySelector('.qnt');
-                var amountInput = div.querySelector('.amount');
-            
-                function calculateAmount() {
-                    var price = parseFloat(priceInput.value) || 0;
-                    var quantity = parseFloat(qntInput.value) || 0;
-                    var amount = price * quantity;
-                    var totalAmount = amount + (amount * 0.02);
-                    amountInput.value = `Rs ${totalAmount.toFixed(2)}`;
-            
-                    updateSubtotal(); // Call function to update subtotal
-                }
-            
-                priceInput.addEventListener('input', calculateAmount);
-                qntInput.addEventListener('input', calculateAmount);
-            
-                // Function to update subtotal
-                function updateSubtotal() {
-                    var subTotalElement = document.getElementById("subTotal");
-                    var amounts = document.querySelectorAll('.amount');
-                    var subtotal = 0;
-                 
-            
-                    amounts.forEach(function(item) {
-                        var value = parseFloat(item.value.replace('Rs ', '')) || 0;
-                        subtotal += value;
-
-
-                        var total = document.getElementById("total")
-                        total.innerHTML =  "Total " + JSON.stringify(subtotal += value);
-
-       
-                    });
-            
-                    subTotalElement.textContent = `Subtotal ${subtotal.toFixed(2)}`;
-                }
-            
-                updateSubtotal(); // Update subtotal initially
-
-
             };
             
-
-
-            var sales = document.getElementById("sales");
-            sales.onclick = function(){
-                var inputFields = document.getElementById("inputFields");
-                inputFields.style.display = "flex"
-            }
-
-
-     document.getElementById("done").onclick = function(){
-        
-    var taxName = document.getElementById("taxNameInput").value;
-    var taxNumber = document.getElementById("taxNumberInput").value;
-         localStorage.setItem(taxName, taxNumber)
-        
-         if(taxName || taxNumber == ""){
-            alert("Please fill the fields")
-         }else{
-            alert("Success")
-         }
-     }
+            function calculateSubTotal() {
+                var items = document.getElementsByClassName('bill-input');
+                var subTotal = 0;
             
+                for (var i = 0; i < items.length; i++) {
+                    var price = parseFloat(items[i].querySelector('.price').value) || 0;
+                    var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
+                    var amount = price * quantity;
+                    
+                    items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
+                    subTotal += amount;
+                }
+            
+                document.getElementById('subTotal').textContent = 'Subtotal ' + subTotal.toFixed(2);
+            }
+            
+            function validateInputs() {
+                // Implement your validation logic here if needed
+                return true; // For now, assuming all inputs are valid
+            }
+            
+
+
+ var sales = document.getElementById("sales");
+sales.onclick = function(){
+ var inputFields = document.getElementById("inputFields");
+ inputFields.style.display = "flex"
+ }
+
+
+var taxName = document.getElementById("taxNameInput")
+var taxNumber = document.getElementById("taxNumberInput")
+localStorage.setItem(taxName, taxNumber)
+taxName.onchange = function(){
+            if(this.value.indexOf("tax") != -1){
+                
+                taxNumber.oninput = function(){
+                    if(taxNumber.value.charAt(0).indexOf("%") == -1){
+         
+                    }else{
+                        alert("% not allowed at first place")
+                    }
+                }
+
+            }else{
+                alert("Please enter tax word ");
+                taxName.value = ""
+            }
+}         
+ document.getElementById("taxFormCut").onclick = function(){
+        document.getElementById("TaxForm").style.display = "none"
+}
+document.getElementById("TaxSetup").onclick = function(){
+    document.getElementById("TaxForm").style.display = "flex"
+}
+
+// Save the taxNumber and taxName in localStorage on button click
+document.getElementById("done").onclick = function() {
+    var taxNumber = document.getElementById("taxNumberInput").value;
+    var taxName = document.getElementById("taxNameInput").value;
+
+    var formData = {
+        taxNumber: taxNumber,
+        taxName: taxName
+    };
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+    document.getElementById("TaxForm").style.display = "none";
+
+    // Recalculate subtotal, tax, and total to reflect the new tax rate
+    calculateSubTotal();
+};
+
+function calculateSubTotal() {
+    var items = document.getElementsByClassName('bill-input');
+    var subTotal = 0;
+
+    // Calculate subTotal
+    for (var i = 0; i < items.length; i++) {
+        var price = parseFloat(items[i].querySelector('.price').value) || 0;
+        var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
+        var amount = price * quantity;
+        
+        items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
+        subTotal += amount;
+    }
+
+    document.getElementById('subTotal').textContent = 'Subtotal: Rs ' + subTotal.toFixed(2);
+
+    // Retrieve the taxNumber from localStorage
+    var savedFormData = JSON.parse(localStorage.getItem('formData'));
+    var taxNumber = savedFormData ? parseFloat(savedFormData.taxNumber) : 0;
+
+    // Calculate tax
+    var tax = (subTotal * taxNumber) / 100;
+    document.getElementById('tax').textContent = 'Tax (' + taxNumber.toFixed(2) + '%): Rs ' + tax.toFixed(2);
+
+    // Calculate total
+    var total = subTotal + tax;
+    document.getElementById('total').textContent = 'Total: Rs ' + total.toFixed(2);
+}
+
+// Function to create a new item input row
+function createNewItem() {
+    var itemContainer = document.getElementById('itemsContainer');
+    var newItem = document.createElement('div');
+    newItem.className = 'item bill-input';
+
+    newItem.innerHTML = `
+        <input type="text" placeholder="Item Description" class="itemName">
+        <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
+        <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
+        <input type="text" placeholder="Rs 0.00" class="amount" readonly>
+    `;
+
+    itemContainer.appendChild(newItem);
+}
+
+// Add event listener to the "Add Item" button
+document.getElementById('addItem').addEventListener('click', createNewItem);
+
+// Initial call to setup the first item
+createNewItem();
+
+
+function calculateSubTotal() {
+    var items = document.getElementsByClassName('bill-input');
+    var subTotal = 0;
+
+    // Calculate subTotal
+    for (var i = 0; i < items.length; i++) {
+        var price = parseFloat(items[i].querySelector('.price').value) || 0;
+        var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
+        var amount = price * quantity;
+        
+        items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
+        subTotal += amount;
+    }
+
+    document.getElementById('subTotal').textContent = 'Subtotal: Rs ' + subTotal.toFixed(2);
+
+    // Retrieve the taxNumber from localStorage
+    var savedFormData = JSON.parse(localStorage.getItem('formData'));
+    var taxNumber = savedFormData ? parseFloat(savedFormData.taxNumber) : 0;
+
+    // Calculate tax
+    var tax = (subTotal * taxNumber) / 100;
+    document.getElementById('tax').textContent = 'Tax (' + taxNumber + '%): Rs ' + tax.toFixed(2);
+
+    // Calculate total
+    var total = subTotal + tax;
+    document.getElementById('total').textContent = 'Total: Rs ' + total.toFixed(2);
+}
+
+// Function to create a new item input row
+function createNewItem() {
+    var itemContainer = document.getElementById('itemsContainer');
+    var newItem = document.createElement('div');
+    newItem.className = 'item bill-input';
+
+    newItem.innerHTML = `
+        <input type="text" placeholder="Item Description" class="itemName">
+        <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
+        <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
+        <input type="text" placeholder="Rs 0.00" class="amount" readonly>
+    `;
+
+    itemContainer.appendChild(newItem);
+}
+
+// Add event listener to the "Add Item" button
+document.getElementById('addItem').addEventListener('click', createNewItem);
+
+// Initial call to setup the first item
+createNewItem();
+
+
+function calculateSubTotal() {
+    var items = document.getElementsByClassName('bill-input');
+    var subTotal = 0;
+
+    // Calculate subTotal
+    for (var i = 0; i < items.length; i++) {
+        var price = parseFloat(items[i].querySelector('.price').value) || 0;
+        var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
+        var amount = price * quantity;
+        
+        items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
+        subTotal += amount;
+    }
+
+    document.getElementById('subTotal').textContent = 'Subtotal: Rs ' + subTotal.toFixed(2);
+
+    // Retrieve the taxNumber from localStorage
+    var savedFormData = JSON.parse(localStorage.getItem('formData'));
+    var taxNumber = savedFormData ? parseFloat(savedFormData.taxNumber) : 0;
+    
+    // Calculate tax
+    var tax = (subTotal * taxNumber) / 100;
+    document.getElementById('tax').textContent = 'Tax: Rs ' + tax.toFixed(2);
+
+    // Calculate total
+    var total = subTotal + tax;
+    document.getElementById('total').textContent = 'Total: Rs ' + total.toFixed(2);
+}
+
+// Function to create a new item input row
+function createNewItem() {
+    var itemContainer = document.getElementById('itemsContainer');
+    var newItem = document.createElement('div');
+    newItem.className = 'item bill-input';
+
+    newItem.innerHTML = `
+        <input type="text" placeholder="Item Description" class="itemName">
+        <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
+        <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
+        <input type="text" placeholder="Rs 0.00" class="amount" readonly>
+    `;
+
+    itemContainer.appendChild(newItem);
+}
+
+// Add event listener to the "Add Item" button
+document.getElementById('addItem').addEventListener('click', createNewItem);
+
+// Initial call to setup the first item
+createNewItem();
+
+window.onload = function() {
+    var savedFormData = JSON.parse(localStorage.getItem('formData'));
+    var tax = document.getElementById("tax");
+    if (savedFormData) {
+        tax.innerText = savedFormData.taxNumber;
+    }
+};
+
+
+
+
+
+
+
