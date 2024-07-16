@@ -4,14 +4,21 @@
     box-sizing: border-box;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-appearance: textfield;
+}
 
 body{
     background-image: url('sd');
     padding-top: 80px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-
 
 .header{
     text-align: center;
@@ -23,7 +30,6 @@ body{
     color: rgb(243, 239, 239);
 }
 
-
 .accountCompanyForm{
     width: 180px;
     height: 125px;
@@ -34,7 +40,6 @@ body{
     justify-content: center;
     box-shadow: 0 0 3px 0;
 }
-
 
 .accountCompanyForm .icon{
     width: 35px;
@@ -69,7 +74,6 @@ body{
     cursor: pointer;
 }
 
-
 #headerInfo{
     padding: 8px;
     display: flex;
@@ -80,6 +84,8 @@ body{
 
 #header{
     width: 100%;
+    
+
 }
 
 .accountCompanyForm button{
@@ -94,7 +100,6 @@ body{
     cursor: pointer;
 }
 
-
 #accountBox{
     display: flex;
     flex-wrap: wrap;
@@ -103,13 +108,11 @@ body{
     margin-top: 100px;
 }
 
-
 .flip{
     transform: rotateX(180deg);
     -webkit-transition: 0.9s;
  
 }
-
 
 #myForm{
     width: 330px;
@@ -135,7 +138,6 @@ body{
     outline: none;
 }
 
-
 #myForm button{
     padding: 7px 30px;
     width: fit-content;
@@ -146,236 +148,248 @@ body{
     color: rgb(221, 221, 221);
 }
 
-
+#companyForm{
+    display: flex;
+}
 
 #inputFields{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    gap: 10px;
-    width: 100%;
-    border-radius: 10px;
-    padding-top: 200px;
+    background-color: rgb(226, 222, 222);
+    padding: 10px;
+    width: 600px;
+    overflow: scroll;
+    height: 95vh;
+    padding: 30px 20px;
     display: none;
 }
 
-#inputFields input{
-    padding: 8px;
-    outline: none;
-    width: 300px;
-    border-left: 1.3px solid grey;
-    border-radius: 5px;
-    
-}
-
-
 #header{
-    border: 1.3px solid black;
-    width: 100%;
-    margin-top: 20px;
+    border: 1px solid black;
+    padding: 10px;
 }
-
-
-
-
 
 #headerContent{
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    padding: 8px 10px;
+    background-color: rgb(0, 0, 0);
     color: white;
-    padding: 6px;
-    font-family: Calibri;
-}
-
-#compName{
-    font-weight: bold;
-    font-size: 25px;
-    padding: 8px 9px 0;
-}
-
-
-#companyForm{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-
-}
-
-.tagName{
-    padding: 8px 9px;
     font-family: sans-serif;
 }
 
-#myTax{
-    background-color: black;
-    color: white;
-    font-size: 13px;
-    padding-top: 5px; 
-    padding-left: 3px;
-    cursor: pointer;
+#formBox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 10px;
 }
 
-.percent{
-    border: 1px solid grey;
-    border-left: none;
-    font-size: 14px;
-    padding: 3px;
-    color: grey;
-    padding-top: 7px;
+#formBox input{
+    padding: 8px;
+    width: 350px;
+}
+
+#formBox button{
+    padding: 8px;
+    width: fit-content;
+    width: 100px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin-top: 3px;
+    border: none;
+    outline: none;
 }
 
 #billHeader{
+    background-color: rgb(0, 0, 0);
+    height: fit-content;
+    width: 100%;
     display: flex;
+    margin-top: 20px;
+    color: white;
+    font-family: Calibri;
+    font-size: 15px;
 }
 
 #billHeader p{
     width: 100%;
-    font-size: 12px;
-    background-color: black;
-    color: white;
-    padding: 6px;
-    border-top: none;
-    text-align: center;
-    border-right: 1.5px solid white;
+    padding: 8px;
 }
 
-#billInputs{
+#inputForm{
     display: flex;
+    width: 100%;
 }
-
 
 #billInputs input{
     width: 100%;
-    height: 33px;
-    border-radius: 0px;
+    padding: 8px 3px;
     border: none;
-    border: 0.5px solid grey;
-}
-
-
-#plus{
-    font-size: 20px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-#itemPluse{
-    border: 0.5px solid black;
-    padding: 5px 5px;
-    cursor: pointer;
+    outline: none;
+    border: 1.2px solid gray;
 }
 
 #totalBox{
-    width: 100%;
-    height: 100px;
-    border: 1px solid #000000;
-    margin-top: 30px;
+    background-color: rgb(25, 25, 25);
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 5px;
-    padding: 0 5px;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
 
-#totalContents{
+#totalBox p{
     display: flex;
-    justify-content: space-between;
-}
-
-#submit{
-    width: fit-content;
-    padding: 5px 15px;
-}
-
-
-#totalContents{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
+   width: 300px;
+   justify-content: space-between;
+   padding: 5px 10px;
+   color: rgb(21, 195, 210);
 }
 
 
-#totalContents p{
-    display: flex;
-    justify-content: space-between;
+#paid{
+    margin-left: 55px;
+    padding: 6px ;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(21, 195, 210);
+    color: rgb(21, 195, 210);
+    text-align: right;
+    width: 100px;
 }
 
 
-
-
-
-
-
-.bill-input{
-    display: flex;
-}
-
-#billInputs{
-    display: flex;
-    flex-direction: column;
-}
-
-#totalContents p{
+ ::placeholder{
+    color: #ddd;
     font-size: 13px;
-    margin-right: 10px;
-    margin-top: 4px;
-    color: dodgerblue;
 }
 
-#totalContents span{
-    margin-left: 30px;
-    color: green;
+#buttonBox{
+    padding: 10px 0;
 }
 
-
-
-
-#formBox{
-    width: fit-content;
-    height: fit-content;
-    background-color: #f7f7f7;
-    box-shadow: 0 0 3px 0;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px;
-    gap: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-}
-
-
-
-
-#TaxForm{
-    background-color: #f7f7f7;
-    box-shadow: 0 0 3px 0;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px;
-    gap: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    background-color: dodgerblue;
-    padding: 13px;
-    color: white;
-    display: none;
-}
-
-
-#TaxForm i{
+#buttonBox button{
+    padding: 7px 20px;
+    background-color: black;
+    border: none;
+    color: rgb(255, 255, 255);
+   letter-spacing: 1px;
     cursor: pointer;
+    font-size: 13px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* document.getElementById("submit").onclick = function(){
+    var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
+    var buyer_name = document.getElementById("name").value;
+    var buyer_email = document.getElementById("email").value;
+    var buyer_address = document.getElementById("address").value;
+    var buyer_number = document.getElementById("phone").value
+
+    var item = document.getElementsByClassName("item");
+    for(i=0; i<item.length; i++){
+        storeItem[0] = item[i].value;
+   } 
+    var buyer_price = document.getElementsByClassName("price");
+     for(i=0; i<buyer_price.length; i++){
+        store_price[i] = buyer_price[i].value;
+     }
+    var buyer_qty = document.getElementsByClassName("qnt");
+    for(i=0; i<buyer_qty.length; i++){
+        store_Qty[i] = buyer_qty[i].value
+    }
+    var storeAmount = document.getElementsByClassName("store_amount");
+    for(i=0; i<storeAmount.length; i++){
+        store_amount[i] = storeAmount[i].value
+    }
+                                                                                                                                                                                          var store_subtotal, store_total, store_paid, store_dues, store_tax;
+    var buyerObject = {buyer_name:buyer_name, buyer_email:buyer_email, buyer_address:buyer_address, buyer_number:buyer_number, storeItem:storeItem, store_price:store_price, store_Qty:store_Qty, store_amount:store_amount, store_subtotal:store_subtotal, store_total:store_total, store_paid:store_paid, store_dues:store_dues, store_tax:store_tax}
+    
+
+}
+
+
+
+
+
+
+var store_subtotal, store_total, store_paid, store_dues, store_tax;
+function calculateSubTotal() {
+    var items = document.getElementsByClassName('bill-input');
+    var subTotal = 0;
+
+    // Calculate subTotal
+    for (var i = 0; i < items.length; i++) {
+        var price = parseFloat(items[i].querySelector('.price').value) || 0;
+        var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
+        var amount = price * quantity;
+        
+        items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
+        subTotal += amount;
+    }
+    store_subtotal = subTotal.toFixed(2)
+    document.getElementById('toatal').textContent = '₹ ' + subTotal.toFixed(2);
+
+    // Retrieve the taxNumber from localStorage
+    var savedFormData = JSON.parse(localStorage.getItem('formData'));
+    var taxNumber = savedFormData ? parseFloat(savedFormData.taxNumber) : 0;
+    
+    // Calculate tax
+    var tax = (subTotal * taxNumber) / 100;
+    store_tax = tax.toFixed(2)
+    document.getElementById('tax').textContent = '₹ ' + tax.toFixed(2);
+
+    // Calculate total
+    var total = subTotal + tax;
+    store_total = total.toFixed(2);
+    document.getElementById('total').textContent = '₹ ' + total.toFixed(2);
+
+
+
+    
+ document.getElementById("paid").oninput = function(){
+    store_paid = this.value;
+    var totalMoney = total;
+    var finalMoney = totalMoney - this.value;
+    store_dues = finalMoney.toFixed(2)
+    document.getElementById('balanceDue').textContent = "Balance Due ____" + finalMoney.toFixed(2)
+ }
+
+
+} */

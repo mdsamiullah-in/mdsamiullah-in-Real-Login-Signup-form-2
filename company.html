@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 </head>
 <body>
 
@@ -70,12 +71,14 @@
 
 
 
-
             <div id="inputFields">
+
+                <button id="get">Get Bill</button>
+
                 <div id="header">
                     <div id="headerContent">
-                        <p>Sales voucher : 123</p>
-                        <p id="date">Date : </p>
+                        <p id="salesVoucher">Sales: </p>
+                        <p id="date">Date : 14-7-2024 </p>
                     </div>
                     <div id="headerInfoDiv">
                         <div id="headerInfo">
@@ -85,10 +88,12 @@
                             <p id="savedPhone"></p>
                         </div>
                         <div id="headerLogo">
-                        </div>
+                       </div>
                     </div>
                 </div>
-    
+
+                
+
                 <div id="formBox">
                   <label>Name</label>
                   <input type="text" id="name">
@@ -107,26 +112,34 @@
                         <p>Price</p>
                         <p>Qty</p>
                         <p>Amount</p>
-                        <span id="myTax">tax</span>
                     </div>
                     <div id="billInputs">
     
                     </div>
     
-                    <span id="itemPluse"><i class="fa-solid fa-plus" id="plus"></i> Add item</span>
-    
+                    <div id="buttonBox">
+                        <button id="plus"><i class="fa-solid fa-plus"></i> Add item</button>
+                        <button id="print">Print</button>
+                    </div>
+
+
                     <div id="totalBox">
     
                         <div id="totalContents">
-                            <p id="subTotal">Subtotal <span id="toatal">₹0.00</span></p>
-                            <p id="tax">Tax(2%) <span id="tax"> ₹0.00 </span></p>
-                            <p id="total">Total  <span> ₹0.00</span></p>
+                            <p id="subTotal">Subtotal <span id="toatal">₹ 0.00</span></p>
+                            <p>Tax <span id="tax"> ₹ 0.00 </span></p>
+                            <p>Total  <span id="total"> ₹ 0.00</span></p>
+                            <p>Amount paid<input type="number" id="paid"></p>
+                            <p id="balanceDue">Balance Due <span> ₹ 0.00</span></p>
                         </div>
       
                     </div>
                 </div>
             </div>
-            
+
+
+
+             
 
         
         
@@ -155,5 +168,8 @@
     <script src="company.js"></script>
 </body>
 </html>
+
+
+
 
 
