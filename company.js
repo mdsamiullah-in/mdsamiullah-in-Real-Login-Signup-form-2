@@ -198,7 +198,7 @@ sales.onclick = function(){
 
             var findNum = allKeys.split("_");
             allVoucherNo = findNum[2]
-            document.getElementById("salesVoucher").innerHTML = "Voucher no :" + allVoucherNo++;
+            document.getElementById("salesVoucher").innerHTML = "Voucher no :" + allVoucherNo;
 
 
         }else if(allKeys.match("buyer_Object_") == null){
