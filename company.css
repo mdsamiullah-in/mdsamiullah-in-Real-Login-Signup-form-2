@@ -114,6 +114,11 @@ body{
  
 }
 
+
+#TaxForm{
+    display: none;
+}
+
 #myForm{
     width: 330px;
     height: 180px;
