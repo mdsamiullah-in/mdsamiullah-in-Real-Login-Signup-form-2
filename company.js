@@ -7,7 +7,61 @@
 //     document.getElementById("date").innerHTML += current_date+"-"+month+1+"-"+year
 // }
 
-// showing_date()var print = document.getElementById("print");
+// showing_date()
+
+
+
+
+
+
+
+var get = document.getElementById("get");
+get.onclick = function(){
+    print()
+}
+
+
+var toggle = document.getElementById("toggle");
+
+toggle.onclick = function(){
+   var manageSection = document.getElementById("manage-section");
+ 
+   if(manageSection.style.display === "block"){
+
+        manageSection.style.display = "none"
+
+   }else{
+    manageSection.style.display = "block"
+   }
+
+
+ 
+
+
+}
+
+
+
+
+var cut = document.getElementById("none");
+cut.onclick = function(){
+  
+    document.getElementById("manage-section").style.display = "none";
+    var inputs = document.getElementById("inputFields")
+    var searchVoucher = document.getElementById("search-voucher");
+    inputs.style.display = "none"
+    searchVoucher.value = ""
+    
+    
+    
+
+  
+}
+
+
+
+
+
 
 
 document.getElementById("print").onclick = function(){
@@ -198,7 +252,7 @@ sales.onclick = function(){
 
             var findNum = allKeys.split("_");
             allVoucherNo = findNum[2]
-            document.getElementById("salesVoucher").innerHTML = "Voucher no :" + allVoucherNo;
+            document.getElementById("salesVoucher").innerHTML = "Voucher no : " + allVoucherNo++;
 
 
         }else if(allKeys.match("buyer_Object_") == null){
@@ -317,9 +371,10 @@ document.getElementById("submit").onclick = function(){
     var buyer_address = document.getElementById("address").value;
     var buyer_number = document.getElementById("phone").value
 
+    
     var item = document.getElementsByClassName("itemName");
     for(i=0; i<item.length; i++){
-        storeItem[0] = item[i].value;
+        storeItem[i] = item[i].value;
    } 
     var buyer_price = document.getElementsByClassName("price");
      for(i=0; i<buyer_price.length; i++){
@@ -393,7 +448,7 @@ function calculateSubTotal() {
 
 
 
-    
+
  document.getElementById("paid").oninput = function(){
     store_paid = this.value;
     var totalMoney = total;
@@ -404,6 +459,32 @@ function calculateSubTotal() {
 
 
 }
+
+
+
+function date(){
+    var date = new Date();
+    var day = date.getUTCDate();
+    var month = date.getUTCMonth() + 1;
+    var year = date.getUTCFullYear()
+    var dates = day+"-"+ month+ "-"+ year
+    document.getElementById("date").innerHTML = dates;
+}
+date()
+
+function time(){
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    document.getAnimations("timeSpan").textContent = time
+}
+
+
+
+setInterval(function(){
+    time()
+},500)
+
+
 
 
 // Function to create a new item input row
@@ -423,7 +504,7 @@ function createNewItem() {
    
 }
 
-
+search_voucher()
 
 
 // Add event listener to the "Add Item" button
@@ -438,9 +519,70 @@ window.onload = function() {
     if (savedFormData) {
         tax.innerText = savedFormData.taxNumber;
     }
+
 };
 
 
 
 
+//Search Voucher
+function search_voucher(){
+    
+    var search_field = document.getElementById("search-voucher");
+
+    search_field.onkeyup = function(event){
+      
+        if(event.keyCode == 13){
+            var userInput = "buyer_Object_"+this.value;
+           var i;
+           for(i=0; i<localStorage.length; i++){
+               var allKeys = localStorage.key(i)
+               if(allKeys == userInput){
+                var buyer_Object = localStorage.getItem(allKeys);
+                var buyerObjectExtract = JSON.parse(buyer_Object)
+                document.getElementById("sales").click();
+                document.getElementById("salesVoucher").innerHTML = "Voucher no :"+ this.value;
+                document.getElementById("savedName").textContent = buyerObjectExtract.buyer_name;
+                document.getElementById("savedEmail").textContent = buyerObjectExtract.buyer_email;
+                document.getElementById("savedAddress").textContent = buyerObjectExtract.buyer_address;
+                document.getElementById("savedPhone").textContent = buyerObjectExtract.buyer_number;
+                document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
+                document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
+                document.getElementById("taxBox").style.display = "none"
+                document.getElementById("paidBox").style.display = "none";
+                document.getElementById("balanceDue").style.display = "none"
+                document.getElementById("buttonBox").style.display = "none"
+                document.getElementById("formBox").style.display = "none"
+
+
+                
+
+                var item = document.getElementsByClassName("itemName");
+                item.disabled = false
+                var price = document.getElementsByClassName("price");
+                var qty = document.getElementsByClassName("qnt");
+                var amount = document.getElementsByClassName("amount")
+
+
+                var itemLength = buyerObjectExtract.storeItem.length;
+                var j;
+                for(j=0; j<itemLength; j++){
+                    document.getElementById("plus").click()
+                    item[j].value = buyerObjectExtract.storeItem[j]
+                    item[j].disabled = true
+                    price[j].value = buyerObjectExtract.store_price[j]
+                    price[j].disabled = true
+                    qty[j].value = buyerObjectExtract.store_Qty[j]
+                    qty[j].disabled = true
+                    amount[j].value = buyerObjectExtract.store_amount[j]
+                    amount[j].disabled = true
+                }
+
+               }
+           }
+        }
+
+    }
+
+}
 

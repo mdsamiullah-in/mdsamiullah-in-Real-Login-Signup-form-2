@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🅰️ayan🅰️htesham</title>
     <link rel="stylesheet" href="company.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
@@ -73,12 +73,14 @@
     
         <div id="inputFields">
 
-            <button id="get">Get Bill</button>
+            <button id="get">Duplicate Bill</button>
 
             <div id="header">
                 <div id="headerContent">
                     <p id="salesVoucher">Sales: </p>
-                    <p id="date">Date : 14-7-2024 </p>
+                    <p id="date"></p>
+                    <p id="times"><span id="timeSpan"></span></p>
+        
                 </div>
                 <div id="headerInfoDiv">
                     <div id="headerInfo">
@@ -127,16 +129,34 @@
 
                     <div id="totalContents">
                         <p id="subTotal">Subtotal <span id="toatal">₹ 0.00</span></p>
-                        <p>Tax <span id="tax"> ₹ 0.00 </span></p>
+                        <p id="taxBox">Tax <span id="tax"> ₹ 0.00 </span></p>
                         <p>Total  <span id="total"> ₹ 0.00</span></p>
-                        <p>Amount paid<input type="number" id="paid"></p>
-                        <p id="balanceDue">Balance Due <span> ₹ 0.00</span></p>
+                        <p id="paidBox">Amount paid<input type="number" id="paid"></p>
+                        <p  id="balanceDue">Balance Due <span> ₹ 0.00</span></p>
                     </div>
   
                 </div>
             </div>
         </div>
-             
+
+
+
+        <i class="fa-solid fa-bars" id="toggle"></i>
+
+
+            <div id="manage-section" class="animate__animated animate__fadeInRight animate__faster">
+
+                <i class="fa-solid fa-xmark" id="none"></i>
+
+                <div id="myContents">
+                    <h1>Manage Voucher</h1>
+                    <input type="search" placeholder="Enter voucher number" id="search-voucher">
+                </div>
+                
+            </div>
+                 
+  
+
 
         
         
