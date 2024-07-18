@@ -443,4 +443,8 @@ margin-top: -30px;
         width: 100%;
         height: 100vh;
     }
+    video{
+        rotate: 90deg;
+        width: 100%;
+    }
 }

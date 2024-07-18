@@ -13,7 +13,11 @@
 
 
 
-
+var cut2 = document.getElementById("cut2");
+cut2.onclick = function(){
+    var inputFields = document.getElementById("inputFields");
+    inputFields.style.display = "none"
+}
 
 
 

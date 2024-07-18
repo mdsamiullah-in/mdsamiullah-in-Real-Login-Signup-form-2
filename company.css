@@ -1,4 +1,5 @@
-*{
+
+    *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,20 +18,19 @@ input[type="number"]{
 body{
     background-image: url('sd');
     padding-top: 80px;
+    overflow-y: scroll;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .header{
-   text-align: center;
+    text-align: center;
     color: dodgerblue;
 }
 
 .tagline{
     text-align: center;
-    color: rgb(243, 239, 239);
+    color: rgb(57, 57, 57);
 }
-
-
 
 .accountCompanyForm{
     width: 180px;
@@ -86,8 +86,6 @@ body{
 
 #header{
     width: 100%;
-    
-
 }
 
 .accountCompanyForm button{
@@ -113,9 +111,7 @@ body{
 .flip{
     transform: rotateX(180deg);
     -webkit-transition: 0.9s;
- 
 }
-
 
 #TaxForm{
     display: none;
@@ -139,6 +135,19 @@ body{
     transform: translate(-50%, -50%);
 }
 
+#cut2{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #efefef;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #myForm input{
     padding: 10px;
     border: none;
@@ -151,7 +160,7 @@ body{
 }
 
 #myForm i{
-   font-size: 20px;
+    font-size: 20px;
     color: rgb(221, 221, 221);
 }
 
@@ -175,7 +184,6 @@ body{
     padding: 30px 20px;
     display: none;
     z-index: 100;
-  
 }
 
 #header{
@@ -253,19 +261,17 @@ body{
     padding: 10px;
 }
 
-
 #totalBox p{
     display: flex;
-   width: 300px;
-   justify-content: space-between;
-   padding: 5px 10px;
-   color: rgb(21, 195, 210);
+    width: 300px;
+    justify-content: space-between;
+    padding: 5px 10px;
+    color: rgb(21, 195, 210);
 }
-
 
 #paid{
     margin-left: 55px;
-    padding: 6px ;
+    padding: 6px;
     outline: none;
     border: none;
     background-color: transparent;
@@ -275,8 +281,7 @@ body{
     width: 100px;
 }
 
-
- ::placeholder{
+::placeholder{
     color: #ddd;
     font-size: 13px;
 }
@@ -290,17 +295,10 @@ body{
     background-color: black;
     border: none;
     color: rgb(255, 255, 255);
-   letter-spacing: 1px;
+    letter-spacing: 1px;
     cursor: pointer;
     font-size: 13px;
 }
-
-
-
-
-
-
-
 
 #manage-section{
     position: fixed;
@@ -310,9 +308,7 @@ body{
     height: 100vh;
     width: 100%;
     display: none;
-    
 }
-
 
 #myContents{
     padding: 5px 5px;
@@ -321,7 +317,6 @@ body{
     flex-direction: column;
     gap: 5px;
 }
-
 
 #myContents h1{
     font-size: 1.5rem;
@@ -339,10 +334,6 @@ body{
     color: rgb(0, 0, 0);
 }
 
-
-
-
-
 #toggle{
     position: absolute;
     top: 8px;
@@ -356,10 +347,7 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
 }
-
-
 
 #none{
     position: absolute;
@@ -367,97 +355,86 @@ body{
     right: 5px;
 }
 
-
-
 #get{
     position: absolute;
     top: 10px;
-    right: 0;
+    right: 10px;
     padding: 0;
 }
 
-
-
-
-
-
-
-
-/* document.getElementById("submit").onclick = function(){
-    var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
-    var buyer_name = document.getElementById("name").value;
-    var buyer_email = document.getElementById("email").value;
-    var buyer_address = document.getElementById("address").value;
-    var buyer_number = document.getElementById("phone").value
-
-    var item = document.getElementsByClassName("item");
-    for(i=0; i<item.length; i++){
-        storeItem[0] = item[i].value;
-   } 
-    var buyer_price = document.getElementsByClassName("price");
-     for(i=0; i<buyer_price.length; i++){
-        store_price[i] = buyer_price[i].value;
-     }
-    var buyer_qty = document.getElementsByClassName("qnt");
-    for(i=0; i<buyer_qty.length; i++){
-        store_Qty[i] = buyer_qty[i].value
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding-top: 40px;
     }
-    var storeAmount = document.getElementsByClassName("store_amount");
-    for(i=0; i<storeAmount.length; i++){
-        store_amount[i] = storeAmount[i].value
-    }
-                                                                                                                                                                                          var store_subtotal, store_total, store_paid, store_dues, store_tax;
-    var buyerObject = {buyer_name:buyer_name, buyer_email:buyer_email, buyer_address:buyer_address, buyer_number:buyer_number, storeItem:storeItem, store_price:store_price, store_Qty:store_Qty, store_amount:store_amount, store_subtotal:store_subtotal, store_total:store_total, store_paid:store_paid, store_dues:store_dues, store_tax:store_tax}
-    
 
+    .accountCompanyForm {
+        width: 140px;
+        height: 100px;
+    }
+
+    .accountCompanyForm .icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .accountCompanyForm button {
+        font-size: 13px;
+    }
+
+    .taxInput {
+        width: 200px;
+    }
+
+    #myForm {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    #companyForm {
+        flex-direction: column;
+        align-items: center;
+        margin-top: -80px;
+    }
+
+    #inputFields {
+        width: 100%;
+        padding: 20px;
+        height: auto;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    #billHeader{
+
+    }
+
+    #formBox input {
+        width: 100%;
+    }
+
+    #formBox button {
+        width: 100%;
+    }
+
+
+
+    #totalBox p {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #buttonBox {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #toggle {
+        top: 8px;
+        right: 8px;
+    }
 }
-
-
-
-
-
-
-var store_subtotal, store_total, store_paid, store_dues, store_tax;
-function calculateSubTotal() {
-    var items = document.getElementsByClassName('bill-input');
-    var subTotal = 0;
-
-    // Calculate subTotal
-    for (var i = 0; i < items.length; i++) {
-        var price = parseFloat(items[i].querySelector('.price').value) || 0;
-        var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
-        var amount = price * quantity;
-        
-        items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
-        subTotal += amount;
-    }
-    store_subtotal = subTotal.toFixed(2)
-    document.getElementById('toatal').textContent = '₹ ' + subTotal.toFixed(2);
-
-    // Retrieve the taxNumber from localStorage
-    var savedFormData = JSON.parse(localStorage.getItem('formData'));
-    var taxNumber = savedFormData ? parseFloat(savedFormData.taxNumber) : 0;
-    
-    // Calculate tax
-    var tax = (subTotal * taxNumber) / 100;
-    store_tax = tax.toFixed(2)
-    document.getElementById('tax').textContent = '₹ ' + tax.toFixed(2);
-
-    // Calculate total
-    var total = subTotal + tax;
-    store_total = total.toFixed(2);
-    document.getElementById('total').textContent = '₹ ' + total.toFixed(2);
-
-
-
-    
- document.getElementById("paid").oninput = function(){
-    store_paid = this.value;
-    var totalMoney = total;
-    var finalMoney = totalMoney - this.value;
-    store_dues = finalMoney.toFixed(2)
-    document.getElementById('balanceDue').textContent = "Balance Due ____" + finalMoney.toFixed(2)
- }
-
-
-} */
