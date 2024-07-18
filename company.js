@@ -1,4 +1,6 @@
 
+			   
+			   
 
 // function showing_date(){
 //     var date = new Date();
@@ -475,7 +477,7 @@ date()
 function time(){
     var date = new Date();
     var time = date.toLocaleTimeString();
-    document.getAnimations("timeSpan").textContent = time
+    document.getElementById("time").innerHTML = time
 }
 
 

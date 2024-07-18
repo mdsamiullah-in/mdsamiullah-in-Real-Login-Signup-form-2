@@ -367,17 +367,7 @@ body{
     right: 5px;
 }
 
-#times{
-    color: rgb(255, 255, 255);
-    background-color: green;
-    width: 200px;
-    height: 80px;
-}
 
-
-#timeSpan{
-    color: coral;
-}
 
 #get{
     position: absolute;

@@ -148,6 +148,7 @@
     align-items: center;
     justify-content: center;
     border-top: 1px solid black;
+    padding-top: 20px;
 }
 
 #scrollBar{
@@ -432,4 +433,14 @@ margin-top: -30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media(max-width: 977px){
+    #controls{
+        display: none;
+    }
+    #player{
+        width: 100%;
+        height: 100vh;
+    }
 }
