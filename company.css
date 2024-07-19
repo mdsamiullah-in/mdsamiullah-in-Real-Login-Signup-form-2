@@ -1,0 +1,399 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+body{
+    background-image: url('sd');
+    padding: 80px 0;
+    overflow-y: scroll;
+    padding-bottom: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header{
+    text-align: center;
+    color: dodgerblue;
+}
+
+.tagline{
+    text-align: center;
+    color: rgb(57, 57, 57);
+}
+
+.accountCompanyForm{
+    width: 180px;
+    height: 125px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px 0;
+    border-radius: 3px;
+}
+
+.accountCompanyForm .icon{
+    width: 35px;
+    height: 35px;
+    background-color: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.taxInput{
+    padding: 9px 5px;
+    border: none;
+    background-color: rgb(249, 249, 249);
+    width: 250px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#TaxForm button{
+    padding: 8px;
+    background-color: white;
+    border: none;
+    background-color: aliceblue;
+    padding: 10px;
+    width: fit-content;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#headerInfo{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+#header{
+    width: 100%;
+}
+
+.accountCompanyForm button{
+    padding: 8px;
+    background-color: rgba(27, 178, 163, 0.979);
+    border: none;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 10px;
+    border-radius: 3px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#accountBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 100px;
+}
+
+
+
+#TaxForm{
+    display: none;
+}
+
+#myForm{
+    width: 330px;
+    height: 180px;
+    background-color: dodgerblue;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+#companyForm{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+
+
+#inputFields{
+    background-color: white;
+    box-shadow: 0 0 2px 0;
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+#cutInputBox{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#header{
+    background-color: royalblue;
+    color: wheat;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+
+.companyDetail{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.companyDetail p{
+    font-weight: normal;
+    font-family: Calibr;
+    letter-spacing: 0.8px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#headerContent{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: Aria;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerContent h1{
+    font-weight: normal;
+}
+
+#headerContent i{
+    font-size: 20px;
+}
+
+#headerBottom{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-bottom: 1.5px solid royalblue;
+}
+
+#BillingDate{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 200px;
+  text-align: right;
+ padding: 10px;
+ 
+}
+
+#BillingDate p{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.inputMainBox{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: royalblue;
+    padding: 20px 5px;
+}
+
+
+.inputMainBox input, button{
+    padding: 8px ;
+    border: none;
+    border: 0.5px solid black;
+    outline: none;
+    width: fit-content;
+}
+
+.inputMainBox button{
+    cursor: pointer;
+}
+
+
+#billHeader{
+    display: flex;
+    background-color: royalblue;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 8px ;
+    box-shadow: 0 0 2px 0;
+    color: white;
+    font-size: 13px;
+}
+
+#billHeader p{
+    width: 100%;
+    padding-left: 20px;
+}
+
+#inputForm{
+    display: flex;
+}
+
+#inputForm input{
+    width: 100%;
+    padding: 8px 2px;
+    border-radius: 0;
+    border: none;
+    border: 0.5px solid black;
+    outline: none;
+}
+
+#plus{
+    border: none;
+    background-color: transparent;
+    margin: 10px 10px;
+    box-shadow: 0 0 3px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 35px;
+    font-size: 15px;
+}
+
+#print{
+    margin-top: 20px;
+    padding: 8px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+#totalBox{
+    background-color: royalblue;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#totalBox p{
+    font-weight: normal;
+    text-align: right;
+}
+
+
+#totalContents{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+
+#totalContents p{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#manage-section{
+    display: none;
+}
+
+
+#totalContents input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    outline: none;
+    color: white;
+    text-align: right;
+}
+
+
+
+#footer{
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#footer h1{
+    display: flex;
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.comapny{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#inputFields{
+    display: none;
+}
+
+
+
+@media(max-width: 630px){
+    #header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .companyDetail h1{
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .companyDetail p{
+        text-align: center;
+    }
+
+    .inputMainBox{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .inputMainBox input{
+        width: 100%;
+    }
+
+
+}
