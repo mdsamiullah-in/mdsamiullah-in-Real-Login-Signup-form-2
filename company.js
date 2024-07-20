@@ -566,8 +566,3 @@ window.onload = function() {
     }
 
 };
-
-
-
-
-
