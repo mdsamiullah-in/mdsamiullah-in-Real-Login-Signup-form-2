@@ -24,66 +24,72 @@
 
        
             <div id="sidebar">
-                <details>
-                    <summary><i class="fa-solid fa-check icon" id="check"></i>Tax Setup</summary>
-                    <div class="content">
-      
 
-                        <div id="TaxForm" class="animate__animated ani">
-                            <input class="taxInput" type="text" placeholder="Tax Name" id="taxNameInput">
-                            <input class="taxInput" type="text" placeholder="number" id="taxNumberInput">
-                            <button type="button" id="done">Done</button>
-                         </div>
+         <i class="fa-solid fa-xmark" id="cutSidebar"></i>
+
+         <div class="detailBox">
+            <details>
+                <summary><i class="fa-solid fa-check icon" id="check"></i>Tax Setup</summary>
+                <div class="content">
+  
+
+                    <div id="TaxForm" class="animate__animated ani">
+                        <input class="taxInput" type="text" placeholder="Tax Name" id="taxNameInput">
+                        <input class="taxInput" type="text" placeholder="number" id="taxNumberInput">
+                        <button type="button" id="done">Done</button>
+                     </div>
 
 
+                </div>
+              </details>
+
+
+              <details>
+                <summary><i class="fa-solid fa-bars"></i> measure</summary>
+                <div class="content">
+               
+
+
+                    <form id="myForm" class="animate__animated animate__fadeIn">
+                        <input type="text" placeholder="Symbol ex - pc , kg , lt" id="symbolInput">
+                        <input type="text" placeholder="Formal name" id="nameInput">
+                        <button id="set">Set</button>
+                     </form>
+            
+
+
+
+                </div>
+              </details>
+
+
+              <details>
+                <summary><i class="fa-solid fa-trash"></i> Shut Company</summary>
+                <div class="content">
+                    <div class="accountCompanyForm">
+                        <i class="fa-solid fa-trash icon"></i>    
+                        <button>Shut Company</button>
                     </div>
-                  </details>
+            
+                </div>
+              </details>
 
 
-                  <details>
-                    <summary><i class="fa-solid fa-bars"></i> measure</summary>
-                    <div class="content">
-                   
-
-    
-                        <form id="myForm" class="animate__animated animate__fadeIn">
-                            <input type="text" placeholder="Symbol ex - pc , kg , lt" id="symbolInput">
-                            <input type="text" placeholder="Formal name" id="nameInput">
-                            <button id="set">Set</button>
-                         </form>
-                
-
-
-
-                    </div>
-                  </details>
-
-
-                  <details>
-                    <summary><i class="fa-solid fa-trash"></i> Shut Company</summary>
-                    <div class="content">
-                        <div class="accountCompanyForm">
-                            <i class="fa-solid fa-trash icon"></i>    
-                            <button>Shut Company</button>
+              <details>
+                <summary><i class="fa-solid fa-search"></i> Search Bill</summary>
+                <div class="content">
+                 
+                    <div id="manage-section" class="animate__animated animate__fadeInLeft animate__faster">
+                        <i class="fa-solid fa-xmark" id="none"></i>
+                        <div id="myContents">
+                            <h1>Manage Voucher</h1>
+                            <input type="search" placeholder="Enter voucher number" id="search-voucher">
                         </div>
-                
                     </div>
-                  </details>
-
-
-                  <details>
-                    <summary><i class="fa-solid fa-search"></i> Search Bill</summary>
-                    <div class="content">
-                        <div class="accountCompanyForm">
-                            <i class="fa-solid fa-trash icon"></i>    
-                            <button>Search Bill</button>
-                        </div>
-                
-                    </div>
-                  </details>
-
-
-
+            
+                </div>
+              </details>
+         </div>
 
             </div>
 
@@ -93,20 +99,19 @@
 
         <div id="inputFields" class="animate__animated animate__fadeIn animate__faster">
         
+   
 
             <div id="header">
-
+                <i class="fa-solid fa-bars" id="bars"></i>
                 <div id="headerContent">
                     <i class="fa-solid fa-laptop"></i>
                     <h1>Invoice</h1>
-                    <button id="print">Get bill</button>
                 </div>
 
                 <div class="companyDetail">
                     <h1>Gate4Tech</h1>
                     <p> Address : Chakhabibullah, muzaffarpur, bihar, 842001<br> Contact, +91 9771516171</p>
                 </div>
-                <i class="fa-solid fa-xmark" id="cutInputBox"></i>
             </div>
 
             <div id="headerBottom">
@@ -165,7 +170,8 @@
                         <p id="taxBox">Tax <span id="tax"> ₹ 0.00 </span></p>
                         <p>Total  <span id="total"> ₹ 0.00</span></p>
                         <p id="paidBox">Amount paid<input type="number" id="paid"></p>
-                        <p  id="balanceDue">Balance Due <span> ₹ 0.00</span></p>
+                        <p >Balance Due <span  id="balanceDue"> ₹ 0.00</span></p>
+                        <div class="buttonBox"><button id="print">Get Bill</button></div>
                     </div>
 
                 </div>
@@ -177,7 +183,7 @@
 
 
             <div id="footer">
-                <div class="comapny"><p>Powered By</p><h1> Gate4Tech</h1></div> 
+                <div class="comapny"><p>Powered By <font>Gate4Tech</font></p></div> 
                 <p class="copyRight">This invoice was generated for the learning perpose</p>
             </div>
 
@@ -190,13 +196,7 @@
 
 
 
-        <div id="manage-section" class="animate__animated animate__fadeInLeft animate__faster">
-            <i class="fa-solid fa-xmark" id="none"></i>
-            <div id="myContents">
-                <h1>Manage Voucher</h1>
-                <input type="search" placeholder="Enter voucher number" id="search-voucher">
-            </div>
-        </div>
+
     </div>
    </div>
    </div>

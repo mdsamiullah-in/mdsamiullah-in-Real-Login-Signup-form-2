@@ -5,78 +5,65 @@
 
 
 
+// document.getElementById("print").onclick = function(){
+
+//     document.getElementById("sidebar").style.display = "none"
+//     document.getElementById("inputFields").style.width = "99.8%"
+//     print()
+//     document.getElementById("sidebar").style.display = "flex"
+//     document.getElementById("inputFields").style.width = "75.9%"
+
+//     var width = "768px";
+//    if(width == "768x"){
+//     document.getElementById("sidebar").style.display = "none"
+//     document.getElementById("inputFields").style.width = "99.8%"
+//     print()
+//     document.getElementById("inputFields").style.width = "100%"
+// }
+
+// }
 
 
 
 
 
 
-document.getElementById("print").onclick = function(){
-    print()
-}
+     document.getElementById("bars").onclick = function(){
+        document.getElementById("sidebar").className = "animate__animated animate__slideInLeft animate__faster"
+        document.getElementById("sidebar").style.display = "flex"
+     }
+
+
+     document.getElementById("cutSidebar").onclick = function(){
+          document.getElementById("sidebar").style.display = "none"
+     }
+
+
+     var taxName = document.getElementById("taxNameInput")
+     var taxNumber = document.getElementById("taxNumberInput")
+     localStorage.setItem(taxName, taxNumber)
+     taxName.onchange = function(){
+                 if(this.value.indexOf("tax") != -1){
+                     
+                     taxNumber.oninput = function(){
+                         if(taxNumber.value.charAt(0).indexOf("%") == -1){
+              
+                         }else{
+                             alert("% not allowed at first place")
+                         }
+                     }
+     
+     
+                 }else{
+                     alert("Please enter tax word ");
+                     taxName.value = ""
+                 }
+     
+     }         
+     
 
 
 
-var unit = document.getElementById("unit");
-unit.onclick = function(){
-    document.getElementById("myForm").style.display = "flex"
-}
-
-
-document.getElementById("cut").onclick = function(){
-        document.getElementById("myForm").style.display = "none"
-}
-
-
-      // Get form and input elements
-      const form = document.getElementById('myForm');
-      const symbolInput = document.getElementById('symbolInput');
-      const nameInput = document.getElementById('nameInput');
-  
-      // Event listener for form submission
-      form.addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent default form submission
-  
-          // Get input values
-          const symbol = symbolInput.value.trim();
-          const name = nameInput.value.trim();
-  
-          // Check if symbol and name are not empty
-          if (symbol !== '' && name !== '') {
-              // Get existing data from localStorage or initialize empty array
-              const dataArray = JSON.parse(localStorage.getItem('dataArray')) || [];
-  
-              // Add new data to array
-              dataArray.push({ symbol, name });
-  
-              // Save updated array to localStorage
-              localStorage.setItem('dataArray', JSON.stringify(dataArray));
-  
-              // Optionally, reset the form
-              form.reset();
-  
-              // Optionally, provide feedback or update UI
-              console.log('Data saved to localStorage:', dataArray);
-          } else {
-              alert('Please fill out both fields.');
-          }
-      });
-
-
-    
-
-            function validateInputs() {
-                var billInputs = document.querySelectorAll('.bill-input');
-                for (var i = 0; i < billInputs.length; i++) {
-                    var itemName = billInputs[i].querySelector('.itemName');
-                    var priceInput = billInputs[i].querySelector('.price');
-                    var qntInput = billInputs[i].querySelector('.qnt');
-                    if (!itemName.value || !priceInput.value || !qntInput.value) {
-                        return false;
-                    }
-                }
-                return true;
-            }
 
             document.getElementById("plus").onclick = function() {
                 if (!validateInputs()) {
@@ -165,114 +152,86 @@ document.getElementById("cut").onclick = function(){
                 return true;
             }
             
-           // Function to create a new item input row
-           function createNewItem() {
-    var itemContainer = document.getElementById('itemsContainer');
-    var newItem = document.createElement('div');
-    newItem.className = 'item bill-input';
-
-    newItem.innerHTML = `
-        <input type="text" placeholder="Item Description" class="itemName">
-        <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
-        <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
-        <input type="text" placeholder="Rs 0.00" class="amount" readonly>
-        
-    `;
-
-    itemContainer.appendChild(newItem);
-           }
 
 
 
- var sales = document.getElementById("sales");
-sales.onclick = function(){
+//  var sales = document.getElementById("sales");
+// sales.onclick = function(){
 
-    var i;
-
- var inputFields = document.getElementById("inputFields");
-    inputFields.style.display = "inline"
-
-
-    for(i=0; i<localStorage.length; i++){
-        var allKeys = localStorage.key(i);
-        if(allKeys.match("buyer_Object_")){
-
-            var findNum = allKeys.split("_");
-            allVoucherNo = findNum[2]
-            document.getElementById("salesVoucher").innerHTML = "Voucher no : " + allVoucherNo++;
-
-
-        }else if(allKeys.match("buyer_Object_") == null){
-          document.getElementById("salesVoucher").innerHTML = allVoucherNo++;
-        }
-    }
+//     var i;
 
 
 
-    var formBox = document.getElementById("formBox");
-    var input = formBox.getElementsByTagName("input");
-    input[0].focus();
+//     for(i=0; i<localStorage.length; i++){
+//         var allKeys = localStorage.key(i);
+//         if(allKeys.match("buyer_Object_")){
+
+//             var findNum = allKeys.split("_");
+//             allVoucherNo = findNum[2]
+//             document.getElementById("salesVoucher").innerHTML = "Voucher no : " + allVoucherNo++;
 
 
-    input[0].onkeyup = function(event){
+//         }else if(allKeys.match("buyer_Object_") == null){
+//           document.getElementById("salesVoucher").innerHTML = allVoucherNo++;
+//         }
+//     }
+
+
+
+//     var formBox = document.getElementById("formBox");
+//     var input = formBox.getElementsByTagName("input");
+//     input[0].focus();
+
+
+//     input[0].onkeyup = function(event){
        
-       if(event.keyCode == 13){
-           input[1].focus();
-       }
-    }
+//        if(event.keyCode == 13){
+//            input[1].focus();
+//        }
+//     }
 
 
-   input[1].onkeyup = function(event){
+//    input[1].onkeyup = function(event){
        
-        if(event.keyCode == 13){
-            input[2].focus()
-        }
+//         if(event.keyCode == 13){
+//             input[2].focus()
+//         }
 
-   } 
+//    } 
 
 
-   input[2].onkeyup = function(event){
+//    input[2].onkeyup = function(event){
      
-     if(event.keyCode == 13){
-        input[3].focus();
-     }
+//      if(event.keyCode == 13){
+//         input[3].focus();
+//      }
 
-   }
-
-
+//    }
 
 
 
 
-   input[3].onkeyup = function(event){
+
+
+//    input[3].onkeyup = function(event){
      
-    if(event.keyCode == 13){
-      var iconPluse = document.getElementById("iconPluse");
-      iconPluse.click()
-    }
+//     if(event.keyCode == 13){
+//       var iconPluse = document.getElementById("iconPluse");
+//       iconPluse.click()
+//     }
 
-  }
-
-
-
- }
+//   }
 
 
 
+//  }
 
 
 
-
- document.getElementById("cutInputBox").onclick = function(){
-    document.getElementById("inputFields").style.display = "none"
-}
-
-
-
-var showBill = document.getElementById("showBill");
-showBill.onclick = function(){
-    document.getElementById("manage-section").style.display = "flex"
-}
+// var showBill = document.getElementById("showBill");
+// showBill.onclick = function(){
+//     document.getElementById("manage-section").style.display = "flex"
+// }
 
 
 
@@ -316,6 +275,9 @@ document.getElementById("done").onclick = function() {
     };
 
     localStorage.setItem('formData', JSON.stringify(formData));
+
+    taxNumber = "";
+    taxName = ""
 
     // Recalculate subtotal, tax, and total to reflect the new tax rate
     calculateSubTotal();
@@ -362,7 +324,7 @@ function calculateSubTotal() {
     var totalMoney = total;
     var finalMoney = totalMoney - this.value;
     store_dues = finalMoney.toFixed(2)
-    document.getElementById('balanceDue').textContent = "Balance Due ____" + finalMoney.toFixed(2)
+    document.getElementById('balanceDue').textContent = "₹" + finalMoney.toFixed(2)
  }
 
 
