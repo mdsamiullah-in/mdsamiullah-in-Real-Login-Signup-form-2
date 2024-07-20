@@ -2,6 +2,15 @@
 
 
 
+document.getElementById("taxFormCut").onclick = function(){
+    document.getElementById("TaxForm").style.display = "none"
+}
+document.getElementById("TaxSetup").onclick = function(){
+document.getElementById("TaxForm").style.display = "flex"
+}
+
+
+
 var cut = document.getElementById("none");
 cut.onclick = function(){
   
@@ -211,7 +220,7 @@ sales.onclick = function(){
 
 
         }else if(allKeys.match("buyer_Object_") == null){
-          document.getElementById("salesVoucher").innerHTML = allVoucherNo;
+          document.getElementById("salesVoucher").innerHTML = allVoucherNo++;
         }
     }
 
@@ -265,9 +274,25 @@ sales.onclick = function(){
 
  }
 
+
+
+
+
+
+
  document.getElementById("cutInputBox").onclick = function(){
     document.getElementById("inputFields").style.display = "none"
 }
+
+
+
+var showBill = document.getElementById("showBill");
+showBill.onclick = function(){
+    document.getElementById("manage-section").style.display = "flex"
+}
+
+
+
 
 
 var taxName = document.getElementById("taxNameInput")
@@ -293,61 +318,9 @@ taxName.onchange = function(){
 }         
 
 
-document.getElementById("submit").onclick = function(){
-    var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
-    var buyer_name = document.getElementById("name").value;
-    var buyer_email = document.getElementById("email").value;
-    var buyer_address = document.getElementById("address").value;
-    var buyer_number = document.getElementById("phone").value
-
-    
-    var item = document.getElementsByClassName("itemName");
-    for(i=0; i<item.length; i++){
-        storeItem[i] = item[i].value;
-   } 
-    var buyer_price = document.getElementsByClassName("price");
-     for(i=0; i<buyer_price.length; i++){
-        store_price[i] = buyer_price[i].value;
-     }
-    var buyer_qty = document.getElementsByClassName("qnt");
-    for(i=0; i<buyer_qty.length; i++){
-        store_Qty[i] = buyer_qty[i].value
-    }
-    var storeAmount = document.getElementsByClassName("amount");
-    for(i=0; i<storeAmount.length; i++){
-        store_amount[i] = storeAmount[i].value
-    }
-                                                                                                                                                                 
-    var buyerObject = {
-        buyer_name: buyer_name,
-        buyer_email: buyer_email,
-        buyer_address: buyer_address,
-        buyer_number: buyer_number,
-        storeItem: storeItem,
-        store_price: store_price,
-        store_Qty: store_Qty,
-        store_amount: store_amount,
-        store_subtotal: store_subtotal,
-        store_total: store_total,
-        store_paid: store_paid,
-        store_dues: store_dues,
-        store_tax: store_tax
-    };
-    
-
-    var buyerObjectString = JSON.stringify(buyerObject);
-    localStorage.setItem('buyer_Object_'+ allVoucherNo, buyerObjectString);
-    
-}
 
 
 
- document.getElementById("taxFormCut").onclick = function(){
-        document.getElementById("TaxForm").style.display = "none"
-}
-document.getElementById("TaxSetup").onclick = function(){
-    document.getElementById("TaxForm").style.display = "flex"
-}
 
 // Save the taxNumber and taxName in localStorage on button click
 document.getElementById("done").onclick = function() {
@@ -414,6 +387,60 @@ function calculateSubTotal() {
 }
 
 
+var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
+
+document.getElementById("Submit").onclick = function(){
+   
+    var buyer_name = document.getElementById("name").value;
+    var buyer_email = document.getElementById("email").value;
+    var buyer_address = document.getElementById("address").value;
+    var buyer_number = document.getElementById("phone").value
+
+    
+    var item = document.getElementsByClassName("itemName");
+    for(i=0; i<item.length; i++){
+        storeItem[i] = item[i].value;
+   } 
+    var buyer_price = document.getElementsByClassName("price");
+     for(i=0; i<buyer_price.length; i++){
+        store_price[i] = buyer_price[i].value;
+     }
+    var buyer_qty = document.getElementsByClassName("qnt");
+    for(i=0; i<buyer_qty.length; i++){
+        store_Qty[i] = buyer_qty[i].value
+    }
+    var storeAmount = document.getElementsByClassName("amount");
+    for(i=0; i<storeAmount.length; i++){
+        store_amount[i] = storeAmount[i].value
+    }
+                                                                                                                                                                 
+    var buyerObject = {
+        buyer_name: buyer_name,
+        buyer_email: buyer_email,
+        buyer_address: buyer_address,
+        buyer_number: buyer_number,
+        storeItem: storeItem,
+        store_price: store_price,
+        store_Qty: store_Qty,
+        store_amount: store_amount,
+        store_subtotal: store_subtotal,
+        store_total: store_total,
+        store_paid: store_paid,
+        store_dues: store_dues,
+        store_tax: store_tax
+    };
+    
+
+    var buyerObjectString = JSON.stringify(buyerObject);
+    localStorage.setItem('buyer_Object_'+ allVoucherNo, buyerObjectString);
+
+
+    document.getElementById("savedName").textContent =  "Name : " + buyer_name;
+    document.getElementById("savedEmail").textContent = "Email : " + buyer_email;
+    document.getElementById("savedAddress").textContent = "Address : " + buyer_address;
+    document.getElementById("savedPhone").textContent = "Mob. number : " + buyer_number;
+
+}
 
 
 function date(){
