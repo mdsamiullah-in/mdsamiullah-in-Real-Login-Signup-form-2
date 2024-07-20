@@ -2,25 +2,8 @@
 
 
 
-document.getElementById("taxFormCut").onclick = function(){
-    document.getElementById("TaxForm").style.display = "none"
-}
-document.getElementById("TaxSetup").onclick = function(){
-document.getElementById("TaxForm").style.display = "flex"
-}
 
 
-
-var cut = document.getElementById("none");
-cut.onclick = function(){
-  
-    document.getElementById("manage-section").style.display = "none";
-    var inputs = document.getElementById("inputFields")
-    var searchVoucher = document.getElementById("search-voucher");
-    inputs.style.display = "none"
-    searchVoucher.value = ""
-
-}
 
 
 
@@ -333,7 +316,6 @@ document.getElementById("done").onclick = function() {
     };
 
     localStorage.setItem('formData', JSON.stringify(formData));
-    document.getElementById("TaxForm").style.display = "none";
 
     // Recalculate subtotal, tax, and total to reflect the new tax rate
     calculateSubTotal();

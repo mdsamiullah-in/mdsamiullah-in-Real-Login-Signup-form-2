@@ -38,8 +38,8 @@ body{
 }
 
 .accountCompanyForm{
-    width: 180px;
-    height: 125px;
+    width: 220px;
+    height: 150px;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -80,8 +80,8 @@ body{
 
 #none{
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 5px;
 }
 
 
@@ -135,13 +135,12 @@ body{
 #TaxForm{
     display: flex;
     flex-direction: column;
-    position: absolute;
     background-color: dodgerblue;
     padding: 15px 10px;
     box-shadow: 0 0 5px 0 lightgray;
     border-radius: 5px;
     gap: 5px;
-    display: none;
+
 
 }
 
@@ -153,16 +152,10 @@ body{
     flex-direction: column;
     padding: 10px;
     gap: 10px;
-    position: absolute;
     border-radius: 5px;
     box-shadow: 0 0 3px 0 rgb(166, 162, 162);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     padding: 10px;
     justify-content: center;
-    display: none;
 }
 
 #myForm input{
@@ -245,7 +238,9 @@ body{
     overflow-y: scroll;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    width: 75%;
+    overflow: hidden;
 }
 
 
@@ -263,7 +258,7 @@ body{
 }
 
 #header{
-    background-color: royalblue;
+    background-color: dodgerblue;
     color: wheat;
     display: flex;
     justify-content: space-between;
@@ -285,7 +280,9 @@ body{
 }
 
 .companyDetail h1{
-    color: rgb(239, 14, 14);
+    color: #08e9d3;
+    text-shadow: 1.5px 0.1px 0.1px #f4efef;
+    letter-spacing: 1px;
 }
 
 #headerContent{
@@ -332,7 +329,7 @@ body{
 .inputMainBox{
     display: flex;
     flex-wrap: wrap;
-    background-color: royalblue;
+    background-color: dodgerblue;
     padding: 20px 5px;
 }
 
@@ -352,7 +349,7 @@ body{
 
 #billHeader{
     display: flex;
-    background-color: royalblue;
+    background-color: dodgerblue;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
@@ -400,7 +397,7 @@ body{
 
 
 #totalBox{
-    background-color: royalblue;
+    background-color: dodgerblue;
     color: white;
     padding: 20px;
     display: flex;
@@ -453,8 +450,9 @@ body{
 
 #footer h1{
     display: flex;
-    color: red;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #15b7a7;
+    text-shadow: 1.5px 0.1px 0.1px #000000;
+    letter-spacing: 1px;
 }
 
 .comapny{
@@ -471,18 +469,28 @@ body{
 #manage-section{
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     background-color: dodgerblue;
     height: 100vh;
     padding: 5px 5px;
     display: none;
+    width: 250px;
  
 }
 
+#myContents{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 #myContents h1{
+    margin-top: 20px;
     color: #efefef;
+    font-size: 22px;
+    text-align: center;
 }
 
 #myContents input{
@@ -541,4 +549,103 @@ body{
     #TaxForm input{
         padding: 14px;
     }
+    #sidebar{
+        display: none;
+    }
 }
+
+
+
+
+
+
+  #sidebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    background-color: dodgerblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 10px;
+    overflow-y: scroll;
+    
+  }
+
+
+
+
+
+
+
+  summary {
+    border: 4px solid transparent;
+    outline: none;
+    &:focus {
+      border-color: black;
+    }
+    padding: 1rem;
+    display: block;
+    background: black;
+    color: white;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+    width: 354px;
+  }
+  details {
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background: white;
+  }
+  details summary::-webkit-details-marker {
+    display:none;
+  }
+  details[open] > summary:before {
+    transform: rotate(90deg);
+  }
+  summary:before {
+    content: '';
+    border-width: .4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+  }
+  
+  
+  
+  .content {
+    border-top: none;
+    padding: 10px;
+    border: 2px solid #888;
+    border-top: none;
+  }
+  
+  p {
+    margin: 0;
+    padding-bottom: 10px;
+    &:last-child {
+      padding: 0;
+    }
+  }
+  img {
+    max-width: 100%;
+  }
+
+  
+  summary i{
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 6px;
+    color: black;
+  }
