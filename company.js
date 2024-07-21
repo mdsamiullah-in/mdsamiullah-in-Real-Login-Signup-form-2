@@ -118,23 +118,10 @@ class Accordion {
 
 
 
-// document.getElementById("print").onclick = function(){
+document.getElementById("print").onclick = function(){
+print()
 
-//     document.getElementById("sidebar").style.display = "none"
-//     document.getElementById("inputFields").style.width = "99.8%"
-//     print()
-//     document.getElementById("sidebar").style.display = "flex"
-//     document.getElementById("inputFields").style.width = "75.9%"
-
-//     var width = "768px";
-//    if(width == "768x"){
-//     document.getElementById("sidebar").style.display = "none"
-//     document.getElementById("inputFields").style.width = "99.8%"
-//     print()
-//     document.getElementById("inputFields").style.width = "100%"
-// }
-
-// }
+}
 
 
 

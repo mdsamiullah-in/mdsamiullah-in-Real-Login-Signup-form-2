@@ -314,17 +314,40 @@ body{
 #BillingDate{
   display: flex;
   gap: 10px;
-  flex-direction: column;
   width: 200px;
   text-align: right;
  padding: 10px;
- 
+ justify-content: space-between;
+ padding: 10px 20px;
+ background-color: rgb(29, 37, 46);
+ border: 1px solid dodgerblue;
+ width: 100%;
+ align-items: center;
+ color: white;
 }
 
 #BillingDate p{
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+#headerInfo{
+    display: flex;
+    gap: 10px;
+}
+
+.nameDiv{
+    display: flex;
+    gap: 10px;
+}
+
+#headerInfo input{
+    width: calc(100% - 50.6%);
+    padding: 8px;
+}
+
+#voucher{
+    margin-top: 6px;
 }
 
 
@@ -664,7 +687,7 @@ font{
     left: 1rem;
     transform: rotate(0);
     transform-origin: .2rem 50%;
-    transition: .25s transform ease;
+    transition: .5s transform ease;
   }
   
   

@@ -28,6 +28,24 @@
          <i class="fa-solid fa-xmark" id="cutSidebar"></i>
 
          <div id="detailBox">
+
+            
+              
+            <details>
+                <summary><i class="fa-solid fa-search"></i> Search Bill</summary>
+                <div class="content">
+                 
+                    <div id="manage-section" class="animate__animated animate__fadeInLeft animate__faster">
+                        <i class="fa-solid fa-xmark" id="none"></i>
+                        <div id="myContents">
+                            <h1>Manage Voucher</h1>
+                            <input type="search" placeholder="Enter voucher number" id="search-voucher">
+                        </div>
+                    </div>
+            
+                </div>
+              </details>
+
             <details>
                 <summary><i class="fa-solid fa-check icon" id="check"></i>Tax Setup</summary>
                 <div class="content"  class="animate__animated animate__slideInDown">
@@ -62,21 +80,8 @@
                 </div>
               </details>
 
-              
-              <details>
-                <summary><i class="fa-solid fa-search"></i> Search Bill</summary>
-                <div class="content">
-                 
-                    <div id="manage-section" class="animate__animated animate__fadeInLeft animate__faster">
-                        <i class="fa-solid fa-xmark" id="none"></i>
-                        <div id="myContents">
-                            <h1>Manage Voucher</h1>
-                            <input type="search" placeholder="Enter voucher number" id="search-voucher">
-                        </div>
-                    </div>
-            
-                </div>
-              </details>
+
+
 
 
               <details>
@@ -89,28 +94,6 @@
             
                 </div>
               </details>
-
-              
-              <details>
-                <summary id="fillUser"><i class="fa-solid fa-user"></i>Fill User Detail</summary>
-                <div class="content">
-                  
-                    <div id="formBox">
-
-                        <div class="inputMainBox" id="inputBox">
-                                <input type="text" id="name" placeholder="Name">
-                                <input type="email" id="email" placeholder="Email">
-                                <input type="text" id="address" placeholder="Address">
-                                <input type="phone" id="phone" placeholder="Number">
-                                <button id="Submit">Submit</button>
-                        </div>
-        
-                      
-                    </div>
-            
-                </div>
-              </details>
-
 
          </div>
 
@@ -137,21 +120,28 @@
                 </div>
             </div>
 
+            
+            <div id="BillingDate">
+                <p id="voucher">Voucher No 001 </p>
+                <p id="date"> Date19-07-24</p>
+            </div>
+
             <div id="headerBottom">
 
                 <div id="headerInfo">
-                    <p id="savedName">name</p>
-                    <p id="savedEmail">name@gmail.com</p>
-                    <p id="savedAddress">address</p>
-                    <p id="savedPhone">mob. number</p>
+                    <div class="nameDiv">
+                        <input type="name" placeholder="name">
+                        <input type="name"  placeholder="name">
+                    </div>
+
+                    <div class="nameDiv">
+                        <input type="name"  placeholder="name">
+                        <input type="name"  placeholder="name">
+                    </div>
+
                 </div>
 
 
-                <div id="BillingDate">
-                    <p>Voucher No <span id="salesVoucher">001</span></p>
-                    <p> Date <span id="date">19-07-24</span></p>
-    
-                </div>
 
             </div>
 
