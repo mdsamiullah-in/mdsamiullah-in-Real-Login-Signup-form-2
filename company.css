@@ -280,9 +280,10 @@ body{
 }
 
 .companyDetail h1{
-    color: #08e9d3;
-    text-shadow: 1.5px 0.1px 0.1px #f4efef;
+    color: #ffffff;
     letter-spacing: 1px;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #headerContent{
@@ -292,6 +293,7 @@ body{
     font-family: Aria;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 #headerContent h1{
@@ -328,19 +330,20 @@ body{
 
 .inputMainBox{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     background-color: dodgerblue;
     padding: 20px 5px;
     width: 100%;
+    gap: 8px;
 }
 
 
 .inputMainBox input{
-    padding: 8px ;
+    padding: 10px ;
     border: none;
     border: 0.5px solid black;
     outline: none;
-    width: calc(100% - 76.7%)
+   width: 100%;
 }
 
 .inputMainBox button{
@@ -365,9 +368,9 @@ body{
     font-size: 13px;
 }
 
-#billHeader p{
+#billHeader span{
     width: 100%;
-    padding-left: 20px;
+    text-align: center;
 }
 
 #inputForm{
@@ -534,6 +537,15 @@ font{
     padding: 5px;
 }
 
+#tag{
+    color: white;
+}
+
+#inputForm input{
+    padding: 13px 6px;
+    border-collapse: collapse;
+    border: 0.5px solid gray;
+}
 
 @media(max-width: 630px){
     #header{
@@ -567,10 +579,7 @@ font{
 
 
 @media(max-width: 360px){
-    #inputFields input{
-        padding: 13px 6px;
-        border-radius: 5px;
-    }
+
     .newInputBox input{
           border-radius: 0px;
     }
@@ -633,7 +642,7 @@ font{
     overflow: hidden;
   }
   details {
-    max-width: 330px;
+    max-width: 500px;
     box-sizing: border-box;
     margin-top: 5px;
     background: white;
@@ -702,12 +711,14 @@ font{
 
 #cutSidebar{
     position: absolute;
-    top: 13px;
-    right: 15px;
+    top: 15px;
+    right: 20px;
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     display: none;
 }
+
+
 
 
 
@@ -737,8 +748,17 @@ font{
         z-index: 1000;
     }
     .detail{
-        margin-top: 20px;
+        margin-top: 25px;
     }
+    #sidebar{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    
+#detailBox{
+    margin-top: 35px;
+}
 
 }
 
@@ -760,11 +780,21 @@ font{
    summary{
     display: flex;
     align-items: center;
+    width: 330px;
    }
 
    .detail{
     margin-bottom: -30px;
    }
+
+   #TaxForm{
+    width: 100%;
+   }
+
+   #myForm{
+    width: 100%;
+   }
+
 
 }
 

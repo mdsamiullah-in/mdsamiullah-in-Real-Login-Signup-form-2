@@ -27,13 +27,13 @@
 
          <i class="fa-solid fa-xmark" id="cutSidebar"></i>
 
-         <div class="detailBox">
+         <div id="detailBox">
             <details>
                 <summary><i class="fa-solid fa-check icon" id="check"></i>Tax Setup</summary>
-                <div class="content">
+                <div class="content"  class="animate__animated animate__slideInDown">
   
 
-                    <div id="TaxForm" class="animate__animated ani">
+                    <div id="TaxForm">
                         <input class="taxInput" type="text" placeholder="Tax Name" id="taxNameInput">
                         <input class="taxInput" type="text" placeholder="number" id="taxNumberInput">
                         <button type="button" id="done">Done</button>
@@ -62,19 +62,7 @@
                 </div>
               </details>
 
-
-              <details>
-                <summary><i class="fa-solid fa-trash"></i> Shut Company</summary>
-                <div class="content">
-                    <div class="accountCompanyForm">
-                        <i class="fa-solid fa-trash icon"></i>    
-                        <button>Shut Company</button>
-                    </div>
-            
-                </div>
-              </details>
-
-
+              
               <details>
                 <summary><i class="fa-solid fa-search"></i> Search Bill</summary>
                 <div class="content">
@@ -89,6 +77,41 @@
             
                 </div>
               </details>
+
+
+              <details>
+                <summary><i class="fa-solid fa-trash"></i> Shut Company</summary>
+                <div class="content">
+                    <div class="accountCompanyForm">
+                        <i class="fa-solid fa-trash icon"></i>    
+                        <button>Shut Company</button>
+                    </div>
+            
+                </div>
+              </details>
+
+              
+              <details>
+                <summary id="fillUser"><i class="fa-solid fa-user"></i>Fill User Detail</summary>
+                <div class="content">
+                  
+                    <div id="formBox">
+
+                        <div class="inputMainBox" id="inputBox">
+                                <input type="text" id="name" placeholder="Name">
+                                <input type="email" id="email" placeholder="Email">
+                                <input type="text" id="address" placeholder="Address">
+                                <input type="phone" id="phone" placeholder="Number">
+                                <button id="Submit">Submit</button>
+                        </div>
+        
+                      
+                    </div>
+            
+                </div>
+              </details>
+
+
          </div>
 
             </div>
@@ -110,7 +133,7 @@
 
                 <div class="companyDetail">
                     <h1>Gate4Tech</h1>
-                    <p> Address : Chakhabibullah, muzaffarpur, bihar, 842001<br> Contact, +91 9771516171</p>
+                    <p id="tag"> Address : Chakhabibullah, muzaffarpur, bihar, 842001<br> Contact, +91 9771516171</p>
                 </div>
             </div>
 
@@ -133,26 +156,15 @@
             </div>
 
 
-            <div id="formBox">
 
-                <div class="inputMainBox">
-                        <input type="text" id="name" placeholder="Name">
-                        <input type="email" id="email" placeholder="Email">
-                        <input type="text" id="address" placeholder="Address">
-                        <input type="phone" id="phone" placeholder="Number">
-                        <button id="Submit">Submit</button>
-                </div>
-
-              
-            </div>
         
 
             <div id="billingBox">
                 <div id="billHeader">
-                    <p>Description</p>
-                    <p>Price</p>
-                    <p>Qty</p>
-                    <p>Amount</p>
+                    <span>Item</span>
+                    <span>Price</span>
+                    <span>Qty</span>
+                    <span>Amount</span>
                 </div>
                 <div id="billInputs">
 
