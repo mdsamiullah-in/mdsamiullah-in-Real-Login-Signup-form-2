@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 class Accordion {
     constructor(el) {
       // Store the <details> element
@@ -117,11 +126,6 @@ class Accordion {
   
 
 
-
-document.getElementById("print").onclick = function(){
-print()
-
-}
 
 
 
