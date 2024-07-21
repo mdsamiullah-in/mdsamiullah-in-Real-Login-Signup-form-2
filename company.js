@@ -398,7 +398,6 @@ function calculateSubTotal() {
 
 
 var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
-
 document.getElementById("Submit").onclick = function(){
    
     var buyer_name = document.getElementById("name").value;
@@ -440,10 +439,11 @@ document.getElementById("Submit").onclick = function(){
         store_tax: store_tax
     };
     
-
+ 
+    var allVoucherNo = 1;
     var buyerObjectString = JSON.stringify(buyerObject);
     localStorage.setItem('buyer_Object_'+ allVoucherNo, buyerObjectString);
-
+    allVoucherNo++
 
     document.getElementById("savedName").textContent =  "Name : " + buyer_name;
     document.getElementById("savedEmail").textContent = "Email : " + buyer_email;
@@ -495,71 +495,67 @@ function createNewItem() {
    
 }
 
-search_voucher()
+// search_voucher()
 
 
 
 
-//Search Voucher
-function search_voucher(){
+// //Search Voucher
+// function search_voucher(){
     
-    var search_field = document.getElementById("search-voucher");
+//     var search_field = document.getElementById("search-voucher");
 
-    search_field.onkeyup = function(event){
+//     search_field.oninput = function(event){
       
-        if(event.keyCode == 13){
-            var userInput = "buyer_Object_"+this.value;
-           var i;
-           for(i=0; i<localStorage.length; i++){
-               var allKeys = localStorage.key(i)
-               if(allKeys == userInput){
-                var buyer_Object = localStorage.getItem(allKeys);
-                var buyerObjectExtract = JSON.parse(buyer_Object)
-                document.getElementById("sales").click();
-                document.getElementById("salesVoucher").innerHTML = "Voucher no :"+ this.value;
-                document.getElementById("savedName").textContent = buyerObjectExtract.buyer_name;
-                document.getElementById("savedEmail").textContent = buyerObjectExtract.buyer_email;
-                document.getElementById("savedAddress").textContent = buyerObjectExtract.buyer_address;
-                document.getElementById("savedPhone").textContent = buyerObjectExtract.buyer_number;
-                document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
-                document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
-                document.getElementById("taxBox").style.display = "none"
-                document.getElementById("paidBox").style.display = "none";
-                document.getElementById("balanceDue").style.display = "none"
-                document.getElementById("buttonBox").style.display = "none"
-                document.getElementById("formBox").style.display = "none"
+//         if(event.keyCode == 13){
+//             var userInput = "buyer_Object_"+this.value;
+//            var i;
+//            for(i=0; i<localStorage.length; i++){
+//                var allKeys = localStorage.key(i)
+//                if(allKeys == userInput){
+//                 var buyer_Object = localStorage.getItem(allKeys);
+//                 var buyerObjectExtract = JSON.parse(buyer_Object)
+//                 document.getElementById("sales").click();
+//                 document.getElementById("salesVoucher").innerHTML = "Voucher no :"+ this.value;
+//                 document.getElementById("savedName").textContent = buyerObjectExtract.buyer_name;
+//                 document.getElementById("savedEmail").textContent = buyerObjectExtract.buyer_email;
+//                 document.getElementById("savedAddress").textContent = buyerObjectExtract.buyer_address;
+//                 document.getElementById("savedPhone").textContent = buyerObjectExtract.buyer_number;
+//                 document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
+//                 document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
+
 
 
                 
 
-                var item = document.getElementsByClassName("itemName");
-                item.disabled = false
-                var price = document.getElementsByClassName("price");
-                var qty = document.getElementsByClassName("qnt");
-                var amount = document.getElementsByClassName("amount")
+//                 var item = document.getElementsByClassName("itemName");
+//                 item.disabled = false
+//                 var price = document.getElementsByClassName("price");
+//                 var qty = document.getElementsByClassName("qnt");
+//                 var amount = document.getElementsByClassName("amount")
 
 
-                var itemLength = buyerObjectExtract.storeItem.length;
-                var j;
-                for(j=0; j<itemLength; j++){
-                    document.getElementById("plus").click()
-                    item[j].value = buyerObjectExtract.storeItem[j]
-                    item[j].disabled = true
-                    price[j].value = buyerObjectExtract.store_price[j]
-                    price[j].disabled = true
-                    qty[j].value = buyerObjectExtract.store_Qty[j]
-                    qty[j].disabled = true
-                    amount[j].value = buyerObjectExtract.store_amount[j]
-                    amount[j].disabled = true
-                }
+//                 var itemLength = buyerObjectExtract.storeItem.length;
+//                 var j;
+//                 for(j=0; j<itemLength; j++){
+//                     document.getElementById("plus").click()
+//                     item[j].value = buyerObjectExtract.storeItem[j]
+//                     item[j].disabled = true
+//                     price[j].value = buyerObjectExtract.store_price[j]
+//                     price[j].disabled = true
+//                     qty[j].value = buyerObjectExtract.store_Qty[j]
+//                     qty[j].disabled = true
+//                     amount[j].value = buyerObjectExtract.store_amount[j]
+//                     amount[j].disabled = true
+//                 }
 
-               }
-           }
-        }
+//                }
+//            }
+//         }
 
-    }
+//     }
 
-}
+// }
 
 
 // Add event listener to the "Add Item" button

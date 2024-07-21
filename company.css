@@ -317,10 +317,11 @@ body{
   width: 200px;
   text-align: right;
   padding: 0 20px;
-  background-color: rgb(29, 36, 46);
+  background-color: #035C90;
   width: 100%;
   align-items: center;
   color: white;
+  border-top: 1.6px solid #ffffff;
 
 }
 
@@ -328,15 +329,11 @@ body{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    
 
 }
 
-#BillingDate span{
-    border-right:  2px solid rgb(240, 240, 240);
-    padding: 20px;
-    height: 100%;
-    margin-left: -35px;
-}
+
 #headerInfo{
     display: flex;
     gap: 10px;
@@ -547,15 +544,13 @@ font{
 }
 
 #manage-section{
-    position: fixed;
-    top: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
-    background-color: rgb(3, 92, 144);
-    height: 100vh;
+    background-color: #428C9E;
+    height: 30vh;
     padding: 5px 5px;
     width: 250px;
+    margin-left: 3px;
  
 }
 
@@ -589,6 +584,12 @@ font{
     padding: 13px 6px;
     border-collapse: collapse;
     border: 0.5px solid gray;
+}
+
+#manage-section input{
+   border: none;
+   outline: none;
+   padding: 8px;
 }
 
 @media(max-width: 630px){
