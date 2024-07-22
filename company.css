@@ -897,7 +897,7 @@ font{
 
 
 
-@media(min-width: 365px) and (max-width: 383px){
+@media(min-width: 362px) and (max-width: 383px){
     summary{
         width: 350px;
     }
