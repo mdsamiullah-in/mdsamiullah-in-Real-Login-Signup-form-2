@@ -548,11 +548,41 @@ font{
     flex-direction: column;
     background-color: #428C9E;
     height: 30vh;
-    padding: 5px 5px;
+    padding: 5px 10px;
     width: 250px;
     margin-left: 3px;
+    border-radius: 5px;
  
 }
+
+#searchBox{
+    display: flex;
+}
+
+
+#search{
+    padding: 5px;
+}
+
+
+#bars{
+    color: white;
+}
+
+
+#Submit{
+    padding: 8px 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    width: fit-content;
+    background-color: #15b7a7;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
 
 #myContents{
     display: flex;
@@ -589,7 +619,20 @@ font{
 #manage-section input{
    border: none;
    outline: none;
-   padding: 8px;
+   padding: 10px;
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+
+#manage-section button{
+    border: none;
+    background-color: transparent;
+    background-color: white;
+    padding-right: 15px;
+    cursor: pointer;
+    border-left: 1px solid white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 @media(max-width: 630px){
@@ -840,6 +883,15 @@ font{
     width: 100%;
    }
 
+
+   #manage-section{
+    width: 100%;
+    margin-left: -1px;
+   }
+
+   #manage-section input{
+    border-right: 1px solid white;
+   }
 
 }
 

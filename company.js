@@ -3,10 +3,6 @@
 
 
 
-
-
-
-
 class Accordion {
     constructor(el) {
       // Store the <details> element
@@ -218,77 +214,24 @@ class Accordion {
 //  var sales = document.getElementById("sales");
 // sales.onclick = function(){
 
-//    
-
-
-    //  function voucher(){
-
-    //     var i; 
-    //     for(i=0; i<localStorage.length; i++){
-    //         var allKeys = localStorage.key(i);
-    //         if(allKeys.match("buyer_Object_")){
+//      function voucher(){
+//         var i; 
+//         for(i=0; i<localStorage.length; i++){
+//             var allKeys = localStorage.key(i);
+//             if(allKeys.match("buyer_Object_")){
     
-    //             var findNum = allKeys.split("_");
-    //             allVoucherNo = findNum[2]
-    //             document.getElementById("salesVoucher").innerHTML = "Voucher no : " + allVoucherNo++;
+//                 var findNum = allKeys.split("_");
+//                 allVoucherNo = findNum[2]
+//                 document.getElementById("voucher").innerHTML = "Voucher no : " + allVoucherNo++;
     
     
-    //         }else if(allKeys.match("buyer_Object_") == null){
-    //           document.getElementById("salesVoucher").innerHTML = allVoucherNo++;
-    //         }
-    //     }
-
-    //  }
-    //  voucher()
-
-
-
-
-//     var formBox = document.getElementById("formBox");
-//     var input = formBox.getElementsByTagName("input");
-//     input[0].focus();
-
-
-//     input[0].onkeyup = function(event){
-       
-//        if(event.keyCode == 13){
-//            input[1].focus();
-//        }
-//     }
-
-
-//    input[1].onkeyup = function(event){
-       
-//         if(event.keyCode == 13){
-//             input[2].focus()
+//             }else if(allKeys.match("buyer_Object_") == null){
+//               document.getElementById("voucher").innerHTML = allVoucherNo++;
+//             }
 //         }
 
-//    } 
-
-
-//    input[2].onkeyup = function(event){
-     
-//      if(event.keyCode == 13){
-//         input[3].focus();
 //      }
-
-//    }
-
-
-
-
-
-
-//    input[3].onkeyup = function(event){
-     
-//     if(event.keyCode == 13){
-//       var iconPluse = document.getElementById("iconPluse");
-//       iconPluse.click()
-//     }
-
-//   }
-
-
+//      voucher()
 
 //  }
 
@@ -351,6 +294,9 @@ document.getElementById("done").onclick = function() {
 
 
 
+
+
+
 var store_subtotal, store_total, store_paid, store_dues, store_tax, allVoucherNo = 1;
 function calculateSubTotal() {
     var items = document.getElementsByClassName('bill-input');
@@ -384,9 +330,8 @@ function calculateSubTotal() {
 
 
 
-
- document.getElementById("paid").oninput = function(){
     store_paid = this.value;
+ document.getElementById("paid").oninput = function(){
     var totalMoney = total;
     var finalMoney = totalMoney - this.value;
     store_dues = finalMoney.toFixed(2)
@@ -422,6 +367,8 @@ document.getElementById("Submit").onclick = function(){
     for(i=0; i<storeAmount.length; i++){
         store_amount[i] = storeAmount[i].value
     }
+    
+              
                                                                                                                                                                  
     var buyerObject = {
         buyer_name: buyer_name,
@@ -438,12 +385,22 @@ document.getElementById("Submit").onclick = function(){
         store_dues: store_dues,
         store_tax: store_tax
     };
-    
- 
-    var allVoucherNo = 1;
+
+
     var buyerObjectString = JSON.stringify(buyerObject);
-    localStorage.setItem('buyer_Object_'+ allVoucherNo, buyerObjectString);
-    allVoucherNo++
+
+    var allVoucherNo = localStorage.getItem('allVoucherNo');
+    if (!allVoucherNo) {
+      allVoucherNo = 1;
+    } else {
+      allVoucherNo = parseInt(allVoucherNo) + 1;
+      document.getElementById("voucher").textContent = allVoucherNo;
+    }
+    
+    localStorage.setItem('allVoucherNo', allVoucherNo);
+    localStorage.setItem('buyer_Object_' + allVoucherNo, buyerObjectString);
+
+
 
     document.getElementById("savedName").textContent =  "Name : " + buyer_name;
     document.getElementById("savedEmail").textContent = "Email : " + buyer_email;
@@ -495,67 +452,82 @@ function createNewItem() {
    
 }
 
-// search_voucher()
 
 
 
 
-// //Search Voucher
-// function search_voucher(){
-    
-//     var search_field = document.getElementById("search-voucher");
+document.getElementById("search").onclick = function(){
 
-//     search_field.oninput = function(event){
+  var search_field = document.getElementById("search-voucher");
+
+          var userInput = "buyer_Object_"+ search_field.value;
+         var i;
+         for(i=0; i<localStorage.length; i++){
+             var allKeys = localStorage.key(i)
+             if(allKeys == userInput){
+              var buyer_Object = localStorage.getItem(allKeys);
+              var buyerObjectExtract = JSON.parse(buyer_Object)
+              document.getElementById("voucher").innerHTML = "Voucher No : " + search_field.value;
+              document.getElementById("savedName").textContent = "Name : " +  buyerObjectExtract.buyer_name;
+              document.getElementById("savedEmail").textContent = "Email : " +  buyerObjectExtract.buyer_email;
+              document.getElementById("savedAddress").textContent = "Address : " +  buyerObjectExtract.buyer_address;
+              document.getElementById("savedPhone").textContent = "Mob. number : " +  buyerObjectExtract.buyer_number;
+              document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
+              document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
+              document.getElementById("tax").textContent = "₹ " + buyerObjectExtract.store_tax;
+              document.getElementById("paid").textContent = "₹ " + buyerObjectExtract.store_paid
+              document.getElementById("plus").style.display = "none";
+              document.getElementById("Submit").style.display = "none"
+
+              function myFunction(x) {
+                if (x.matches) { // If media query matches
+                  document.getElementById("sidebar").style.display = "none"
+                } else {
+                 document.getElementById("sidebar").style.display = "flex"
+                }
+              }
+              
+              // Create a MediaQueryList object
+              var x = window.matchMedia("(max-width: 767px)")
+              
+              // Call listener function at run time
+              myFunction(x);
+              
+              // Attach listener function on state changes
+              x.addEventListener("change", function() {
+                myFunction(x);
+              });
+
+              var item = document.getElementsByClassName("itemName");
+              item.disabled = false
+              var price = document.getElementsByClassName("price");
+              var qty = document.getElementsByClassName("qnt");
+              var amount = document.getElementsByClassName("amount")
+
+
+              var itemLength = buyerObjectExtract.storeItem.length;
+              var j;
+              for(j=0; j<itemLength; j++){
+                  document.getElementById("plus").click()
+                  item[j].value = buyerObjectExtract.storeItem[j]
+                  item[j].disabled = true
+                  price[j].value = buyerObjectExtract.store_price[j]
+                  price[j].disabled = true
+                  qty[j].value = buyerObjectExtract.store_Qty[j]
+                  qty[j].disabled = true
+                  amount[j].value = buyerObjectExtract.store_amount[j]
+                  amount[j].disabled = true
+              }
+
+             }
+         }
+
+   
       
-//         if(event.keyCode == 13){
-//             var userInput = "buyer_Object_"+this.value;
-//            var i;
-//            for(i=0; i<localStorage.length; i++){
-//                var allKeys = localStorage.key(i)
-//                if(allKeys == userInput){
-//                 var buyer_Object = localStorage.getItem(allKeys);
-//                 var buyerObjectExtract = JSON.parse(buyer_Object)
-//                 document.getElementById("sales").click();
-//                 document.getElementById("salesVoucher").innerHTML = "Voucher no :"+ this.value;
-//                 document.getElementById("savedName").textContent = buyerObjectExtract.buyer_name;
-//                 document.getElementById("savedEmail").textContent = buyerObjectExtract.buyer_email;
-//                 document.getElementById("savedAddress").textContent = buyerObjectExtract.buyer_address;
-//                 document.getElementById("savedPhone").textContent = buyerObjectExtract.buyer_number;
-//                 document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
-//                 document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
 
+      }
 
-
-                
-
-//                 var item = document.getElementsByClassName("itemName");
-//                 item.disabled = false
-//                 var price = document.getElementsByClassName("price");
-//                 var qty = document.getElementsByClassName("qnt");
-//                 var amount = document.getElementsByClassName("amount")
-
-
-//                 var itemLength = buyerObjectExtract.storeItem.length;
-//                 var j;
-//                 for(j=0; j<itemLength; j++){
-//                     document.getElementById("plus").click()
-//                     item[j].value = buyerObjectExtract.storeItem[j]
-//                     item[j].disabled = true
-//                     price[j].value = buyerObjectExtract.store_price[j]
-//                     price[j].disabled = true
-//                     qty[j].value = buyerObjectExtract.store_Qty[j]
-//                     qty[j].disabled = true
-//                     amount[j].value = buyerObjectExtract.store_amount[j]
-//                     amount[j].disabled = true
-//                 }
-
-//                }
-//            }
-//         }
-
-//     }
-
-// }
+  
 
 
 // Add event listener to the "Add Item" button
