@@ -459,6 +459,14 @@ function createNewItem() {
 document.getElementById("search").onclick = function(){
 
   var search_field = document.getElementById("search-voucher");
+  
+
+
+
+  var fill = document.getElementById("fillUser");
+  fill.click()
+
+
 
           var userInput = "buyer_Object_"+ search_field.value;
          var i;
@@ -468,10 +476,10 @@ document.getElementById("search").onclick = function(){
               var buyer_Object = localStorage.getItem(allKeys);
               var buyerObjectExtract = JSON.parse(buyer_Object)
               document.getElementById("voucher").innerHTML = "Voucher No : " + search_field.value;
-              document.getElementById("savedName").textContent = "Name : " +  buyerObjectExtract.buyer_name;
-              document.getElementById("savedEmail").textContent = "Email : " +  buyerObjectExtract.buyer_email;
-              document.getElementById("savedAddress").textContent = "Address : " +  buyerObjectExtract.buyer_address;
-              document.getElementById("savedPhone").textContent = "Mob. number : " +  buyerObjectExtract.buyer_number;
+              document.getElementById("name").value =  buyerObjectExtract.buyer_name;
+              document.getElementById("email").value =  buyerObjectExtract.buyer_email;
+              document.getElementById("address").value =  buyerObjectExtract.buyer_address;
+              document.getElementById("phone").value =  buyerObjectExtract.buyer_number;
               document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
               document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
               document.getElementById("tax").textContent = "₹ " + buyerObjectExtract.store_tax;
@@ -497,7 +505,7 @@ document.getElementById("search").onclick = function(){
               x.addEventListener("change", function() {
                 myFunction(x);
               });
-
+   
               var item = document.getElementsByClassName("itemName");
               item.disabled = false
               var price = document.getElementsByClassName("price");

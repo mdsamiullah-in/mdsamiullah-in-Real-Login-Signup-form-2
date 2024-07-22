@@ -104,6 +104,7 @@ body{
     flex-direction: column;
     gap: 5px;
     width: 100%;
+
 }
 
 #header{
@@ -902,4 +903,30 @@ font{
         width: 350px;
     }
 
+}
+
+
+#userDetail{
+    width: 100%;
+}
+
+#fillUser{
+    width: 100%;
+}
+
+#inputBox{
+    padding: 15px;
+}
+
+
+#inputBox input{
+    width: 100%;
+    padding: 12px 6px;
+}
+    
+
+
+
+#inputBox{
+    width: 100%;
 }
