@@ -420,7 +420,7 @@ body{
 
 #billHeader span{
     width: 100%;
-    text-align: center;
+    margin-left: 3px;
 }
 
 #inputForm{
@@ -747,7 +747,8 @@ font{
     box-sizing: border-box;
     margin-top: 5px;
     background: white;
-    
+    border: none;
+    outline: none;
 
   }
   details summary::-webkit-details-marker {
@@ -937,9 +938,9 @@ summary:before {
 
 
 
-@media(min-width: 362px) and (max-width: 383px){
+@media(min-width: 362px) and (max-width: 384px){
     summary{
-        width: 350px;
+        width: 352px;
     }
 
 }
@@ -983,8 +984,13 @@ details .accountCompanyForm{
     width: 50px;
     background-color: #035C90;
     padding-top: 15px;
-    padding-right: 6px;
+    padding-right: 7px;
     color: rgb(255, 255, 255);
     padding-left: 6px;
     border-bottom: 1.5px solid grey;
+}
+
+
+summary{
+    border: 2px solid grey;
 }

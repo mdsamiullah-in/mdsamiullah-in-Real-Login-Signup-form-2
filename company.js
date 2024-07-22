@@ -346,8 +346,6 @@ function calculateSubTotal() {
 var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
 document.getElementById("Submit").onclick = function(){
 
-
-  print()
    
     var buyer_name = document.getElementById("name").value;
     var buyer_email = document.getElementById("email").value;
@@ -540,6 +538,11 @@ document.getElementById("search").onclick = function(){
       }
 
   
+      var fill = document.getElementById("fillUser");
+      fill.onclick = function(){
+        var userIcon =  document.getElementById("userIcon");
+        userIcon.className = "fa-solid fa-face-smile"
+      }
 
 
 // Add event listener to the "Add Item" button
