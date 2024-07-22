@@ -182,7 +182,8 @@ class Accordion {
                     <input type="text" placeholder="Item" class="itemName">
                     <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
                     <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
-                    <input type="text" placeholder="Rs 0.00" class="amount" readonly>
+                   <input type="text" placeholder="Rs 0.00" class="amount" id="amountTotal" readonly>
+                   <i onclick="this.parentNode.remove()" id="cutInput" class="fa-solid fa-xmark"></i>
                 </div>
                 `;
                 billInputs.appendChild(div);
@@ -344,6 +345,9 @@ function calculateSubTotal() {
 
 var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
 document.getElementById("Submit").onclick = function(){
+
+
+  print()
    
     var buyer_name = document.getElementById("name").value;
     var buyer_email = document.getElementById("email").value;

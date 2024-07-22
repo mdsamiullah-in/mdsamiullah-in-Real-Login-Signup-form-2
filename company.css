@@ -99,7 +99,6 @@ body{
 
 
 #headerInfo{
-    padding: 8px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -371,18 +370,26 @@ body{
 }
 
 
+
 .inputMainBox{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
     background-color: rgb(3, 92, 144);
-    padding: 20px 5px;
+    padding: 10px 10px;
     width: 100%;
-    gap: 8px;
+}
+
+#FirstInput , #SecondInput{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 
 .inputMainBox input{
-    padding: 10px ;
+    padding: 10px 5px;
     border: none;
     border: 0.5px solid black;
     outline: none;
@@ -427,6 +434,12 @@ body{
     border: none;
     border: 0.5px solid black;
     outline: none;
+}
+
+#fillUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #plus{
@@ -636,6 +649,7 @@ font{
     border-bottom-right-radius: 5px;
 }
 
+
 @media(max-width: 630px){
     #header{
         display: flex;
@@ -661,6 +675,9 @@ font{
 
     .inputMainBox input{
         width: 100%;
+    }
+    #SecondInput{
+        margin-top: 5.2px;
     }
 
 
@@ -714,11 +731,6 @@ font{
   summary {
     border: 4px solid transparent;
     outline: none;
-    
-    &:focus {
-      border-color: black;
-    }
-
     padding: 0.5rem;
     display: block;
     background: rgb(52, 52, 52);
@@ -731,7 +743,7 @@ font{
     overflow: hidden;
   }
   details {
-    max-width: 500px;
+    width: 100%;
     box-sizing: border-box;
     margin-top: 5px;
     background: white;
@@ -744,20 +756,27 @@ font{
   details[open] > summary:before {
     transform: rotate(90deg);
   }
+
+
   summary:before {
     content: '';
     border-width: .4rem;
     border-style: solid;
     border-color: transparent transparent transparent #fff;
     position: absolute;
-    top: 1.4rem;
+    top: 1rem;
     left: 1rem;
     transform: rotate(0);
     transform-origin: .2rem 50%;
     transition: .5s transform ease;
   }
-  
-  
+
+
+
+
+  #fillUser{
+    background-color: rgb(3, 92, 144);
+  }
   
   .content {
     border-top: none;
@@ -787,6 +806,7 @@ font{
     padding: 6px;
     color: black;
   }
+
 
 
   #bars{
@@ -849,6 +869,20 @@ font{
     margin-top: 35px;
 }
 
+#headerInfo{
+    display: flex;
+    justify-content: center;
+}
+
+#userDetail{
+    width: 100%;
+}
+
+summary:before {
+    top: 1.4rem;
+}
+
+
 }
 
 @media(max-width: 384px){
@@ -859,6 +893,7 @@ font{
     left: 0;
     width: 100%;
     display: none;
+    border-right: none;
    }
 
    summary i{
@@ -894,6 +929,10 @@ font{
     border-right: 1px solid white;
    }
 
+
+
+
+
 }
 
 
@@ -906,9 +945,6 @@ font{
 }
 
 
-#userDetail{
-    width: 100%;
-}
 
 #fillUser{
     width: 100%;
@@ -929,4 +965,26 @@ font{
 
 #inputBox{
     width: 100%;
+}
+
+
+
+#contactTag{
+    color: white;
+}
+
+
+details .accountCompanyForm{
+    width: 100%;
+}
+
+
+#cutInput{
+    width: 50px;
+    background-color: #035C90;
+    padding-top: 15px;
+    padding-right: 6px;
+    color: rgb(255, 255, 255);
+    padding-left: 6px;
+    border-bottom: 1.5px solid grey;
 }
