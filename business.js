@@ -7,7 +7,7 @@ company.onclick = function() {
         document.getElementById("formBox").style.display = "block";
     } else {
 
-      location.href = "http://127.0.0.1:5503/company.html"
+        location.replace("company.html")
        
     }
 document.getElementById("cut").onclick = function() {
