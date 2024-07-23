@@ -10,7 +10,7 @@
     align-items: center;
     min-height: 100vh;
     padding-top: 100px;
-    background-color: black;
+    background-color: rgb(3, 92, 144);
 }
 
 
@@ -63,7 +63,6 @@
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(38, 197, 197);
-
     padding: 0 10px;
 }
 
@@ -75,41 +74,6 @@
 }
 
 
-#formBox{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-
-#form{
-    background-color: white;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    border-radius: 5px;
-  width: 320px;
-}
-
-#form input{
-    width: 100%;
-    padding: 8px;
-    outline: none;
-}
-
-#form button{
-    padding: 8px;
-    background-color: dodgerblue;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    border: none;
-    color: white;
-    font-size: 17px;
-    border-radius: 5px;
-}
 
 
 #btnDiv{
@@ -134,12 +98,193 @@
 }
 
 
-
-
-
-@media(max-width: 400px){
-    .boxes{
-        width: calc(100% - 30%);
-        height: 180px;
-    }
+#cut{
+    color: white;
 }
+
+
+
+#formBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: rgb(3, 92, 144);
+    height: fit-content;
+     width: 360px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 0 5px 0 white;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#form input{
+   padding: 10px 10px;
+   box-shadow: inset  0 0 3px 0 #4c4c4c;
+   outline: none;
+   border: none;
+   border: 1px solid black;
+   border-radius: 3px;
+
+}
+
+#form input:hover{
+    box-shadow:  0 0 3px 0 #4c4c4c;
+}
+
+
+#create{
+    padding: 10px 5px;
+    border: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: rgb(3, 92, 144);
+    color: white;
+    box-shadow: 0 0 5px 0 #888;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+
+}
+
+#create:hover{
+    box-shadow: 0 0 3px 0 #383838;
+}
+
+
+#x{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    border: none;
+}
+
+
+
+
+#loginBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: rgb(3, 92, 144);
+    width: 320px;
+    height: 200px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+#loginBox h2{
+     text-align: center;
+     color: white;
+     font-family: sans-serif;
+     margin-top: 10px;
+}
+
+#loginBox input{
+    width: 270px;
+    padding: 10px 4px;
+    margin: 5px 0;
+}
+
+#buttonBox button{
+    width: 270px;
+    padding: 10px 4px;
+    background-color: rgb(3, 92, 144);
+    border: none;
+    border: 1px solid white;
+    color: white;
+    box-shadow: 0 0 3px 0 #ccc;
+}
+
+.boxes{
+    position: relative;
+}
+
+
+
+@media(max-width: 386px){
+ 
+    .boxes{
+       width: calc(100% - 20%);
+       height: 230px;
+    }
+
+    .boxes p{
+        font-size: 25px;
+    }
+
+    .boxes i{
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+    }
+
+    #loginBox{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        background-color: rgb(3, 92, 144);
+        width: 320px;
+        height: 200px;
+        border: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #loginBox h2{
+         text-align: center;
+         color: white;
+         font-family: sans-serif;
+         margin-top: 10px;
+    }
+
+    #loginBox input{
+        width: 270px;
+        padding: 10px 4px;
+        margin: 5px 0;
+    }
+
+    #buttonBox button{
+        width: 270px;
+        padding: 10px 4px;
+        background-color: rgb(3, 92, 144);
+        border: none;
+        border: 1px solid white;
+        color: white;
+        box-shadow: 0 0 3px 0 #ccc;
+    }
+
+    .boxes{
+        position: relative;
+    }
+
+}
+
+@media(max-width: 412px){
+      
+    #formBox{
+        width: 340px;
+    }
+
+    #form input{
+        padding: 18px;
+
+    }
+
+} 
+
+

@@ -75,6 +75,9 @@ document.getElementById("Logout").onclick = function() {
 
 
 
+
+
+
     document.getElementById("create").onclick = function() {
         saveToLocalStorage();
         var companyName = document.getElementById("companyName");
@@ -124,6 +127,13 @@ document.getElementById("Logout").onclick = function() {
                 }
             }
         }
+    }
+
+
+    var x = document.getElementById("x");
+    x.onclick = function(){
+        var loginBox = document.getElementById("loginBox");
+        loginBox.style.display = "none"
     }
 
 

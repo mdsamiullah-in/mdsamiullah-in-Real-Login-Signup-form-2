@@ -25,11 +25,12 @@
            <i class="fa-solid fa-trash" id="click"></i>
            <p>Delete company</p>
            <div id="btnDiv">
-            <form id="loginBox">
+            <form id="loginBox" class="animate__animated animate__fadeIn">
+                <button id="x">X</button>
                 <h2>Delete Company</h2>
                 <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
                 <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
-                <div id="buttonBox"><button onclick="del()" type="button">Login</button></div>
+                <div id="buttonBox"><button onclick="del()" type="button" >Login</button></div>
             </form>
            </div>
 
@@ -46,16 +47,21 @@
 
         <div id="form">
             <i class="fa-solid fa-xmark" id="cut"></i>
-                <input required type="text" placeholder="Company name" id="companyName">
-                <input required type="text" placeholder="Mailing name" id="mailingName">
-                <input required type="text" placeholder="Address" id="address">
-                <input type="number" placeholder="Phone number" id="phoneNumber">
-                <input type="number" placeholder="Fax number" id="FaxNumber">
-                <input type="email" placeholder="E-mail" id="email">
-                <input type="website" placeholder="Website" id="website">
-                <input type="date" placeholder="Financial year begins from" id="FineYear">
-                <input type="text" placeholder="Book Beginning From" id="BookBegin">
-            <button id="create">Create Now </button>
+            
+
+            <input required type="text" placeholder="Company name" id="companyName">
+            <input required type="text" placeholder="Mailing name" id="mailingName">
+           <input required type="text" placeholder="Address" id="address">
+            <input type="number" placeholder="Phone number" id="phoneNumber">
+
+            <input type="number" placeholder="Fax number" id="FaxNumber">
+            <input type="email" placeholder="E-mail" id="email">
+            <input type="website" placeholder="Website" id="website">
+            <input type="date" placeholder="Financial year begins from" id="FineYear">
+            <input type="text" placeholder="Book Beginning From" id="BookBegin">
+            <button id="create">CREATE COMPANY</button>
+
+
             
         </form>
     </div>
