@@ -7,8 +7,7 @@ company.onclick = function() {
         document.getElementById("formBox").style.display = "block";
     } else {
 
-        location.replace("company.html")
-       
+        location.href("company.html")
     }
 document.getElementById("cut").onclick = function() {
     document.getElementById("boxesdiv").style.display = "flex";
