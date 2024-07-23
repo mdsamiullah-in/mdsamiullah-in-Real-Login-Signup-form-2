@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#imgBox{
+    border: 2px solid rgb(154, 154, 154);
+    border-radius: 5px;
+}
+
+#homeContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#homeContent h2{
+    font-family: Algerian;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: #dd706c;
+}
+
+
+#play{
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+#sidebar{
+    width: 300px;
+    height: 100vh;
+    background-color: #dd706c;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100% - 20px);
+    justify-content: center;
+}
+
+
+form input, button{
+    padding: 6px 2px;
+    outline: none;
+}
+
+form h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-transform: capitalize;
+}
+
+
+#loginBox{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+form button{
+    padding: 6px 6px;
+}
+
+#buttonBox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#profileContentBox{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    
+}
+
+#profileContent{
+    width: 300px;
+    height: 350px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+   justify-content: center;
+   padding: 10px;
+   position: relative;
+   background-color: white;
+   box-shadow: inset 0 0 20px 0 rgb(199, 196, 196);
+}
+
+
+#uploadBox{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 128, 255);
+    position: relative;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+#uploadFile{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+#uploadIcon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: rgb(0, 128, 255);
+}
+
+#userName{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: dodgerblue;
+}
+
+
+
+#arrow{
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+
+
+
+
+

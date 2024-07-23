@@ -13,25 +13,8 @@
     <div id="container">
 
 
-        <div id="homeContent">
-            <div id="imgBox">
-                <img src="note-removebg-preview.png" width="80px">
-            </div>
-            <h2>SAFE DOC</h2>
-
-        </div>
-
-
-        <div id="sidebar">
-
-            <form id="loginBox">
-                <h2>Login User !</h2>
-                <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
-                <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
-                <div id="buttonBox"><button onclick="login()" type="button">Login</button></div>
-            </form>
-
             <form id="signup">
+                <i class="fa-solid fa-xmark" id="cutSignup"></i>
                 <h2>Signup User !</h2>
                 <input type="name" placeholder="Enter your name" id="name">
                 <input type="email" placeholder="Enter your email" id="email">
@@ -44,11 +27,51 @@
                 <p id="validation"></p>
             </form>
 
-        </div>
+
         
+
+        <div id="boxesDiv">
+
+        <div id="content">
+                <h1>Business Management System</h1>
+        
+        </div>
+
+            
+        <form id="loginBox">
+            <h2>Login User !</h2>
+            <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
+            <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
+            <p id="openSign">Not a member? Signup</p>
+            <div id="buttonBox"><button onclick="login()" type="button">Login</button></div>
+        </form>
+
+         </div>
+
+
 
     </div>
     
+    <script>
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (()=>{
+        signupBtn.click();
+        return false;
+      });
+
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

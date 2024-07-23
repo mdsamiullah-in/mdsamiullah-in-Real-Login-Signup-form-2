@@ -6,9 +6,9 @@ company.onclick = function() {
         document.getElementById("head").style.display = "none";
         document.getElementById("formBox").style.display = "block";
     } else {
-       document.getElementById("home").onclick = function(){
-        location.replace("/App-Management/company.html");
-       }
+
+      location.href = "http://127.0.0.1:5503/company.html"
+       
     }
 document.getElementById("cut").onclick = function() {
     document.getElementById("boxesdiv").style.display = "flex";
@@ -28,11 +28,11 @@ function saveToLocalStorage() {
     var website = document.getElementById("website").value;
     var fineYear = document.getElementById("FineYear").value;
     var bookBegin = document.getElementById("BookBegin").value;
-
+    document.getElementById("companyTag").value = "Open Company"
     // Check if company data already exists
     if (localStorage.getItem("companyData")) {
         alert("Company already exists. You cannot create another one.");
-        return; // Exit the function if company data exists
+        return;
     }
 
     // Create an object to store all the data
@@ -62,21 +62,7 @@ document.getElementById("click").onclick = function() {
     document.getElementById("span").style.display = "block";
 }
 
-// document.getElementById("Cancel").onclick = function() {
-//     document.getElementById("btnDiv").style.display = "none";
-//     document.getElementById("span").style.display = "none";
-// }
 
-// document.getElementById("delete").onclick = function() {
-//     if (!localStorage.getItem("companyData")) {
-//         alert("Company is not created.");
-//         return; // Exit the function if company data does not exist
-//     }
-
-//     localStorage.removeItem("companyData");
-
-//     alert("Company data deleted successfully.");
-// }
 
 document.getElementById("Logout").onclick = function() {
     sessionStorage.clear();
@@ -156,6 +142,21 @@ document.getElementById("Logout").onclick = function() {
             if (userDetail.password === password) {
                 // Delete the company data upon successful login
                 localStorage.removeItem("companyData");
+                function deleteMatchingLocalStorageItems(pattern) {
+                    // Get all keys from localStorage
+                    const keys = Object.keys(localStorage);
+                
+                    // Loop through the keys and remove items that match the pattern
+                    keys.forEach(key => {
+                        if (key.startsWith(pattern)) {
+                            localStorage.removeItem(key);
+                        }
+                    });
+                }
+                
+                // Call the function with your specific pattern
+                deleteMatchingLocalStorageItems('buyer_Object_');
+                
                 alert("Company data deleted successfully upon login.");
                 location.reload
                 return false;

@@ -1,7 +1,0 @@
-User details ko center me karna hai.
-user details ke jagah customer details likhna hai.
-shut company ka width bada karna hai.
-sidebar ka border hatana hai.
-total Box ke and content me : add karna hai.
-submit ke jagah get bill write karna hai.
-delete option in input.

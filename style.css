@@ -1,16 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
 }
+
+
 
 #container{
     display: flex;
@@ -20,51 +22,6 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100vh;
 }
 
-#imgBox{
-    border: 2px solid rgb(154, 154, 154);
-    border-radius: 5px;
-}
-
-#homeContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-#homeContent h2{
-    font-family: Algerian;
-    font-size: 30px;
-    letter-spacing: 1px;
-    color: #dd706c;
-}
-
-
-#play{
-    border: 2px solid black;
-    border-radius: 50%;
-    font-size: 18px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-
-#sidebar{
-    width: 300px;
-    height: 100vh;
-    background-color: skyblue;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 
 
@@ -78,15 +35,18 @@ form{
 
 
 form input, button{
-    padding: 6px 2px;
+    padding: 10px 5px;
     outline: none;
+    border-radius: 5px;
 }
+
 
 form h2{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     text-transform: capitalize;
 }
+
 
 
 #loginBox{
@@ -105,234 +65,57 @@ form button{
 }
 
 
-#profileContentBox{
-    width: 100%;
+
+#signup{
+    background-color: rgb(3, 92, 144);
+    padding: 10px 20px;
+    max-width: 360px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  color: white;
+  box-shadow: 0 0 5px 0 black;
+  margin-bottom: 20px;
+}
+
+#cutSignup{
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#loginBox{
+    background-color: rgb(3, 92, 144);
+    padding: 20px;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 black;
+}
+
+
+
+#boxesDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    
-}
-
-#profileContent{
-    width: 300px;
-    height: 350px;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-   justify-content: center;
-   padding: 10px;
-   position: relative;
-   background-color: white;
-   box-shadow: inset 0 0 20px 0 rgb(199, 196, 196);
-}
-
-
-#uploadBox{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid rgb(0, 128, 255);
-    position: relative;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-#uploadFile{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: red;
-    border-radius: 50%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-
-#uploadIcon{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: rgb(0, 128, 255);
-}
-
-#userName{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: dodgerblue;
-}
-
-#safeBox{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 10px;
-    color: #d87672;
-}
-
-.logImg{
-    position: absolute;
-    bottom: 13px;
-    right: 13px;
-    cursor: pointer;
-}
-
-
-
-
-
-#container2{
-    width: 100%;
-    min-height: 100vh;
-}
-
-#header{
-    background-color: #e03731;
-    height: 110px;
-    position: relative;
-}
-
-#title{
-    text-align: center;
-    padding: 14px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(239, 242, 243);
-}
-
-#img2{
-    width: 70px;
-    height: 70px;
-    background-color: transparent;
-    box-shadow: 0 0 2px 0;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -35px;
-    left: 50%;
-    transform: translate(-50%);
-}
-
-
-#homePage{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   margin-top: 180px;
-   gap: 40px;
-   flex-wrap: wrap;
-}
-
-.contents{
-    background-color: #ffffff;
-    box-shadow: 0 0 2px 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 70px;
-    width: 100px;
-    padding: 5px 5px;
-    cursor: pointer;
-    text-align: center;
-}
-
-
-
-.contents h3{
-    padding: 8px;
-    font-family: sans-serif;
-    font-size: 16px;
-    color: rgb(120, 213, 250);
-}
-
-#FooterBox{
-   margin-top: 156px;
-}
-
-
-#Footer{
-    width: 100%;
-    height: 55px;
-    background-color: #e03731;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#Footer h2{
-    font-family: sans-serif;
-    color: whitesmoke;
-}
-
-#title{
-    font-family: Arial;
-    font-weight: normal;
-    font-size: 25px;
-    -webkit-text-stroke: 0.2px black;
-}
-
-
-#FooterBox{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-}
-
-
-#arrow{
-    font-size: 20px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: dodgerblue;
+    background-color: rgb(3, 92, 144);
     color: white;
-    border-radius: 5px;
-    padding: 3px 10px;
+}
+
+#content h1, p{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+#content h1{
+    font-size: 2rem;
+}
+
+#openSign{
     cursor: pointer;
 }
 
-
-#validation{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-#logoutMessage{
-    display: none;
-    width: 100%;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: dodgerblue;
-    transition: all 0.3s;
-    margin-top: 15px;
-}
-
-
-
-
-@media(max-width: 420px){
-    #homePage{
-        margin-top: 75px;
-        gap: 15px;
-    }
-
-    #contents{
-        gap: 15px;
-    }
-}

@@ -1,3 +1,15 @@
+
+document.getElementById("openSign").onclick = function(){
+    document.getElementById("signup").style.display = "flex"
+    return false
+}
+
+
+document.getElementById("cutSignup").onclick = function(){
+    document.getElementById("signup").style.display = "none"
+}
+
+
 function signup() {
     var name = btoa(document.getElementById("name").value);
     var email = document.getElementById("email").value;
@@ -98,7 +110,7 @@ function login() {
         var userDetail = JSON.parse(storedUser);
         if (userDetail.password === password) {
             sessionStorage.setItem("user_mail", username);
-            location.replace("profile.html");
+            location.replace("business.html");
             return false;
         } else {
             alert("Password Not Matched");
@@ -112,7 +124,11 @@ function login() {
 
 
 
-
+document.getElementById("log").onclick = function(){
+    document.getElementById("SignUp").style.display = "none";
+    document.getElementById("Login").style.display = "flex";
+    return false;
+  }
 
 
 function validateSignupPassword() {
@@ -153,6 +169,4 @@ function validateSignupPassword() {
 }
 
 
-setTimeout(function(){
-    errorMessage.innerHTML = '';
-},2000)
+
