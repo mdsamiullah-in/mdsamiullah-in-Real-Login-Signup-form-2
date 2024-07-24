@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
   
@@ -12,20 +14,59 @@
   <div id="container">
 
     <nav>
-      <div id="logo">Logo</div>
-
-      <ul>
-        <select>
-          <option>Business</option>
-          <option>Create Company</option>
-        </select>
-      </ul>
-      
+      <div id="logo"><img src="logos.jpeg" width="30px"></div>
+      <button id="enter">Login</button>
     </nav>
+
+    <div id="homeContents">
+
+      <div id="content1">
+        <h1>Business App <br> Management System</h1>
+        <p>Manage your all business details like ledger, voucher, tax, <br>balance sheet and many more.</p>
+        <button>Get Started</button>
+      </div>
+
+      <div id="content2">
+        <img src="Mobileapp.jpg">
+      </div>
+      
+    </div>
+
+
+    <form id="signup">
+      <i class="fa-solid fa-xmark" id="cutSignup"></i>
+      <h2>Signup User !</h2>
+      <input type="name" placeholder="Enter your name" id="name">
+      <input type="email" placeholder="Enter your email" id="email">
+      <input type="password" placeholder="Enter your password"  oninput="validateSignupPassword()" id="password">
+      <input type="number" placeholder="Enter mobile number" id="mobile">
+       <p id="openLogin">Already have an account? log-in</p>
+      <div id="buttonBox"><button type="button" onclick="signup()">Sign Up</button></div>
+      <p id="signup_success"></p>
+      <p id="signup_error"></p>
+      <p id="user_found"></p>
+      <p id="validation"></p>
+  </form>
+
+
+  
+<form id="loginBox">
+  <i class="fa-solid fa-xmark" id="cutLogin"></i>
+  <h2>Login User !</h2>
+  <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
+  <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
+  <p id="openSign">Not have an account? Signup</p>
+  <div id="buttonBox"><button onclick="login()" type="button">Login</button></div>
+</form>
+
+</div>
+
+
 
   </div>
  
 
 
+  <script src="script.js"></script>
 </body>
 </html>

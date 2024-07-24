@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container{
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+nav{
+    display: flex;
+    background-color: #003c86;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    border-bottom: none;
+}
+
+#logo{
+    font-size: 20px;
+    color: white;
+}
+
+nav button{
+    background-color: tr;
+    padding: 5px 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border: 1.5px solid white;
+    letter-spacing: 1px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(14, 165, 145);
+}
+
+#homeContents{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #03336f;
+    height: calc(100vh - 60px);
+    color: white;
+    border-top: none;
+    padding: 0 70px;
+}
+
+#signup p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+#content1{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#content1 h1{
+    font-size: 40px;
+}
+
+#content1 p{
+    font-size: 20px;
+}
+
+#content1 button{
+    padding: 8px 30px;
+    width: fit-content;
+    background-color: rgb(14, 165, 145);
+    color: white;
+    border: none;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#logo img{
+    border-radius: 50%
+}
+
+#content2 img{
+   background-size: cover;
+   background-position: center;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100% - 20px);
+    justify-content: center;
+}
+
+
+form input, button{
+    padding: 10px 5px;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+form h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-transform: capitalize;
+}
+
+
+
+#loginBox{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+form button{
+    padding: 6px 6px;
+}
+
+#buttonBox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+#signup{
+    background-color: rgb(3, 92, 144);
+    padding: 10px 20px;
+    max-width: 360px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  color: white;
+  box-shadow: 0 0 5px 0 black;
+  margin-bottom: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#signup p{
+    cursor: pointer;
+}
+
+#cutSignup{
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#loginBox{
+    background-color: rgb(3, 92, 144);
+    padding: 20px;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+
+#loginBox p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+
+#boxesDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(3, 92, 144);
+    color: white;
+}
+
+#content h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+#content h1{
+    font-size: 2rem;
+}
+
+#openSign{
+    cursor: pointer;
+}
+
+
+#cutSignup, #cutLogin{
+    text-align: right;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+@media(max-width: 412px){
+    #homeContents{
+        flex-direction: column;
+        padding: 30px;
+        gap: 15px;
+    }
+    #content1{
+        padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
