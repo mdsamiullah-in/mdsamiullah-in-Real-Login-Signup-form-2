@@ -126,7 +126,7 @@ function login() {
         var userDetail = JSON.parse(storedUser);
         if (userDetail.password === password) {
             sessionStorage.setItem("user_mail", username);
-            location.replace("business.html");
+            location.replace("welcome.html");
             return false;
         } else {
             alert("Password Not Matched");

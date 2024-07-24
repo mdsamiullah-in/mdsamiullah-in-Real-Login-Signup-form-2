@@ -83,11 +83,11 @@
 
 
               <details>
-                <summary><i class="fa-solid fa-trash"></i> Shut Company</summary>
+                <summary><i class="fa-solid fa-right-to-bracket"></i>Logout</summary>
                 <div class="content">
-                    <div class="accountCompanyForm">
-                        <i class="fa-solid fa-trash icon"></i>    
-                        <button>Shut Company</button>
+                    <div class="accountCompanyForm">  
+                        <i class="fa-solid fa-right-to-bracket"  id="Logout"></i>
+                        <button class="detailBtn" id="logBtn">Logout</button>
                     </div>
             
                 </div>
@@ -95,6 +95,19 @@
 
 
 
+              
+
+              <details>
+                <summary><i class="fa-solid fa-trash"></i>Delete Company</summary>
+                <div class="content" id="delContent">
+                    <div class="accountCompanyForm" id="delCompanyFormBox">
+                                <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
+                                <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
+                               <button onclick="del()" type="button" id="delBtn" >Delete Company</button>
+                    </div>
+            
+                </div>
+              </details>
 
 
          </div>
@@ -194,7 +207,7 @@
                         <p>Total :  <span id="total"> ₹ 0.00</span></p>
                         <p id="paidBox">Amount paid : <input type="number" id="paid"></p>
                         <p id="balanceBox">Balance Due : <span  id="balanceDue"> ₹ 0.00</span></p>
-                        <button id="Submit">Get Bill</button>
+                        <div id="getBox"><button id="Submit">Get Bill</button></div>
                     </div>
 
                 </div>

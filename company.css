@@ -110,17 +110,7 @@ body{
     width: 100%;
 }
 
-.accountCompanyForm button{
-    padding: 8px;
-    background-color: rgba(27, 178, 163, 0.979);
-    border: none;
-    color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 10px;
-    border-radius: 3px;
-    font-size: 15px;
-    cursor: pointer;
-}
+
 
 #accountBox{
     display: flex;
@@ -130,7 +120,73 @@ body{
     margin-top: 100px;
 }
 
+#delCompanyFormBox{
+    width: 100%;
+    background-color: rgb(66, 140, 158);
+    box-shadow: none;
+    height: 190px;
+}
 
+#delCompanyFormBox input{
+    width: calc(100% - 10%);
+    padding: 10px 4px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+#delBtn{
+    width: fit-content;
+    padding: 10px 15px;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: 13px;
+    margin-top: 7.5px;
+    cursor: pointer;
+}
+
+#loginBox input{
+    padding: 10px 4px;
+    margin-left: 5%;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    margin-bottom: 3px;
+}
+
+
+
+
+#login-password{
+    margin-top: 7px;
+}
+
+.detailBtn{
+    padding: 8px 12px;
+    border: none;
+    margin-top: 5px;
+   background-color: white;
+   border-radius: 3px;
+}
+
+
+.accountCompanyForm{
+    background-color: rgb(66, 140, 158);
+    box-shadow: none;
+}
+
+#logBtn{
+    margin-left: -13px;
+    margin-top: 10px;
+    padding: 8px 25px;
+}
+
+
+#Logout{
+    margin-left: 10px;
+}
 
 #TaxForm{
     display: flex;
@@ -140,9 +196,10 @@ body{
     box-shadow: 0 0 5px 0 lightgray;
     border-radius: 5px;
     gap: 5px;
-
-
 }
+
+
+
 
 #myForm, #TaxForm{
     width: 255px;
@@ -830,6 +887,10 @@ font{
 }
 
 
+#getBox{
+    display: flex;
+    justify-content: flex-end;
+}
 
 
   
@@ -886,7 +947,7 @@ summary:before {
 
 }
 
-@media(max-width: 384px){
+@media(max-width: 385px){
    #sidebar{
     display: flex;
     position: fixed;
@@ -938,10 +999,11 @@ summary:before {
 
 
 
-@media(min-width: 362px) and (max-width: 384px){
+@media(min-width: 362px) and (max-width: 385px){
     summary{
-        width: 352px;
+        width: 354px;
     }
+
 
 }
 
