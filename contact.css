@@ -22,13 +22,26 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #formBox{
-    width: 300px;
-    border: 2px solid dodgerblue;
+    width: 330px;
+    box-shadow: 0 0 3px 0 #4b4b4bdd;
     padding: 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-radius: 5px;
+
+}
+
+#formBox input{
+    border: 1px solid whitesmoke;
+    box-shadow: 0 0 2px 0 #888;
+    border-radius: 3px;
+}
+
+
+
+#formBox input:hover{
+    box-shadow: inset 0 0 3px 0 #dadada;
 }
 
 #formBox input, button{
@@ -46,12 +59,15 @@ input[type=number]::-webkit-outer-spin-button {
     text-transform: uppercase;
     font-family: Arial;
     cursor: pointer;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 0 #888;
 }
 
 
 #formBox h1{
     font-family: Arial;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: normal;
     color: dodgerblue;
     font-weight: bolder;
@@ -74,15 +90,18 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 8px 3px;
     outline: none;
     border: none;
-    border-radius: 1px;
+    border-radius: 2px;
     margin-top: 5px;
+    box-shadow: 0 0 3px 0 #3b3b3b;
 }
 
 #contactBox span{
-    font-size: 16px;
+    font-size: 25px;
     color: white;
-    font-family: Arial;
+    font-family: Calibri;
+    text-shadow: 0 2px 0 #000000;
     font-weight: bolder;
+    letter-spacing: 1px;
 }
 
 
@@ -114,6 +133,8 @@ ol{
 }
 
 
+
+
 .del{
     width: 10px;
     height: 10px;
@@ -124,12 +145,16 @@ ol{
 }
 
 
+
+
+
+
 #inputBox{
     height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: 2px solid rgb(179, 178, 178);
+    border-bottom: 2px solid rgb(156, 156, 156);
 }
 
 
@@ -139,6 +164,7 @@ ol{
     padding: 4px 6px;
     border-radius: 5px;
     display: none;
+
 }
 
 
@@ -200,4 +226,55 @@ table tr td , th{
 }
 
 
+#main{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
 
+#bars{
+    display: none;
+}
+
+#cut{
+    display: none;
+}
+
+
+
+@media(max-width: 1010px){
+    
+  #contactSidebar{
+    display: none;
+  }
+
+  #bars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #efefef;
+    box-shadow: 0 0 2px 0 #ccc;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+
+  #cut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #efefef;
+    box-shadow: 0 0 2px 0 #ccc;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+}

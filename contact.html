@@ -21,7 +21,10 @@
         </div>
         
 
+
+        <i class="fa-solid fa-bars" id="bars"></i>
         <div id="contactSidebar">
+            <i class="fa-solid fa-xmark" id="cut"></i>
             <div id="inputBox">
                 <span>Contacts List</span>
                 <input type="text" placeholder="Search contacts here" oninput="search(this)">
@@ -50,8 +53,16 @@
 
         </div>
 
+        <i class="fa-solid fa-leftArrow"></i>
 
     </div>
+
+
+
+
+
+
+
 
     <script>
 
@@ -81,7 +92,7 @@ function loadContacts() {
 
             <div id="icons">
                 <i class="fa-solid fa-trash del" onclick='mes("${fullname}")' id="i"></i>
-                <i class="fa-solid fa-edit edit" onclick='editContact("${fullname}", "${primaryInput}", "${secondaryInput}")' id="i2"></i>
+                <i class="fa-solid fa-edit edit" class="edit" onclick='editContact("${fullname}", "${primaryInput}", "${secondaryInput}")' id="i2"></i>
             </div>
         `;
 
@@ -144,6 +155,9 @@ function loadContacts() {
            var restore_table = document.getElementById("restore-table");
            var notice = document.getElementById("restore-notice");
 
+           document.getElementById("contactSidebar").style.display = "none"
+           document.getElementById("formBox").style.display = "none"
+
            if(document.cookie.length != 0){
             notice.innerHTML = "Deleted Contacts"
             var divide = document.cookie.split(";");
@@ -162,7 +176,11 @@ function loadContacts() {
                     restore_table.appendChild(div)
                     div.innerHTML  = `
 
-             <table border>
+
+         <div id="main">
+
+            
+            <table border>
                 <tr style="text-align: center;">
                     <td>${name}</td>
                     <td>${pNum}</td>
@@ -170,6 +188,8 @@ function loadContacts() {
                     <td><i class="fa-solid fa-refresh fresh"></i></td>
                 </tr>
             </table>
+          </div>
+            
 
                     `
                 } catch (e) {
@@ -201,6 +221,12 @@ function loadContacts() {
     }
 
 
+    var cut = document.getElementById("cut");
+    cut.onclick = function(){
+        contactSidebar.style.display = "none"
+    }
+
+
 
         
 
@@ -221,6 +247,19 @@ function loadContacts() {
     }
 
 
+
+
+    var bars = document.getElementById("bars");
+    bars.onclick = function(){
+       var contactSidebar = document.getElementById("contactSidebar");
+       
+       if(contactSidebar === "block"){
+          contactSidebar.style.display = "none";
+       }else{
+        contactSidebar.style.display = "block"
+       }
+
+    }
 
 
 
