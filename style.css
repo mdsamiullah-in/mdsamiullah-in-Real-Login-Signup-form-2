@@ -58,12 +58,6 @@ form h2{
 
 
 
-#loginBox{
-    margin-top: 30px;
-    margin-bottom: 50px;
-    z-index: 10;
-}
-
 form button{
     padding: 6px 6px;
 }
@@ -82,17 +76,14 @@ form button{
 #signup{
     background-color: rgb(3, 92, 144);
     padding: 10px 20px;
-    max-width: 360px;
+    max-width: 380px;
   border-radius: 10px;
-  position: absolute;
-  z-index: 1000;
+  z-index: 10;
   display: none;
   color: white;
   box-shadow: 0 0 5px 0 black;
   margin-bottom: 20px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border: 1px solid black;
 }
 
 #signup p{
@@ -107,20 +98,40 @@ form button{
 #loginBox{
     background-color: rgb(3, 92, 144);
     padding: 20px;
-    max-width: 350px;
+    max-width: 380px;
     border-radius: 10px;
-    box-shadow: 0 0 5px 0 black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
+    z-index: 10;
+    margin-left: 8px;
+  
+
 }
+
+#openPage{
+  display: none;
+}
+
+#openLogin{
+  margin-top: 10px;
+}
+
+#buttonBox{
+  margin-top: 15px;
+}
+
+#login-user{
+  margin-bottom: 10px;
+}
+
 
 
 #loginBox p{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
+}
+
+
+#loginBox input{
+  width: 100%;
 }
 
 
@@ -174,6 +185,10 @@ main {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 header {
   position: fixed;
@@ -186,10 +201,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px;
+  padding: 6px 60px;
+  background-color: white;
+  box-shadow:  0 0 3px 0;
 }
 .nav_logo {
   padding: 10px 0;
+  color: rgb(0, 0, 0);
 }
 .menu_items {
   display: flex;
@@ -207,26 +225,31 @@ a {
   min-height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
+  background-color: white;
+  color: black;
 }
 .curveImg {
   position: absolute;
   bottom: 0;
   width: 100%;
   pointer-events: none;
+  display: none;
 }
 .hero .row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  padding: 0 60px;
-  gap: 30px;
-  justify-content: space-between;
+  padding: 200px 20px;
+  gap: 60px;
+  justify-content: center;
 }
 .hero .row h2,
 .hero .row p {
-  color: #fff;
+  color: #000000;
+  text-align: center;
 }
 .hero .row h2 {
   font-size: 36px;
@@ -234,7 +257,51 @@ a {
 }
 .hero .column {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
+
+.column h2{
+  font-family: Arial;
+  font-weight: normal;
+}
+
+.column p{
+  font-size: 20px;
+}
+
+
+#loginBox h2{
+  color: white;
+}
+
+
+#signup{
+  box-shadow: none;
+}
+
+
+#openLogin{
+  color: white;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#validation{
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 17px;
+}
+
+
+#signup h2, p{
+  color: white;
+}
+
+
 .buttons {
   display: flex;
   margin-top: 25px;
@@ -242,32 +309,25 @@ a {
 }
 .btn {
   padding: 14px 26px;
-  background: #fff;
+  background: #000000;
   border-radius: 50px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 20px;
+  color: white;
 }
 
 .logbtn{
   padding: 6px 26px;
-  background: #fff;
+  background: #000000;
   border-radius: 50px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
-.btn:last-child {
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
-}
-.btn:last-child:hover {
-  background-color: #fff;
-  color: #333;
-}
 .hero_img {
   width: 80%;
   z-index: 10;
@@ -278,8 +338,20 @@ a {
 }
 
 .nav_logo a{
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.column h2, p{
+  color: black;
+}
+
+
+#showPassword{
+  position: absolute;
+  right: 30px;
+  top: 155px;
+  cursor: pointer;
 }
 
 
@@ -288,11 +360,7 @@ a {
   #menu_toggle {
     display: block;
   }
-  .nav {
-    padding: 10px 20px;
-    background-color: #014988;
-    box-shadow: 0 0 3px 0;
-  }
+
 
 
   .hero_img {
@@ -377,6 +445,21 @@ a {
         gap: 20px;
     }
 
+    .curveImg{
+      display: block;
+    }
+
+    #loginBox{
+      top: 70%;
+    }
+
+    #signup{
+      top: 70%;
+    }
+
+    .row{
+      padding: 240px 30px;
+    }
 
 }
 

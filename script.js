@@ -1,5 +1,6 @@
 
 document.getElementById("openSign").onclick = function(){
+    document.getElementById("loginBox").style.display = "none"
     document.getElementById("signup").style.display = "flex"
     return false
 }
@@ -10,19 +11,16 @@ document.getElementById("openLogin").onclick = function(){
 }
 
 
-document.getElementById("enter").onclick = function(){
-    document.getElementById("loginBox").style.display = "flex"
- }
-
-
-
 document.getElementById("cutSignup").onclick = function(){
+    document.getElementById("loginBox").style.display = "inline"
     document.getElementById("signup").style.display = "none"
 }
 
-document.getElementById("cutLogin").onclick = function(){
-    document.getElementById("loginBox").style.display = "none"
-}
+
+
+
+
+
 
 
 function signup() {
@@ -83,6 +81,12 @@ function signup() {
     
 }
 
+
+
+
+
+
+
 setTimeout(function(){
     document.getElementById("signup_error").innerHTML = "";
 },2000)
@@ -112,6 +116,64 @@ function user_existed() {
     }
 }
 
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    checkLoginStatus();
+});
+
+
+
+function setLoginStatus() {
+    const now = new Date();
+    const oneMonthLater = new Date(now.setMonth(now.getMonth() + 1));
+    localStorage.setItem("loginExpires", oneMonthLater);
+}
+
+function checkLoginStatus() {
+    const loginExpires = new Date(localStorage.getItem("loginExpires"));
+    const now = new Date();
+    if (loginExpires > now) {
+        displayWelcomeMessage();
+    } else {
+        displayLoginForm();
+    }
+}
+
+function displayLoginForm() {
+    document.getElementById("loginBox").style.display = "block";
+    document.getElementById("openPage").style.display = "none"
+}
+
+function displayWelcomeMessage() {
+    document.getElementById("openPage").style.display = "block"
+    document.getElementById("loginBox").style.display = "none";
+}
+
+function logout() {
+    localStorage.removeItem("loginExpires");
+    displayLoginForm();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function login() {
     var username = document.getElementById("login-user").value;
     var password = btoa(document.getElementById("login-password").value);
@@ -126,6 +188,9 @@ function login() {
         var userDetail = JSON.parse(storedUser);
         if (userDetail.password === password) {
             sessionStorage.setItem("user_mail", username);
+            event.preventDefault();
+            setLoginStatus();
+            displayWelcomeMessage();
             location.replace("welcome.html");
             return false;
         } else {
@@ -137,6 +202,29 @@ function login() {
         return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

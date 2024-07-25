@@ -123,6 +123,7 @@ class Accordion {
 
 
 
+
   function del() {
     var username = document.getElementById("login-user").value;
     var password = btoa(document.getElementById("login-password").value);
@@ -136,13 +137,11 @@ class Accordion {
     if (storedUser) {
         var userDetail = JSON.parse(storedUser);
         if (userDetail.password === password) {
-            // Delete the company data upon successful login
             localStorage.removeItem("companyData");
+            localStorage.removeItem("allVoucherNo")
             function deleteMatchingLocalStorageItems(pattern) {
-                // Get all keys from localStorage
                 const keys = Object.keys(localStorage);
             
-                // Loop through the keys and remove items that match the pattern
                 keys.forEach(key => {
                     if (key.startsWith(pattern)) {
                         localStorage.removeItem(key);
@@ -150,11 +149,11 @@ class Accordion {
                 });
             }
             
-            // Call the function with your specific pattern
+
             deleteMatchingLocalStorageItems('buyer_Object_');
             
             alert("Company data deleted successfully upon login.");
-            location.reload
+            location.reload()
             return false;
         } else {
             alert("Password Not Matched");
@@ -229,6 +228,7 @@ class Accordion {
                 div.innerHTML = `
                     
                 <div id="inputForm">
+                <p class="serialNum" id="num"></p>
                     <input type="text" placeholder="Item" class="itemName">
                     <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
                     <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
@@ -237,23 +237,36 @@ class Accordion {
                 </div>
                 `;
                 billInputs.appendChild(div);
+
+                let serialNumbers = document.querySelectorAll('.serialNum');
+                serialNumbers.forEach((serialNumber, index) => {
+                    serialNumber.textContent = index + 1;
+                });
+
             };
             
             function calculateSubTotal() {
                 var items = document.getElementsByClassName('bill-input');
                 var subTotal = 0;
+                var i;
+
             
-                for (var i = 0; i < items.length; i++) {
+                for (i=0; i < items.length; i++) {
                     var price = parseFloat(items[i].querySelector('.price').value) || 0;
                     var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
                     var amount = price * quantity;
-                    
                     items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
                     subTotal += amount;
                 }
             
                 document.getElementById('toatal').textContent =  subTotal.toFixed(2);
+
+                
+                
             }
+
+
+
             
             function validateInputs() {
                 return true;
@@ -338,16 +351,27 @@ var store_subtotal, store_total, store_paid, store_dues, store_tax, allVoucherNo
 function calculateSubTotal() {
     var items = document.getElementsByClassName('bill-input');
     var subTotal = 0;
+    var i;
+
 
     // Calculate subTotal
-    for (var i = 0; i < items.length; i++) {
+    for (i=0; i < items.length; i++) {
         var price = parseFloat(items[i].querySelector('.price').value) || 0;
         var quantity = parseFloat(items[i].querySelector('.qnt').value) || 1;
         var amount = price * quantity;
         
         items[i].querySelector('.amount').value = 'Rs ' + amount.toFixed(2);
         subTotal += amount;
+
+
     }
+
+
+
+    
+
+
+
     store_subtotal = subTotal.toFixed(2)
     document.getElementById('toatal').textContent = '₹ ' + subTotal.toFixed(2);
 
@@ -379,6 +403,17 @@ function calculateSubTotal() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
 document.getElementById("Submit").onclick = function(){
 
@@ -388,7 +423,9 @@ document.getElementById("Submit").onclick = function(){
     var buyer_address = document.getElementById("address").value;
     var buyer_number = document.getElementById("phone").value
 
+    var paidInput = document.getElementById("paid").value;
     
+
     var item = document.getElementsByClassName("itemName");
     for(i=0; i<item.length; i++){
         storeItem[i] = item[i].value;
@@ -431,8 +468,14 @@ document.getElementById("Submit").onclick = function(){
     if (!allVoucherNo) {
       allVoucherNo = 1;
     } else {
-      allVoucherNo = parseInt(allVoucherNo) + 1;
-      document.getElementById("voucher").textContent = allVoucherNo;
+        if(paidInput == ""){
+            alert("please create input field")
+        }else{
+        
+            allVoucherNo = parseInt(allVoucherNo) + 1;
+            document.getElementById("voucher").textContent = allVoucherNo;
+        }
+
     }
     
     localStorage.setItem('allVoucherNo', allVoucherNo);
@@ -567,12 +610,7 @@ document.getElementById("search").onclick = function(){
 
       }
 
-  
-      var fill = document.getElementById("fillUser");
-      fill.onclick = function(){
-        var userIcon =  document.getElementById("userIcon");
-        userIcon.className = "fa-solid fa-face-smile"
-      }
+
 
 
 // Add event listener to the "Add Item" button

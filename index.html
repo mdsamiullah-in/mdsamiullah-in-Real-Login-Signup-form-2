@@ -18,7 +18,6 @@
         <nav class="nav container">
           <h2 class="nav_logo"><a href="#">Gate4Tech</a></h2>
 
-          <button class="logbtn" id="enter">Login</button>
         </nav>
       </header>
       <!-- Header End -->
@@ -27,47 +26,47 @@
       <section class="hero">
         <div class="row container">
           <div class="column">
-            <h2>Business App Development System</h2>
+            <h2>Business App Development System For Managing Company.</h2>
             <p>Manage your all business details like ledger, voucher, tax,
               balance sheet and many more.</p>
-            <div class="buttons">
-              <button class="btn">Get Started</button>
-            </div>
+              <a href="welcome.html"><button class="btn" id="openPage">Get Started</button></a>
           </div>
-          <div class="column">
-            <img src="hero2.png" alt="heroImg" class="hero_img" />
+          <div class="column" id="column2">
+            <form id="loginBox">
+              <h2>Login !</h2>
+              <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
+              <input type="password" placeholder="Enter password" id="login-password"  autocomplete="current-password">
+              <p id="openSign">Not have an account? Signup</p>
+              <div id="buttonBox"><button onclick="login()" type="button">Login</button></div>
+            </form>
+            
+          <form id="signup">
+            <i class="fa-solid fa-xmark" id="cutSignup"></i>
+            <h2>Signup !</h2>
+            <input type="name" placeholder="Enter your name" id="name">
+            <input type="email" placeholder="Enter your email" id="email">
+            <input type="password" placeholder="Enter your password"  oninput="validateSignupPassword()" id="password">
+            <input type="number" placeholder="Enter mobile number" id="mobile">
+             <p id="openLogin">Already have an account? log-in</p>
+            <div id="buttonBox"><button type="button" onclick="signup()">Sign Up</button></div>
+            <p id="signup_success"></p>
+            <p id="signup_error"></p>
+            <p id="user_found"></p>
+            <p id="validation"></p>
+        </form>
           </div>
+
+
         </div>
-        <img src="bg-bottom-hero.png" alt="" class="curveImg" />
       </section>
       <!-- Hero End-->
     </main>
 
-    <form id="signup">
-      <i class="fa-solid fa-xmark" id="cutSignup"></i>
-      <h2>Signup User !</h2>
-      <input type="name" placeholder="Enter your name" id="name">
-      <input type="email" placeholder="Enter your email" id="email">
-      <input type="password" placeholder="Enter your password"  oninput="validateSignupPassword()" id="password">
-      <input type="number" placeholder="Enter mobile number" id="mobile">
-       <p id="openLogin">Already have an account? log-in</p>
-      <div id="buttonBox"><button type="button" onclick="signup()">Sign Up</button></div>
-      <p id="signup_success"></p>
-      <p id="signup_error"></p>
-      <p id="user_found"></p>
-      <p id="validation"></p>
-  </form>
+
 
 
   
-<form id="loginBox">
-  <i class="fa-solid fa-xmark" id="cutLogin"></i>
-  <h2>Login User !</h2>
-  <input type="email" placeholder="Enter email" id="login-user" autocomplete="on" >
-  <input type="password" placeholder="Enter password" id="login-password"  autocomplete="true">
-  <p id="openSign">Not have an account? Signup</p>
-  <div id="buttonBox"><button onclick="login()" type="button">Login</button></div>
-</form>
+
 
 </div>
 
