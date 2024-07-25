@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 
 
         <i class="fa-solid fa-bars" id="bars"></i>
-        <div id="contactSidebar">
+        <div id="contactSidebar" class="animate__animated animate__slideInRight animate__faster">
             <i class="fa-solid fa-xmark" id="cut"></i>
             <div id="inputBox">
                 <span>Contacts List</span>
@@ -84,6 +85,7 @@ function loadContacts() {
         sidebar.appendChild(div);
         div.id = "contactDetails";
         div.innerHTML = `
+        
             <p class="contactName"></p>
             <ol>
                 <li class="primaryNumberBox"></li>
@@ -160,6 +162,7 @@ function loadContacts() {
 
            if(document.cookie.length != 0){
             notice.innerHTML = "Deleted Contacts"
+            notice.className = "text"
             var divide = document.cookie.split(";");
             var i,j;
             for(i=0; i<divide.length; i++){
@@ -178,8 +181,6 @@ function loadContacts() {
 
 
          <div id="main">
-
-            
             <table border>
                 <tr style="text-align: center;">
                     <td>${name}</td>

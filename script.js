@@ -187,11 +187,11 @@ function login() {
     if (storedUser) {
         var userDetail = JSON.parse(storedUser);
         if (userDetail.password === password) {
-            sessionStorage.setItem("user_mail", username);
-            event.preventDefault();
-            setLoginStatus();
-            displayWelcomeMessage();
-            location.replace("welcome.html");
+            localStorage.setItem("user_mail", username);
+            // event.preventDefault();
+            // setLoginStatus();
+            // displayWelcomeMessage();
+            location.replace("profile.html");
             return false;
         } else {
             alert("Password Not Matched");

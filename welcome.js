@@ -111,7 +111,7 @@ document.getElementById("create").onclick = function()
 
 function showing_pic_name(){
     var names = document.getElementById("welcomeUserName");
-    var user_mail = sessionStorage.getItem("user_mail");
+    var user_mail = localStorage.getItem("user_mail");
     var user_details = localStorage.getItem(user_mail);
     var user_data = JSON.parse(user_details);
     var fullname = user_data.name;

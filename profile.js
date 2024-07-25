@@ -32,7 +32,7 @@ function upload_pic() {
 
         var userIcon = document.getElementById("arrow");
         userIcon.onclick = function() {
-            localStorage.setItem(sessionStorage.getItem('user_mail') + "images", image_url);
+            localStorage.setItem(localStorage.getItem('user_mail') + "images", image_url);
             location.replace("welcome.html");
         };
     };
