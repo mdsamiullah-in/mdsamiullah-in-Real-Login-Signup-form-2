@@ -118,7 +118,7 @@ function showing_pic_name(){
     names.innerHTML = atob(fullname)
 
     var img = document.getElementById("img2");
-    var image_name = localStorage.getItem(user_mail+"images");
+    var image_name = localStorage.getItem(user_mail + "images");
     img.style.background = "url("+ image_name+")"
     img.style.backgroundRepeat = "no-repeat";
     img.style.backgroundSize = "cover";

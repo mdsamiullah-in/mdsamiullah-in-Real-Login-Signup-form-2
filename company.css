@@ -494,7 +494,7 @@ body{
 
 .serialNum{
     background-color: #035C90;
-    padding: 12px 12px;
+    padding: 12px 8px;
     border-bottom: 1.5px solid grey;
     color: white;
     font-size: 13px;
@@ -715,13 +715,19 @@ font{
 }
 
 
+#logoBox{
+    position: relative;
+    border-radius: 50%;
+}
+
+
 #MainLogo{
     width: 120px;
     height: 120px;
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
-    position: relative;
     box-shadow: inset 0 0 5px 0;
+    
 }
 
 
@@ -733,9 +739,11 @@ font{
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    opacity: 0;
     background-position: center;
     background-size: cover;
+    background-color: red;
+    z-index: 100;
+    opacity: 0;
 }
 
 

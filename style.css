@@ -394,7 +394,7 @@ a {
     justify-content: center;
   }
   .btn {
-    padding: 10px 16px;
+    padding: 14px 20px;
   }
 
   .column h2, p{
@@ -455,11 +455,12 @@ a {
     .hero .row h2,
 .hero .row p {
   color: white;
-  text-align: left;
+  text-align: center;
 }
 
 .hero .row p{
   letter-spacing: 0.5px;
+  margin-bottom: 10px;
 }
 
 .heros{
