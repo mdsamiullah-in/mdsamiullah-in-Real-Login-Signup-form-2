@@ -123,6 +123,38 @@ class Accordion {
 
 
 
+  function upload_pic() {
+    var input = document.getElementById("uploadLogo");
+    var fileReader = new FileReader();
+
+    fileReader.readAsDataURL(input.files[0]);
+    fileReader.onloadend = function(event) {
+        var image_url = event.target.result;
+        var show = document.getElementById("MainLogo");
+        show.style.background = "url(" + image_url + ")";
+        show.style.backgroundRepeat = "no-repeat";
+        show.style.backgroundSize = "cover";
+        show.style.backgroundPosition = "center";
+        show.style.objectFit = "cover";
+        localStorage.setItem(sessionStorage.getItem('user_mail') + "images", image_url);
+        location.reload()
+    };
+}
+
+
+function displayImage() {
+    const userMail = sessionStorage.getItem('user_mail');
+    const imageUrl = localStorage.getItem(userMail + "images");
+    if (imageUrl) {
+        document.getElementById('MainLogo').src = imageUrl;
+    }
+}
+
+// Display image on page load if it exists in localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    displayImage();
+});
+
 
   function del() {
     var username = document.getElementById("login-user").value;
@@ -403,7 +435,7 @@ function calculateSubTotal() {
 }
 
 
-
+companyDetail()
 
 
 
@@ -611,6 +643,25 @@ document.getElementById("search").onclick = function(){
       }
 
 
+      function companyDetail(){
+             var company = "companyData";
+             var i;
+             for(i=0; i<localStorage.length; i++){
+                var companyKeys = localStorage.key(i);
+                if(companyKeys == company){
+                    var companyData = localStorage.getItem(companyKeys)
+                    var companyDataExtract = JSON.parse(companyData);
+                   document.getElementById("companyName").textContent =  companyDataExtract.companyName;
+                   document.getElementById("tag").textContent = "Address : " + companyDataExtract.address
+                   document.getElementById("contactTag").textContent = "Contact Us : " + companyDataExtract.phoneNumber;
+                }
+             }
+      }
+    
+    
+      
+
+
 
 
 // Add event listener to the "Add Item" button
@@ -703,12 +754,6 @@ document.getElementById("Logout").onclick = function() {
 }
 
 
-
-
-
-
-
-
     document.getElementById("create").onclick = function() {
         saveToLocalStorage();
         var companyName = document.getElementById("companyName");
@@ -761,8 +806,6 @@ document.getElementById("Logout").onclick = function() {
     }
 
 
-
-  
 document.addEventListener('DOMContentLoaded', function() {
     // Get the icon element and the corresponding file input
     var icon = document.querySelector('.boxes#company i');

@@ -7,22 +7,11 @@
 
 #container{
     height: 100vh;
+    overflow-x: hidden
 }
 
 
 
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -170,26 +159,11 @@ form button{
 
 
 
-/* Import Google font - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+
 main {
   background: #014988;
 }
-.container {
-  max-width: 1300px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
+
 header {
   position: fixed;
   top: 0;
@@ -239,11 +213,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
-  padding: 200px 20px;
-  gap: 60px;
   justify-content: center;
 }
 .hero .row h2,
@@ -354,6 +325,10 @@ a {
   cursor: pointer;
 }
 
+.heros{
+  display: none;
+}
+
 
 /* Reponsive */
 @media (width < 860px) {
@@ -457,9 +432,41 @@ a {
       top: 70%;
     }
 
-    .row{
-      padding: 240px 30px;
+    .nav{
+      background-color: #014988;
+      box-shadow: 0 0 3px 0;
     }
+
+    .row{
+       background-color: #014988;
+       position: absolute;
+       top: 0;
+       left: 0;
+    }
+
+    .nav_logo a{
+      color: white;
+    }
+
+    .heros{
+      display: block;
+    }
+
+    .hero .row h2,
+.hero .row p {
+  color: white;
+  text-align: left;
+}
+
+.hero .row p{
+  letter-spacing: 0.5px;
+}
+
+.heros{
+  
+  padding-bottom: 50px;
+  margin-bottom: -100px;
+}
 
 }
 
