@@ -122,42 +122,42 @@ function user_existed() {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    checkLoginStatus();
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     checkLoginStatus();
+// });
 
 
 
-function setLoginStatus() {
-    const now = new Date();
-    const oneMonthLater = new Date(now.setMonth(now.getMonth() + 1));
-    localStorage.setItem("loginExpires", oneMonthLater);
-}
+// function setLoginStatus() {
+//     const now = new Date();
+//     const oneMonthLater = new Date(now.setMonth(now.getMonth() + 1));
+//     localStorage.setItem("loginExpires", oneMonthLater);
+// }
 
-function checkLoginStatus() {
-    const loginExpires = new Date(localStorage.getItem("loginExpires"));
-    const now = new Date();
-    if (loginExpires > now) {
-        displayWelcomeMessage();
-    } else {
-        displayLoginForm();
-    }
-}
+// function checkLoginStatus() {
+//     const loginExpires = new Date(localStorage.getItem("loginExpires"));
+//     const now = new Date();
+//     if (loginExpires > now) {
+//         displayWelcomeMessage();
+//     } else {
+//         displayLoginForm();
+//     }
+// }
 
-function displayLoginForm() {
-    document.getElementById("loginBox").style.display = "block";
-    document.getElementById("openPage").style.display = "none"
-}
+// function displayLoginForm() {
+//     document.getElementById("loginBox").style.display = "block";
+//     document.getElementById("openPage").style.display = "none"
+// }
 
-function displayWelcomeMessage() {
-    document.getElementById("openPage").style.display = "block"
-    document.getElementById("loginBox").style.display = "none";
-}
+// function displayWelcomeMessage() {
+//     document.getElementById("openPage").style.display = "block"
+//     document.getElementById("loginBox").style.display = "none";
+// }
 
-function logout() {
-    localStorage.removeItem("loginExpires");
-    displayLoginForm();
-}
+// function logout() {
+//     localStorage.removeItem("loginExpires");
+//     displayLoginForm();
+// }
 
 
 
@@ -191,7 +191,7 @@ function login() {
             // event.preventDefault();
             // setLoginStatus();
             // displayWelcomeMessage();
-            location.replace("profile.html");
+            location.replace("welcome.html");
             return false;
         } else {
             alert("Password Not Matched");
