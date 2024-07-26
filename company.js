@@ -247,35 +247,50 @@ document.addEventListener('DOMContentLoaded', function() {
      
      }         
 
-            document.getElementById("plus").onclick = function() {
-                if (!validateInputs()) {
-                    alert("Please fill in item description, price, and quantity fields before adding a new item.");
-                    return true;
-                }
-                
-                var billInputs = document.getElementById("billInputs");
-                var div = document.createElement('div');
-                div.classList.add('bill-input');
-                div.id = "myDiv"
-                div.innerHTML = `
-                    
-                <div id="inputForm">
-                <p class="serialNum" id="num"></p>
-                    <input type="text" placeholder="Item" class="itemName">
-                    <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
-                    <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
-                   <input type="text" placeholder="Rs 0.00" class="amount" id="amountTotal" readonly>
-                   <i onclick="this.parentNode.remove()" id="cutInput" class="fa-solid fa-xmark"></i>
-                </div>
-                `;
-                billInputs.appendChild(div);
+     document.getElementById("plus").onclick = function() {
+        if (!validateInputs()) {
+            alert("Please fill in item description, price, and quantity fields before adding a new item.");
+            return true;
+        }
+        
+        var billInputs = document.getElementById("billInputs");
+        var div = document.createElement('div');
+        div.classList.add('bill-input');
+        div.id = "myDiv"
+        div.innerHTML = `
+            
+        <div id="inputForm">
+        <p class="serialNum" id="num"></p>
+            <input type="text" placeholder="Item" class="itemName">
+            <input type="number" placeholder="0.0" class="price" oninput="calculateSubTotal()">
+            <input type="number" placeholder="1" class="qnt" oninput="calculateSubTotal()">
+           <input type="text" placeholder="Rs 0.00" class="amount" id="amountTotal" readonly>
+           <i onclick="deleteInputFields(this)" id="cutInput" class="fa-solid fa-xmark cutInput"></i>
+        </div>
+        `;
+        billInputs.appendChild(div);
 
-                let serialNumbers = document.querySelectorAll('.serialNum');
-                serialNumbers.forEach((serialNumber, index) => {
-                    serialNumber.textContent = index + 1;
-                });
+        updateSerialNumbers();
+        calculateSubTotal();
 
-            };
+    };
+
+
+    function updateSerialNumbers() {
+        let serialNumbers = document.querySelectorAll('.serialNum');
+        serialNumbers.forEach((serialNumber, index) => {
+            serialNumber.textContent = index + 1;
+        });
+    }
+    
+    function deleteInputFields(element) {
+        let inputForm = element.closest('.bill-input');
+        inputForm.remove();
+        updateSerialNumbers();
+        calculateSubTotal();
+    }
+
+
             
             function calculateSubTotal() {
                 var items = document.getElementsByClassName('bill-input');
