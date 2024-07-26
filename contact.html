@@ -24,7 +24,7 @@
 
 
         <i class="fa-solid fa-bars" id="bars"></i>
-        <div id="contactSidebar" class="animate__animated animate__slideInRight animate__faster">
+        <div id="contactSidebar" class="">
             <i class="fa-solid fa-xmark" id="cut"></i>
             <div id="inputBox">
                 <span>Contacts List</span>
@@ -35,6 +35,7 @@
 
 
         <div id="restore-contact">
+            <i class="fa-solid fa-xmark" id="cut2"></i>
             <h1 id="restore-notice"></h1>
 
 
@@ -66,6 +67,14 @@
 
 
     <script>
+
+        var cut2 = document.getElementById("cut2");
+        cut2.onclick = function(){
+            var restoreContact = document.getElementById("restore-contact");
+            restoreContact.style.display = "none"
+            
+            location.reload()
+        }
 
 
 
@@ -159,6 +168,8 @@ function loadContacts() {
 
            document.getElementById("contactSidebar").style.display = "none"
            document.getElementById("formBox").style.display = "none"
+            document.getElementById("bars").style.display = "none"
+
 
            if(document.cookie.length != 0){
             notice.innerHTML = "Deleted Contacts"
@@ -214,7 +225,7 @@ function loadContacts() {
             var readyForRestore = JSON.stringify(restore);
             localStorage.setItem(tdAll[0].innerHTML + "contact" , readyForRestore);
             document.cookie = tdAll[0].innerHTML + ";max-age=0"
-            location.reload()
+            alert("Data Saved")
         });
     })
           
@@ -253,7 +264,7 @@ function loadContacts() {
     var bars = document.getElementById("bars");
     bars.onclick = function(){
        var contactSidebar = document.getElementById("contactSidebar");
-       
+      contactSidebar.className = "animate__animated animate__slideInRight animate__faster"
        if(contactSidebar === "block"){
           contactSidebar.style.display = "none";
        }else{

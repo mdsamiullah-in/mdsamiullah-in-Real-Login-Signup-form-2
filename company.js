@@ -320,36 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
 
-//  var sales = document.getElementById("sales");
-// sales.onclick = function(){
 
-//      function voucher(){
-//         var i; 
-//         for(i=0; i<localStorage.length; i++){
-//             var allKeys = localStorage.key(i);
-//             if(allKeys.match("buyer_Object_")){
-    
-//                 var findNum = allKeys.split("_");
-//                 allVoucherNo = findNum[2]
-//                 document.getElementById("voucher").innerHTML = "Voucher no : " + allVoucherNo++;
-    
-    
-//             }else if(allKeys.match("buyer_Object_") == null){
-//               document.getElementById("voucher").innerHTML = allVoucherNo++;
-//             }
-//         }
-
-//      }
-//      voucher()
-
-//  }
-
-
-
-// var showBill = document.getElementById("showBill");
-// showBill.onclick = function(){
-//     document.getElementById("manage-section").style.display = "flex"
-// }
 
 
 var taxName = document.getElementById("taxNameInput")
@@ -456,6 +427,12 @@ companyDetail()
 
 
 
+var allVoucherNo = localStorage.getItem('allVoucherNo');
+var voucher = document.getElementById("voucher");
+voucher.textContent = "Voucher No : " + allVoucherNo;
+if(allVoucherNo == null){
+    voucher.textContent = "Voucher No :" + 1;
+}
 
 
 
@@ -470,7 +447,7 @@ document.getElementById("Submit").onclick = function(){
     var buyer_address = document.getElementById("address").value;
     var buyer_number = document.getElementById("phone").value
 
-    var paidInput = document.getElementById("paid").value;
+    var paidInput = document.getElementById("tax").textContent;
     
 
     var item = document.getElementsByClassName("itemName");
@@ -512,15 +489,22 @@ document.getElementById("Submit").onclick = function(){
     var buyerObjectString = JSON.stringify(buyerObject);
 
     var allVoucherNo = localStorage.getItem('allVoucherNo');
+    
     if (!allVoucherNo) {
       allVoucherNo = 1;
     } else {
         if(paidInput == ""){
             alert("please create input field")
         }else{
-        
-            allVoucherNo = parseInt(allVoucherNo) + 1;
-            document.getElementById("voucher").textContent = allVoucherNo;
+            var currentVoucher = localStorage.getItem('buyer_Object_' + allVoucherNo);
+            if (currentVoucher) {
+                alert("A bill with this voucher number already exists. Please use a different voucher number.");
+                return;
+            }else{
+                allVoucherNo = parseInt(allVoucherNo) + 1;
+                document.getElementById("voucher").textContent = allVoucherNo;
+            }
+
         }
 
     }
