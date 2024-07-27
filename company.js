@@ -122,6 +122,16 @@ class Accordion {
   
 
 
+  document.getElementById("openProfile").onclick = function(){
+ var profileBox =  document.getElementById("profileBox")
+    if(profileBox.style.display == "flex"){
+        profileBox.style.display = "none"
+    }else{
+        profileBox.style.display = "flex"
+    }
+
+  }
+
 
   function upload_pic() {
     var input = document.getElementById("uploadLogo");
@@ -196,20 +206,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return false;
     }
 }
-
-
-
-
-
-  document.getElementById("Logout").onclick = function() {
-    sessionStorage.clear();
-    setTimeout(function() {
-        alert("Logout")
-        location.replace("index.html");
-    }, 2000);
-}
-
-
 
 
 
@@ -496,14 +492,9 @@ document.getElementById("Submit").onclick = function(){
         if(paidInput == ""){
             alert("please create input field")
         }else{
-            var currentVoucher = localStorage.getItem('buyer_Object_' + allVoucherNo);
-            if (currentVoucher) {
-                alert("A bill with this voucher number already exists. Please use a different voucher number.");
-                return;
-            }else{
-                allVoucherNo = parseInt(allVoucherNo) + 1;
+               allVoucherNo = parseInt(allVoucherNo) + 1;
                 document.getElementById("voucher").textContent = allVoucherNo;
-            }
+
 
         }
 
@@ -564,82 +555,85 @@ function createNewItem() {
 
 document.getElementById("search").onclick = function(){
 
-  var search_field = document.getElementById("search-voucher");
+    var search_field = document.getElementById("search-voucher");
+    
   
-
-
-
-  var fill = document.getElementById("fillUser");
-  fill.click()
-
-
-
-          var userInput = "buyer_Object_"+ search_field.value;
-         var i;
-         for(i=0; i<localStorage.length; i++){
-             var allKeys = localStorage.key(i)
-             if(allKeys == userInput){
-              var buyer_Object = localStorage.getItem(allKeys);
-              var buyerObjectExtract = JSON.parse(buyer_Object)
-              document.getElementById("voucher").innerHTML = "Voucher No : " + search_field.value;
-              document.getElementById("name").value =  buyerObjectExtract.buyer_name;
-              document.getElementById("email").value =  buyerObjectExtract.buyer_email;
-              document.getElementById("address").value =  buyerObjectExtract.buyer_address;
-              document.getElementById("phone").value =  buyerObjectExtract.buyer_number;
-              document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
-              document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
-              document.getElementById("tax").textContent = "₹ " + buyerObjectExtract.store_tax;
-              document.getElementById("paid").textContent = "₹ " + buyerObjectExtract.store_paid
-              document.getElementById("plus").style.display = "none";
-              document.getElementById("Submit").style.display = "none"
-
-              function myFunction(x) {
-                if (x.matches) { // If media query matches
-                  document.getElementById("sidebar").style.display = "none"
-                } else {
-                 document.getElementById("sidebar").style.display = "flex"
+  
+  
+    var fill = document.getElementById("fillUser");
+    fill.click()
+  
+  
+  
+            var userInput = "buyer_Object_"+ search_field.value;
+           var i;
+           for(i=0; i<localStorage.length; i++){
+               var allKeys = localStorage.key(i)
+               if(allKeys == userInput){
+                var buyer_Object = localStorage.getItem(allKeys);
+                var buyerObjectExtract = JSON.parse(buyer_Object)
+                document.getElementById("voucher").innerHTML = "Voucher No : " + search_field.value;
+                document.getElementById("name").value =  buyerObjectExtract.buyer_name;
+                document.getElementById("email").value =  buyerObjectExtract.buyer_email;
+                document.getElementById("address").value =  buyerObjectExtract.buyer_address;
+                document.getElementById("phone").value =  buyerObjectExtract.buyer_number;
+                document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
+                document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
+                document.getElementById("tax").textContent = "₹ " + buyerObjectExtract.store_tax;
+                document.getElementById("paid").textContent = "₹ " + buyerObjectExtract.store_paid
+                document.getElementById("plus").style.display = "none";
+                document.getElementById("Submit").style.display = "none"
+  
+                function myFunction(x) {
+                  if (x.matches) { // If media query matches
+                    document.getElementById("sidebar").style.display = "none"
+                  } else {
+                   document.getElementById("sidebar").style.display = "flex"
+                  }
                 }
-              }
-              
-              // Create a MediaQueryList object
-              var x = window.matchMedia("(max-width: 767px)")
-              
-              // Call listener function at run time
-              myFunction(x);
-              
-              // Attach listener function on state changes
-              x.addEventListener("change", function() {
+                
+                // Create a MediaQueryList object
+                var x = window.matchMedia("(max-width: 767px)")
+                
+                // Call listener function at run time
                 myFunction(x);
-              });
-   
-              var item = document.getElementsByClassName("itemName");
-              item.disabled = false
-              var price = document.getElementsByClassName("price");
-              var qty = document.getElementsByClassName("qnt");
-              var amount = document.getElementsByClassName("amount")
+                
+                // Attach listener function on state changes
+                x.addEventListener("change", function() {
+                  myFunction(x);
+                });
+     
+                var item = document.getElementsByClassName("itemName");
+                item.disabled = false
+                var price = document.getElementsByClassName("price");
+                var qty = document.getElementsByClassName("qnt");
+                var amount = document.getElementsByClassName("amount")
+  
+  
+                var itemLength = buyerObjectExtract.storeItem.length;
+                var j;
+                for(j=0; j<itemLength; j++){
+                    document.getElementById("plus").click()
+                    item[j].value = buyerObjectExtract.storeItem[j]
+                    item[j].disabled = true
+                    price[j].value = buyerObjectExtract.store_price[j]
+                    price[j].disabled = true
+                    qty[j].value = buyerObjectExtract.store_Qty[j]
+                    qty[j].disabled = true
+                    amount[j].value = buyerObjectExtract.store_amount[j]
+                    amount[j].disabled = true
+                }
+  
+               }
+           }
+  
+     
+        
+  
+}
 
 
-              var itemLength = buyerObjectExtract.storeItem.length;
-              var j;
-              for(j=0; j<itemLength; j++){
-                  document.getElementById("plus").click()
-                  item[j].value = buyerObjectExtract.storeItem[j]
-                  item[j].disabled = true
-                  price[j].value = buyerObjectExtract.store_price[j]
-                  price[j].disabled = true
-                  qty[j].value = buyerObjectExtract.store_Qty[j]
-                  qty[j].disabled = true
-                  amount[j].value = buyerObjectExtract.store_amount[j]
-                  amount[j].disabled = true
-              }
 
-             }
-         }
-
-   
-      
-
-      }
 
 
       function companyDetail(){
@@ -656,7 +650,37 @@ document.getElementById("search").onclick = function(){
                 }
              }
       }
+      
+
+      function showing_pic_name(){
+        var names = document.getElementById("profileName");
+        var profileEmail = document.getElementById("profileEmail");
+        var profileMobileNumber = document.getElementById("profileNumber")
+        var user_mail = localStorage.getItem("user_mail");
+        var user_details = localStorage.getItem(user_mail);
+        var user_data = JSON.parse(user_details);
+
+
+
+        var fullname = user_data.name;
+        var email = user_data.email;
+        var mobileNumber = user_data.mobile;
+        
+       
+
+        profileMobileNumber.innerHTML = atob(mobileNumber);
+        profileEmail.innerHTML = email;
+        names.innerHTML = atob(fullname)
     
+        var img = document.getElementById("profileLogo");
+        var image_name = localStorage.getItem(user_mail + "images");
+        img.style.background = "url("+ image_name+")"
+        img.style.backgroundRepeat = "no-repeat";
+        img.style.backgroundSize = "cover";
+        img.style.backgroundPosition = "center";
+        img.style.objectFit = "cover";
+    }
+    showing_pic_name()
     
       
 
@@ -743,14 +767,6 @@ document.getElementById("click").onclick = function() {
     document.getElementById("span").style.display = "block";
 }
 
-
-
-document.getElementById("Logout").onclick = function() {
-    sessionStorage.clear();
-    setTimeout(function() {
-        location.replace("index.html");
-    }, 2000);
-}
 
 
     document.getElementById("create").onclick = function() {

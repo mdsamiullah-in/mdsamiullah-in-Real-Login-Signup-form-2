@@ -35,8 +35,8 @@
 .contents{
     width: 170px;
     height: 150px;
-    background-color: white;
-    box-shadow: 0 0 3px 1px rgb(137, 136, 136);
+    background-color:rgb(3, 92, 144);
+    box-shadow: 0 0 3px 0px #888;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,8 +47,8 @@
 .contents i{
     width: 35px;
     height: 35px;
-    background-color: rgb(3, 92, 144);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(3, 92, 144);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,8 +59,9 @@
 
 .contents h3{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(63, 114, 175);
+    color: rgb(255, 255, 255);
     margin-top: 3px;
+    font-weight: lighter;
 }
 
 

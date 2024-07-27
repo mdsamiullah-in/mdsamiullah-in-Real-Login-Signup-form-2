@@ -132,6 +132,7 @@ function logout(){
     document.getElementById("logoutMessage").style.display = "block";
     setTimeout(function(){
         location.replace("index.html");
+        localStorage.removeItem('loginExpires')
     },2000)
 }
 

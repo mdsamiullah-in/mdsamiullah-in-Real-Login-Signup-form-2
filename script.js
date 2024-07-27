@@ -192,7 +192,7 @@ function login() {
             event.preventDefault();
             setLoginStatus();
             displayWelcomeMessage();
-            location.replace("welcome.html");
+            location.replace("company.html");
             return false;
         } else {
             alert("Password Not Matched");

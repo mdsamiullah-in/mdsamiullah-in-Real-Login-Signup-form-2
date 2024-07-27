@@ -27,6 +27,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+.column h1{
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  padding: 30px;
+}
+
 
 form{
     display: flex;
