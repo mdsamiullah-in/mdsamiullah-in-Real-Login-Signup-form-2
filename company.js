@@ -117,12 +117,6 @@ class Accordion {
   }
 
 
-  $(document).ready(function(){
-    $('#btnPrint').click(function(){
-       $('#inputFields').printThis();
-       document.getElementById("#inputFields").style.width = "100%"
-    });
-  });
   
   document.querySelectorAll('details').forEach((el) => {
     new Accordion(el);
@@ -443,8 +437,20 @@ if(allVoucherNo == null){
 
 var i, storeItem = [], store_price = [], store_Qty = [], store_amount = [];
 document.getElementById("Submit").onclick = function(){
-
    
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("inputFields").style.width = "99.4%"
+    document.getElementById("plus").style.display = "none"
+    document.getElementById("openProfile").style.display = 'none'
+    document.getElementById("bars").style.display = 'none'
+    print()
+    document.getElementById("sidebar").style.display = "flex";
+    document.getElementById("plus").style.display = "block"
+    document.getElementById("bars").style.display = 'block'
+    document.getElementById("openProfile").style.display = 'flex'
+    document.getElementById("inputFields").style.width = "calc(100% - 300px)"
+
+
     var buyer_name = document.getElementById("name").value;
     var buyer_email = document.getElementById("email").value;
     var buyer_address = document.getElementById("address").value;
@@ -499,8 +505,8 @@ document.getElementById("Submit").onclick = function(){
         if(paidInput == ""){
             alert("please create input field")
         }else{
-               allVoucherNo = parseInt(allVoucherNo) + 1;
-                document.getElementById("voucher").textContent = allVoucherNo;
+               allVoucherNo = parseInt(allVoucherNo) +  1;
+                document.getElementById("voucher").textContent = "Voucher No : " + allVoucherNo;
 
 
         }
@@ -570,7 +576,7 @@ document.getElementById("search").onclick = function(){
     var search_field = document.getElementById("search-voucher");
     
   
-  
+
   
     var fill = document.getElementById("fillUser");
     fill.click()
