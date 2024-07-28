@@ -115,6 +115,14 @@ class Accordion {
       this.el.style.height = this.el.style.overflow = '';
     }
   }
+
+
+  $(document).ready(function(){
+    $('#btnPrint').click(function(){
+       $('#inputFields').printThis();
+       document.getElementById("#inputFields").style.width = "100%"
+    });
+  });
   
   document.querySelectorAll('details').forEach((el) => {
     new Accordion(el);
@@ -266,8 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         billInputs.appendChild(div);
 
-        updateSerialNumbers();
-        calculateSubTotal();
+     updateSerialNumbers()
 
     };
 
@@ -405,8 +412,8 @@ function calculateSubTotal() {
 
 
 
-    store_paid = this.value;
  document.getElementById("paid").oninput = function(){
+    store_paid = this.value;
     var totalMoney = total;
     var finalMoney = totalMoney - this.value;
     store_dues = finalMoney.toFixed(2)
@@ -510,7 +517,12 @@ document.getElementById("Submit").onclick = function(){
     document.getElementById("savedAddress").textContent = "Address : " + buyer_address;
     document.getElementById("savedPhone").textContent = "Mob. number : " + buyer_number;
 
+
+
+
 }
+
+
 
 
 function date(){
@@ -577,12 +589,20 @@ document.getElementById("search").onclick = function(){
                 document.getElementById("email").value =  buyerObjectExtract.buyer_email;
                 document.getElementById("address").value =  buyerObjectExtract.buyer_address;
                 document.getElementById("phone").value =  buyerObjectExtract.buyer_number;
-                document.getElementById("toatal").textContent = "₹ "+ buyerObjectExtract.store_subtotal;
-                document.getElementById("total").textContent = "₹ "+buyerObjectExtract.store_total;
+
+
+
+                document.getElementById("toatal").textContent = "₹ " + buyerObjectExtract.store_subtotal;
                 document.getElementById("tax").textContent = "₹ " + buyerObjectExtract.store_tax;
-                document.getElementById("paid").textContent = "₹ " + buyerObjectExtract.store_paid
-                document.getElementById("plus").style.display = "none";
-                document.getElementById("Submit").style.display = "none"
+                document.getElementById("total").textContent = "₹ " + buyerObjectExtract.store_total;
+                document.getElementById("balanceDue").textContent = "₹ " + buyerObjectExtract.store_dues
+             
+           
+
+
+      
+   
+
   
                 function myFunction(x) {
                   if (x.matches) { // If media query matches
@@ -631,7 +651,6 @@ document.getElementById("search").onclick = function(){
         
   
 }
-
 
 
 

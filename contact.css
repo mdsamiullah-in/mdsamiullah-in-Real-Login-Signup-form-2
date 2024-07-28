@@ -13,6 +13,7 @@ body{
 }
 
 
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
@@ -35,6 +36,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     gap: 10px;
     border-radius: 5px;
+    background-color: #428C9E;
 
 }
 
@@ -58,7 +60,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 #formBox button{
-    background-color: dodgerblue;
+    background-color: rgb(0, 0, 0);
     border: none;
     padding: 9px;
     color: white;
@@ -75,19 +77,22 @@ input[type=number]::-webkit-outer-spin-button {
     font-family: Arial;
     font-size: 22px;
     font-weight: normal;
-    color: dodgerblue;
+    color: rgb(0, 0, 0);
     font-weight: bolder;
 }
+
+
+
 
 
 #contactSidebar{
     width: 300px;
     height: 100vh;
-    background-color: rgb(48, 133, 217);
+    background-color: #306673;
     position: fixed;
     top: 0;
     right: 0;
-    padding: 10px;
+    padding: 10px 10px;
     overflow-y: scroll;
 }
 
@@ -102,7 +107,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #contactBox span{
-    font-size: 25px;
+    font-size: 28px;
     color: white;
     font-family: Calibri;
     text-shadow: 0 2px 0 #000000;
@@ -156,20 +161,25 @@ ol{
 
 
 #inputBox{
-    height: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-bottom: 2px solid rgb(156, 156, 156);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 
+
+
 #message{
-    background-color: dodgerblue;
+    background-color: rgb(0, 0, 0);
     width: fit-content;
     padding: 4px 6px;
     border-radius: 5px;
-    display: none;
+   position: absolute;
+   color: whitesmoke;
+   font-family: sans-serif;
+   letter-spacing: 0.5px;
+   display: none;
+   
 
 }
 
@@ -197,18 +207,16 @@ ol{
 
 
 #contactBtn{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: rgb(255, 153, 0);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: white;
-    border: 1px solid white;
-    font-size: 18px;
+   width: fit-content;
+   background-color: black;
+   color: rgb(255, 255, 255);
+   border: none;
+   border: 1px solid white;
 }
 
+hr{
+    margin-top: 5px;
+}
 
 
 #restore-contact tr th{

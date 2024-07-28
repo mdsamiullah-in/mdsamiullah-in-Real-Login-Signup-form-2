@@ -301,14 +301,22 @@ a {
   gap: 10px;
 }
 .btn {
-  padding: 14px 26px;
-  background: #000000;
+  padding: 14px 40px;
+  background: transparent;
   border-radius: 50px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 20px;
   color: white;
+  border: 2px solid white;
+  margin-top: 35px;
+}
+
+.btn:hover{
+  transition: all 0.3s;
+  background-color: white;
+  color: black;
 }
 
 
@@ -340,6 +348,10 @@ a {
 
 .column h2, p{
   color: black;
+}
+
+.column h2{
+  font-family: cursive;
 }
 
 
