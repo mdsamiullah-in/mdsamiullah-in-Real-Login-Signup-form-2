@@ -24,11 +24,11 @@ function saveToLocalStorage() {
     var mailingName = document.getElementById("mailingName").value;
     var address = document.getElementById("address").value;
     var phoneNumber = document.getElementById("phoneNumber").value;
-    var faxNumber = document.getElementById("FaxNumber").value;
     var email = document.getElementById("email").value;
-    var website = document.getElementById("website").value;
     var fineYear = document.getElementById("FineYear").value;
     var bookBegin = document.getElementById("BookBegin").value;
+
+
     document.getElementById("companyTag").value = "Open Company"
     // Check if company data already exists
     if (localStorage.getItem("companyData")) {

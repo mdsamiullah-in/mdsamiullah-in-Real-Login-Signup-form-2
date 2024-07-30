@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ledger.css">
+</head>
+<body>
+
+    <div id="container">
+
+
+
+     
+        <div class="box">
+
+            <div class="sidebar">
+              <h3>Ledger options</h3>
+              <button>Create</button>
+              <button>Edit</button>
+              <button>Search</button>
+
+              <div class="logo"></div>
+              <h4>Gate4Tech</h4>
+
+            </div>
+
+
+
+            <div class="homePage">
+                
+                <div class="homeTopHeader">
+
+                    <div class="ledgerBox">
+                        <label>Ledger name</label>
+                        <input type="name" placeholder="ledger name" class="input" id="ledgerName">
+                    </div>
+
+                    <div class="totalopeningBox">
+                        <label>Total opening balance</label>
+                    </div>
+
+                </div>
+
+             <div class="bottomBox">
+
+                <div class="homeSideForm">
+                    <div class="underForm">
+                        <label>Under</label>
+                        <select class="input" id="group">
+                            <option>Capital account</option>
+                            <option>Sales account</option>
+                            <option>Purchase account</option>
+                            <option>Sundry creditors</option>
+                            <option>Capital debitors</option>
+                        </select>
+                    </div>
+    
+    
+                    <div class="openingBanlanceForm">
+                        <label>Opening balance</label>
+                        <input type="number" placeholder="00.00" class="input" id="balanceInput">
+                    </div>
+
+                    <div class="underForm">
+                        <label>Mode</label>
+                        <select class="input" id="mode">
+                            <option>Cr</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="mailingDetailBox">
+
+                  <center> <p>Mailing Details</p></center> 
+
+                    <div class="nameBox">
+                        <label>Name</label>
+                        <input type="text" placeholder="ledger name" class="input" id="MailingName">
+                    </div>
+
+                    <div class="textDiv">
+                        <label>Address</label>
+                        <textarea placeholder="Etner Message" id="textMessage"></textarea>
+                    </div>
+       
+
+                </div>
+
+
+             </div>
+
+             <div class="createBox">
+                <input type="text">
+                <button id="createLedger">Create Now</button>
+             </div>
+
+
+            </div>
+
+
+
+
+        </div>
+     
+
+    </div>
+    
+
+    <script src="ledger.js"></script>
+</body>
+</html>

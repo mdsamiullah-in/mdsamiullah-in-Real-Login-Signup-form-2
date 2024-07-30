@@ -1,0 +1,178 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+#container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(3, 92, 144);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.box{
+    display: flex;
+    height: fit-content;
+    background-color: rgb(3, 92, 144);
+    padding: 15px;
+    border: 0.5px solid whitesmoke;
+    box-shadow: 0 0 3px 0 wheat;
+}
+
+
+
+.box button{ 
+    padding: 8px;
+    border: none;
+}
+
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 200px;
+    padding: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 3px;
+}
+
+.homePage{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+
+.homeTopHeader, .bottomBox{
+    display: flex;
+}
+
+.ledgerBox,
+.totalopeningBox,
+.homeSideForm,
+.mailingDetailBox{
+    border: 0.2px solid rgb(255, 255, 255);
+    padding: 10px;
+    box-shadow: 0 0 3px #ddd;
+    color: white;
+}
+
+.ledgerBox, .homeSideForm{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ledgerBox{
+    gap: 7px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.totalopeningBox,
+.mailingDetailBox{
+width: 600px;
+margin-left: 15px;
+}
+
+.nameBox, .underForm, .openingBanlanceForm{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: Calibri;
+}
+
+.underForm{
+    margin-top: 20px;
+}
+
+.openingBanlanceForm{
+    margin-top: 20px;
+}
+
+.input{
+    padding: 12px;
+    border: none;
+    outline: none;
+    border: 1px solid black;
+    width: 279px;
+    border-radius: 5px;
+}
+
+
+.totalopeningBox{
+    display: flex;
+    align-items: center;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     padding: 20px 10px;
+}
+
+center p{
+    font-size: 22px;
+    font-family: Arial;
+}
+
+.textDiv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 21px;
+    gap: 7px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+textarea{
+    height: 100px;
+    resize: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px;
+}
+
+
+
+.sidebar{
+    background-color:rgb(3, 92, 144);
+    box-shadow: 0 0 3px 0 #ddd;
+    border: 1px solid white;
+    color: white;
+}
+
+.sidebar button{
+    cursor: pointer;
+}
+
+
+.createBox{
+    padding: 1px;
+
+    background-color: white;
+}
+
+
+.createBox input{
+    width: calc(100% - 95px);
+    padding: 14px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(3, 92, 144);
+    color: white;
+}
+
+.createBox button{
+background-color: rgb(3, 92, 144);
+border-radius: 3px;
+width: 90px;
+height: 100%;
+border: none;
+color: white;
+cursor: pointer;
+}
