@@ -1,0 +1,356 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#firstBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(65, 145, 225);
+    box-shadow: 0 0 2.5px 0 #888;
+    height: fit-content;
+    height: 45px;
+    border-radius: 3px;
+    border: 2px solid  #e5e5e5;
+}
+
+
+.input{
+    display: flex;
+    height: 100%;
+}
+
+.input p{
+    background-color:  rgb(65, 145, 225);
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
+    font-family: Calibri;
+    border-right: 2.5px solid #d5d5d5;
+    
+}
+
+.input span{
+   display: flex;
+   align-items: center;
+   padding: 0 5px;
+}
+
+
+#date{
+    border: none;
+    outline: none;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(65, 145, 225);
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+#secondBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(65, 145, 225);
+    box-shadow: 0 0 2.5px 0 #888;
+    height: fit-content;
+    height: 45px;
+    border-radius: 3px;
+    border: 2px solid  #e5e5e5;
+}
+
+
+
+#partyName{
+    height: 30px;
+    margin-top: 6px;
+    border: none;
+    outline: none;
+    padding: 12px 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px 0 #313131;
+    width: 280px;
+}
+
+
+#hintBox{
+    width: 200px;
+    height: 130px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 #555;
+    border: 2px groove whitesmoke;
+    z-index: 1000;
+    position: absolute;
+    top: 120px;
+    left: 142px;
+    color: black;
+    padding: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+
+#buttonBox{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+
+#buttons{
+    display: flex;
+    width: 100%;
+}
+
+#buttons button{
+    background-color:  dodgerblue;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    border: none;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 0.5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    padding: 8px 3px;
+    border-radius: 0px;
+    text-align: center;
+}
+
+
+header{
+    box-shadow: 0 0 3px 0 black;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dels{
+    width: 30px;
+    background-color: dodgerblue;
+    z-index: 10000;
+    border-top: 1px solid black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 5px;
+    padding-right: 9px;
+}
+
+
+.input span{
+    padding: 4px 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+#addItem{
+    padding: 8px 13px;
+    background-color: transparent;
+    border: none;
+    border: 1.5px solid wheat;
+    border-radius: 5px;
+    width: fit-content;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 wheat;
+    display: flex;
+    align-items: center;
+}
+
+#addItem i{
+    background-color: black;
+    width: 18px;
+    height: 18px;
+    color: rgb(228, 194, 131);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+#addItem:hover{
+    box-shadow: inset 0 0 1px 0 #ddd;
+    transition: all 0.3s;
+}
+
+
+#itemBox{
+    background-color: dodgerblue;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.inputDiv{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.inputDiv input{
+    width: 100%;
+    padding: 12px 3px;
+    border-radius: none;
+    border: none;
+    border: 0.5px solid black;
+    background-color: white;
+}
+
+
+#subtotal{
+    color: black;
+}
+
+
+.footer{
+    color: black;
+    width: 100%;
+    height: 220px;
+    background-color:royalblue;
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    padding: 20px;
+    border: 5px solid#e4e4e4;
+    border-radius: 5px;
+}
+
+.taxForm{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: white;
+    padding: 30px 10px;
+    box-shadow: inset 0 0 2px 0 #555;
+    border-radius: 5px;
+    border: 3px solid wheat;
+}
+
+.taxForm input{
+    padding: 8px 4px;
+    border: none;
+    outline: none;
+    border: 1px solid wheat;
+    border-radius: 4px;
+    width: 280px;
+    box-shadow: inset 0 0 1px 0 #555;
+}
+
+.taxForm input:hover{
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+.taxForm button{
+    padding: 8px 13px;
+    background-color: transparent;
+    border: none;
+    border: 1.5px solid wheat;
+    border-radius: 5px;
+    width: fit-content;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 wheat;
+}
+
+.taxForm button:hover{
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+.totalBox{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.totalBox p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 280px;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+#subtotal{
+    color: white;
+}
+
+.totalBox input{
+   text-align: right;
+   padding: 7px;
+   background-color: transparent;
+   border: none;
+   border-bottom: 1.5px solid white;
+   outline: none;
+   color: white;
+}
+
+.totalBox ::placeholder{
+    color: rgb(245, 238, 238);
+    letter-spacing: 0.5px;
+}
+
+.taxNum{
+    text-align: left;
+    width: 68%;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+#buttonAdd{
+    text-align: right;
+    width: 100%;
+}
+
+
+.del{
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+
