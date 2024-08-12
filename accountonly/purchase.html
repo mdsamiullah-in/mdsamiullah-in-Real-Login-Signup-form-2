@@ -21,7 +21,7 @@
 
                 <div class="input">
                     <p>Purchase : </p>
-                    <span>7</span>
+                    <span id="voucherNum"></span>
                 </div>
         
                 <div class="input">
@@ -31,9 +31,9 @@
     
             </div>
 
-
+                                                                                                                                                                                                                                                                                                                                     
   
-            <div id="secondBox">
+       <div id="secondBox">
 
                 <div class="input">
                     <p>Party a/c name : </p>&nbsp;
@@ -41,14 +41,15 @@
                     <div id="hintBox">
                     </div>
                 </div>
-        
-                <div class="input">
+                                                                                                                  
+                <div class="input">                                                    
                     <p>Current balance : </p>
-                    <span>2000 Cr</span>
+                    <span id="PurchaseDr">2000 Cr</span>
                 </div>
-    
+  
             </div>
-
+                                                           
+             
           </header>              
 
 
@@ -67,7 +68,6 @@
             </div>
 
      
- 
 
             <div id="buttonAdd">
                 <button id="addItem"><i class="fa-solid fa-plus"></i>&nbsp; Add Item</button>
@@ -75,32 +75,105 @@
            
 
   
-            <div class="footer">
+            <div id="FooterMain">
+                <div class="footer">
                 
-                <div class="taxForm">
-                    <input type="text" placeholder="Enter tax name" id="taxNameInput" required>
-                    <input type="text" placeholder="Enter tax number" id="taxNumberInput" required>
-                    <button id="done">Set Tax</button>
+                    <div class="taxForm">
+                        <input type="text" placeholder="Enter tax name" id="taxNameInput" required>
+                        <input type="text" placeholder="Enter tax number" id="taxNumberInput" required>
+                        <button id="done">Set Tax</button>
+                    </div>
+        
+                    <div class="totalBox">
+                        <p>Subtotal <span id="subtotal">₹ 0</span></p>
+                        <p>Tax<span id="tax">₹ 0</span></p>
+                        <p>Total <span id="total">₹ 0</span></p>
+                        <input type="number" placeholder="paid amount" id="paidAmount">
+                        <p>Due <span id="due">1000</span></p>
+                        <button id="store">Save</button>
+                    </div>
                 </div>
-    
-                <div class="totalBox">
-                    <p>Subtotal <span id="subtotal">₹ 0</span></p>
-                    <p>Tax<span id="tax">₹ 0</span></p>
-                    <p>Total <span id="total">₹ 0</span></p>
-                    <input type="number" placeholder="paid amount" id="paidAmount">
-                    <p>Due <span id="due">1000</span></p>
-                </div>
-    
-            </div>
+            </div>    
 
-            
+
+            <div id="searchPurchaseBox">
+                 
+
+                <input type="text" placeholder="Search and edit purchase voucher" id="searchPurchase">
+              <button id="search">Search</button>
+
+            </div>
     
 
         </div>
 
 
+        <div id="salesBox">
+            
+
+          <header>
+            <div id="firstBox">
+
+                <div class="input">
+                    <p>Purchase : </p>
+                    <span id="salesVoucher"></span>
+                </div>
+        
+                <div class="input">
+                    <p>Date</p>
+                    <input type="date" id="saledate">
+                </div>
+    
+            </div>
+
+                                                                                                                                                                                                                                                                                                                                     
+  
+       <div id="secondBox">
+
+                <div class="input">
+                    <p>Party a/c name : </p>&nbsp;
+                    <input type="text" placeholder="" id="salesPartyName">
+                    <div id="hintBox">
+                    </div>
+                </div>
+                                                                                                                  
+                <div class="input">                                                    
+                    <p>Current balance : </p>
+                    <span id="salesPurchase">2000 Cr</span>
+                </div>
+  
+            </div>
+                                                           
+             
+          </header>              
+
+
+            <div id="saleButtonBox">
+                <div id="buttons">
+                    <button>Item</button>
+                    <button>Quantity</button>
+                    <button>Rate</button>
+                    <button>Sailing Price</button>
+                    <button>Amount</button>
+                    <p class="dels">Del</p>
+                </div>
+                <div id="saleitemBox">
+            
+                </div>
+            </div>
+
+     
+
+            <div id="buttonAdd">
+                <button id="addSaleItem"><i class="fa-solid fa-plus"></i>&nbsp; Add Item</button>
+            </div>
+        </div>
+
+
     </div>
     
+
     <script src="purchase.js"></script>
+    <script src="sales.js"></script>
 </body>
 </html>

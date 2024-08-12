@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            overflow-y: hidden;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        b{
+            position: absolute;
+            top: 38%;
+            right: 18%;
+            color: white;
+            font-size: 35px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+            background-image: url('gaete_cleanup-removebg-preview');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-stroke: 0.5px #00FEFA;
+        }
+
+        span{
+            font-family: Algerian;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <img src="gaete_cleanup-removebg-preview.png" width="450px">
+    <button id="print">print</button>
+    <script>
+        document.getElementById("print").onclick = function(){
+            document.getElementById("print").style.display = "none"
+            print()
+        }
+    </script>
+</body>
+</html>

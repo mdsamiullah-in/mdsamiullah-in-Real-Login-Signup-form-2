@@ -37,6 +37,9 @@ function create() {
     });
 }
 
+
+
+
 function ledger_no() {
     var maxNo = 0;
     for (var i = 0; i < localStorage.length; i++) {
@@ -65,7 +68,7 @@ function totalCal() {
             if (ledger.mode == "Cr") {
                 credit += Number(ledger.balance);
                 document.getElementById("credit").innerHTML = credit + " Cr";
-            } else {
+            } else if(ledger.mode == "Dr") {
             debit += Number(ledger.balance);
                 document.getElementById("debit").innerHTML = debit + " Dr";
             }
