@@ -61,3 +61,33 @@
 <script src="accountOnly.js"></script>
 </body>
 </html>
+
+
+
+
+
+<!-- item.onclick = function(){
+
+    this.oninput = function() {
+      for (var i = 0; i < localStorage.length; i++) {
+          var div = document.createElement("div");
+          div.className = "div"
+          this.parentElement.style.position = "relative";
+          this.parentElement.appendChild(div)
+          var allKeys = localStorage.key(i);
+          if (allKeys.match("purchase_voucher")) {
+              var keyData = localStorage.getItem(allKeys);
+              var data = JSON.parse(keyData);
+              for(var j; j<data.storeItem.length; j++){
+                  if(data.storeItem[i].toUpperCase().indexOf(this.value.toUpperCase()) != -1){
+                       var p = document.createElement("p");
+                       p.append(document.createTextNode(data.storeItem[j]))
+                       div.appendChild(p)
+                  }
+              }
+          }
+      }
+  };
+  
+
+  } -->

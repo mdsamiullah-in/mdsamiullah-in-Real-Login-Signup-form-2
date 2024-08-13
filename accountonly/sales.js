@@ -18,12 +18,45 @@ function addItem(){
       var rateInput = div.querySelector('.rate');
       var amountInput = div.querySelector('.amount');
       var item = div.querySelector(".saleItem");
-      item.onclick = function(){
-        var div = document.createElement("div");
-        div.className = "div";
-        this.parentElement.style.position = "relative";
-        this.parentElement.appendChild(div)
-      }
+     
+     
+      item.onclick = function() {
+        this.oninput = function() {
+            var existingDiv = this.parentElement.querySelector('.div');
+            if (existingDiv) {
+                existingDiv.remove();
+            }
+    
+            var div = document.createElement("div");
+            div.className = "div";
+            this.parentElement.style.position = "relative";
+            this.parentElement.appendChild(div);
+
+            div.style.display = "block"
+    
+            for (var i = 0; i < localStorage.length; i++) {
+                var allKeys = localStorage.key(i);
+                if (allKeys.match("purchase_voucher")) {
+                    var keyData = localStorage.getItem(allKeys);
+                    var data = JSON.parse(keyData);
+                    for (var j = 0; j < data.storeItem.length; j++) {
+                        if (data.storeItem[j].toUpperCase().indexOf(this.value.toUpperCase()) != -1) {
+                            var p = document.createElement("p");
+                            p.append(document.createTextNode(data.storeItem[j]));
+                            div.appendChild(p);
+                            p.onclick = function(){
+                              item.value = this.innerHTML 
+                              div.style.display = "none"
+                            }
+
+                            
+                        }
+                    }
+                }
+            }
+        };
+    };
+    
 
     
     
@@ -94,3 +127,48 @@ function addItem(){
   
 
 
+  function ledger() {
+    var partyName = document.getElementById("salesPartyName");
+    var hint = document.getElementById("hintsBox");
+  
+    partyName.oninput = function() {
+        var inputValue = partyName.value.trim().toLowerCase(); // Trim and convert to lowercase
+  
+        if (inputValue === "") {
+            hint.style.display = "none"; // Hide the hint box if the input is empty
+            hint.innerHTML = ""; // Clear any previous hints
+            return; // Exit the function early
+        }
+  
+        hint.innerHTML = ""; // Clear previous hints
+        hint.style.display = "none"; // Hide hintBox initially
+  
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.match("ledger_Detail_")) {
+                var keyData = localStorage.getItem(key);
+                var mainData = JSON.parse(keyData);
+                var ledgerName = mainData.ledgerName.toLowerCase(); // Convert ledgerName to lowercase
+  
+                // Check if the inputValue is found anywhere in ledgerName
+                if (ledgerName.includes(inputValue) && mainData.group === "Purchase account") {
+                    hint.style.display = "flex";
+  
+                    // Create a div for each result and add it to the hint box
+                    var item = document.createElement("div");
+                    item.innerHTML = mainData.ledgerName;
+                    item.style.cursor = "pointer"; // Make it clear the item is clickable
+                    hint.appendChild(item);
+  
+                    // Add an event listener to each item
+                    item.addEventListener("click", function() {
+                        partyName.value = this.innerHTML; // Set the input value to the clicked name
+                        hint.style.display = "none"; // Hide the hint box after selection
+                    });
+                }
+            }
+        }
+    }
+  }
+  
+  ledger();

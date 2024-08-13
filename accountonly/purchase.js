@@ -266,8 +266,8 @@ function voucherNo() {
     // Find the maximum voucher number stored in localStorage
     for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
-        if (key.startsWith("ledger_Detail_")) {
-            var voucherNumber = Number(key.replace("ledger_Detail_", ""));
+        if (key.startsWith("purchase_voucher_")) {
+            var voucherNumber = Number(key.replace("purchase_voucher_", ""));
             if (voucherNumber > maxVoucherNo) {
                 maxVoucherNo = voucherNumber;
             }
